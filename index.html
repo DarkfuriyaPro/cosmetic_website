@@ -5,60 +5,136 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;600&display=swap" rel="stylesheet">
   <title>Podobravo</title>
   <style>
+    /* ===== Базовые стили ===== */
+    :root {
+      --bg-color: #2C5C50;
+      --text-color: #FFFEA5;
+      --btn-bg: #FFFEA5;
+      --btn-text: #2C5C50;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 0;
-      font-family: kristi;
+      font-family: "Roboto Serif", serif;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      background: #2C5C50;
+      min-height: 100vh;
+      background: var(--bg-color);
+      text-align: center;
+      overflow-x: hidden;
     }
 
     h1 {
-      margin-bottom: 80px;
-      color: #FFFEA5;
-      font-family: Roboto serif;
+      margin-bottom: 60px;
+      color: var(--text-color);
+      font-size: clamp(1.6rem, 2.5vw + 1rem, 3rem); /* Адаптивный размер */
+      line-height: 1.2;
+      padding: 0 20px;
     }
 
     .button-container {
-      display: flex; /* Включаем Flexbox */
-      gap: 20px; /* Расстояние между кнопками */
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 600px;
+      padding: 0 20px;
     }
 
-
     .button {
-      padding: 25px 40px;
-      font-family: "Roboto Serif", serif;
-      font-optical-sizing: auto;
-      font-weight: 400;
-      font-style: normal;
-      font-variation-settings: "wdth" 100,  "GRAD" 0;
-      font-size: 20px;
-      margin: 10px;
-      cursor: pointer;
+      flex: 1 1 200px; /* Автоматически адаптируется под ширину контейнера */
+      padding: clamp(14px, 2vw, 22px) clamp(18px, 3vw, 40px);
+      font-weight: 600;
+      font-size: clamp(0.9rem, 1.2vw + 0.6rem, 1.3rem);
       border: none;
       border-radius: 15px;
-      background-color: #FFFEA5;
-      color: #2C5C50;
-      transition: background-color 0.3s ease;
+      background-color: var(--btn-bg);
+      color: var(--btn-text);
+      transition: 0.3s ease;
       text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      text-align: center;
     }
 
     .button:hover {
-      background-color: #FFFEA5;
-      opacity: 80%;
+      opacity: 0.85;
+      transform: translateY(-2px);
+    }
+
+    /* ===== Планшеты ===== */
+    @media (max-width: 1024px) {
+      h1 {
+        margin-bottom: 50px;
+      }
+      .button-container {
+        gap: 18px;
+      }
+      .button {
+        border-radius: 12px;
+      }
+    }
+
+    /* ===== Телефоны ===== */
+    @media (max-width: 600px) {
+      body {
+        padding: 30px 15px;
+      }
+
+      h1 {
+        margin-bottom: 40px;
+      }
+
+      .button-container {
+        flex-direction: column;
+        width: 100%;
+        max-width: 350px;
+      }
+
+      .button {
+        width: 100%;
+        max-width: 100%;
+        padding: 16px 24px;
+      }
+    }
+
+    /* ===== Маленькие телефоны (iPhone SE, старые Android) ===== */
+    @media (max-width: 380px) {
+      h1 {
+        font-size: 1.3rem;
+      }
+      .button {
+        font-size: 0.9rem;
+        padding: 12px 18px;
+      }
+    }
+
+    /* ===== Большие мониторы ===== */
+    @media (min-width: 1400px) {
+      h1 {
+        font-size: 3rem;
+      }
+      .button {
+        font-size: 1.2rem;
+        padding: 22px 50px;
+      }
     }
   </style>
 </head>
 <body>
   <h1>Кем вы являетесь?</h1>
-  <div>
+  <div class="button-container">
     <a href="/russian/consumer_ru/main_page_ru/consumer_ru.html" class="button">Я покупатель</a>
     <a href="#" class="button">Я специалист</a>
   </div>
