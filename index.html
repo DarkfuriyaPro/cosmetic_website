@@ -5,138 +5,104 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap" rel="stylesheet">
   <title>Podobravo</title>
   <style>
-    /* ===== Базовые стили ===== */
-    :root {
-      --bg-color: #2C5C50;
-      --text-color: #FFFEA5;
-      --btn-bg: #FFFEA5;
-      --btn-text: #2C5C50;
+    /* --- Базовая часть (оставил твои значения) --- */
+    :root{
+      /* Настройка минимального и максимального масштаба (при желании поменяешь) */
+      --btn-scale: clamp(0.9, 2.4vw, 1); /* пример: от 0.9 до 1, по vw */
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       padding: 0;
-      font-family: "Roboto Serif", serif;
+      font-family: "Roboto Serif", serif; /* исправлено для корректного рендера */
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
-      background: var(--bg-color);
+      min-height: 100vh; /* лучше min-height */
+      background: #2C5C50;
       text-align: center;
-      overflow-x: hidden;
     }
 
     h1 {
-      margin-bottom: 60px;
-      color: var(--text-color);
-      font-size: clamp(1.6rem, 2.5vw + 1rem, 3rem); /* Адаптивный размер */
-      line-height: 1.2;
-      padding: 0 20px;
+      margin-bottom: 40px;
+      color: #FFFEA5;
+      font-family: "Roboto Serif", serif;
+      font-size: 1.6rem;
     }
 
     .button-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
+      display: flex; /* Включаем Flexbox */
+      gap: 20px; /* Расстояние между кнопками */
       align-items: center;
-      width: 100%;
-      max-width: 600px;
-      padding: 0 20px;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
+    /* --- Внешняя оболочка (фон и паддинги остаются постоянными) --- */
     .button {
-      flex: 1 1 200px; /* Автоматически адаптируется под ширину контейнера */
-      padding: clamp(14px, 2vw, 22px) clamp(18px, 3vw, 40px);
-      font-weight: 600;
-      font-size: clamp(0.9rem, 1.2vw + 0.6rem, 1.3rem);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 25px 40px;               /* фиксированные отступы — не будут масштабироваться */
+      margin: 10px;
+      cursor: pointer;
       border: none;
       border-radius: 15px;
-      background-color: var(--btn-bg);
-      color: var(--btn-text);
-      transition: 0.3s ease;
+      background-color: #FFFEA5;       /* фон НЕ будет масштабироваться */
+      color: #2C5C50;
       text-decoration: none;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      text-align: center;
+      /* сохраняем кликабельную область */
+      position: relative;
+      overflow: visible;
     }
 
-    .button:hover {
-      opacity: 0.85;
-      transform: translateY(-2px);
+    /* --- Внутренний элемент: именно он масштабируется --- */
+    .button__inner {
+      display: inline-block;           /* нужно, чтобы transform работал по содержимому */
+      transform-origin: center center; /* масштабируем к центру */
+      transform: scale(var(--btn-scale));
+      transition: transform 160ms linear; /* плавность при изменении размеров окна (необязательно) */
+      white-space: nowrap;              /* чтобы текст не переносился при масштабировании */
+      font-family: "Roboto Serif", serif;
+      font-weight: 400;
+      font-size: 20px;                  /* базовый размер текста — будет масштабироваться */
+      line-height: 1;
     }
 
-    /* ===== Планшеты ===== */
-    @media (max-width: 1024px) {
-      h1 {
-        margin-bottom: 50px;
-      }
-      .button-container {
-        gap: 18px;
-      }
-      .button {
-        border-radius: 12px;
-      }
+    /* hover (чтобы при наведении не ломалось) */
+    .button:hover .button__inner {
+      /* небольшой эффект — опционально */
+      transform: scale(calc(var(--btn-scale) * 1.02));
     }
 
-    /* ===== Телефоны ===== */
-    @media (max-width: 600px) {
-      body {
-        padding: 30px 15px;
-      }
-
-      h1 {
-        margin-bottom: 40px;
-      }
-
-      .button-container {
-        flex-direction: column;
-        width: 100%;
-        max-width: 350px;
-      }
-
-      .button {
-        width: 100%;
-        max-width: 100%;
-        padding: 16px 24px;
-      }
-    }
-
-    /* ===== Маленькие телефоны (iPhone SE, старые Android) ===== */
+    /* --- Для очень маленьких экранов можно уменьшить масштаб сильнее --- */
     @media (max-width: 380px) {
-      h1 {
-        font-size: 1.3rem;
-      }
-      .button {
-        font-size: 0.9rem;
-        padding: 12px 18px;
-      }
+      :root { --btn-scale: clamp(0.78, 4.2vw, 0.95); } /* пример более агрессивного уменьшения */
+      .button { padding: 20px 32px; } /* можно чуть уменьшить padding на очень маленьких экранах */
+      h1 { font-size: 1.2rem; margin-bottom: 30px; }
     }
 
-    /* ===== Большие мониторы ===== */
-    @media (min-width: 1400px) {
-      h1 {
-        font-size: 3rem;
-      }
-      .button {
-        font-size: 1.2rem;
-        padding: 22px 50px;
-      }
+    /* --- Если хочешь, чтобы кнопки располагались вертикально на узких экранах --- */
+    @media (max-width: 600px) {
+      .button-container { flex-direction: column; gap: 12px; }
     }
   </style>
 </head>
 <body>
   <h1>Кем вы являетесь?</h1>
   <div class="button-container">
-    <a href="/russian/consumer_ru/main_page_ru/consumer_ru.html" class="button">Я покупатель</a>
-    <a href="#" class="button">Я специалист</a>
+    <a href="/russian/consumer_ru/main_page_ru/consumer_ru.html" class="button">
+      <span class="button__inner">Я покупатель</span>
+    </a>
+    <a href="#" class="button">
+      <span class="button__inner">Я специалист</span>
+    </a>
   </div>
 </body>
 </html>
