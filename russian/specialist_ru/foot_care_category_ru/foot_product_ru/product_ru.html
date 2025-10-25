@@ -24,6 +24,8 @@
 
   <!--Стили-->
   <link rel="stylesheet" href="/main_page.css" />
+  <link rel="stylesheet" href="/one_product.css" />
+  <link rel="stylesheet" href="/foot_care.css" />
   <link rel="stylesheet" href="/shopping_cart.css" />
 </head>
 
@@ -71,48 +73,81 @@
       </form>
     </section>
 
-    <div class="categories-slides">
 
-      <!-- Categories -->
-      <section class="categories">
-        <div class="category-grid">
-          <!--попробовать не класс, а "a" в css. то есть category-grid a-->
-          <a href="/russian/consumer_ru/foot_care_category_ru/foot_care_ru.html" class="category-item">Уходовая
-            косметика
-            для стоп</a>
-          <a href="#" class="category-item">Расходные материалы</a>
-          <a href="#" class="category-item">Ортониксия</a>
-          <a href="#" class="category-item">Аппараты для педикюра</a>
-          <a href="#" class="category-item">Подарочные наборы</a>
+    <!--One Product-->
+    <div class="layout">
+
+      <!--Sidebar-->
+      <aside class="sidebar">
+        <nav class="side-nav">
+          <ul>
+            <li class="side-list"><a href="/russian/consumer_ru/foot_care_category_ru/foot_care_ru.html"
+                class="active">Уходовая косметика для
+                лица<span class="arrow">›</span></a></li>
+            <li class="side-list"><a href="#">Расходные материалы<span class="arrow">›</span></a></li>
+            <li class="side-list"><a href="#">Ортониксия<span class="arrow">›</span></a></li>
+            <li class="side-list"><a href="#">Аппараты для педикюра<span class="arrow">›</span></a></li>
+            <li class="side-list"><a href="#">Подарочные наборы<span class="arrow">›</span></a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="product-block">
+
+
+        <div class="foot-product" data-product-id="1">
+
+          <div class="product-slider">
+            <div class="product-slides">
+              <img src="/images/main1.png" alt="Товар 1" class="active">
+              <img src="/images/proba_1.jpg" alt="Товар 2">
+              <img src="/images/proba.jpg" alt="Товар 3">
+            </div>
+            <div class="product-controls" aria-hidden="false">
+              <button class="product-prev" aria-label="Предыдущий слайд">&larr;</button>
+              <button class="product-next" aria-label="Следующий слайд">&rarr;</button>
+            </div>
+
+            <div class="product-indicators" role="tablist" aria-label="Навигация по слайдам"></div>
+          </div>
+
+
+
+          <div class="product-desc-right">
+            <div class="foot-product-desc">
+              <div class="foot-product-desc-title">Aaaaaadвфывыфвыфвыфвфывыфвфывфвфвфыв</div>
+              <div class="foot-product-desc-price">500.50€</div>
+              <div class="foot-product-desc-article article1">V2092</div>
+            </div>
+
+            <div class="in-stock">В наличии, доставка 500 дней</div>
+
+            <div class="buy-product">
+              <div class="amount">
+                <button class="down">-</button>
+                <span class="number">1</span>
+                <button class="up">+</button>
+              </div>
+
+              <div class="product-add-button">
+                <button class="add-product">В корзину</button>
+              </div>
+            </div>
+
+            <div class="collapsible-description">
+              <button type="button" class="collapsible">Описание товара</button>
+              <div class="content">
+                <p>Hochentwickelte Pflege für geschädigte Haut. Diese Nano-Emulsion mit Vitamin C/E und Q10 pflegt und
+                  regeneriert trockene, UV-geschädigte oder gestresste Haut. Ideal bei Pigmentflecken, Couperose und
+                  anderen Hautproblemen. Leicht und effektiv..</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
-
-      <!--Slider-->
-      <div class="slider-container">
-        <section class="slider" aria-roledescription="carousel" aria-label="Пример автоперелистывающегося слайдера"
-          id="mySlider">
-          <div class="slides" id="slides">
-            <div class="slide" data-index="0">
-              <img src="/images/foto1.png" alt="" loading="lazy">
-            </div>
-            <div class="slide" data-index="1">
-              <img src="/images/main2.png" alt="" loading="lazy">
-            </div>
-            <div class="slide" data-index="2">
-              <img src="/images/main3.png" alt="" loading="lazy">
-            </div>
-          </div>
-
-          <div class="controls" aria-hidden="false">
-            <button id="prev" aria-label="Предыдущий слайд">&larr;</button>
-            <button id="next" aria-label="Следующий слайд">&rarr;</button>
-          </div>
-
-          <div class="indicators" role="tablist" aria-label="Навигация по слайдам" id="dots"></div>
-        </section>
-      </div>
-
+      </main>
     </div>
+
+
 
 
     <!--Footer-->
@@ -137,8 +172,8 @@
 
       </div>
     </footer>
-
   </div>
+
 
 
   <!--Shoping cart-->
@@ -185,7 +220,7 @@
 
 
       <div class="cart-footer">
-        <a href="main_cart.html" class="go-to-cart-btn">Перейти в корзину</a>
+        <a href="/russian/consumer_ru/main_cart.html" class="go-to-cart-btn">Перейти в корзину</a>
       </div>
 
     </div>
@@ -193,9 +228,16 @@
   </div>
 
 
-  <script src="/russian/scripts/main_page.js" defer></script>
+  <script src="/russian/scripts/main_page.js"></script>
+  <script src="/russian/scripts/all_small_functions.js"></script>
   <script src="/russian/scripts/shopping_cart.js"></script>
-  <script src="/russian/scripts/slider.js"></script>
+  <script src="/russian/scripts/one_product_slider.js" defer></script>
+  <script src="/russian/scripts/one_product_amount.js"></script>
+
+  <!-- Popup "Товар уже в корзине" -->
+  <div id="prove_product" class="prove-popup">
+    Товар уже в корзине
+  </div>
 </body>
 
 </html>

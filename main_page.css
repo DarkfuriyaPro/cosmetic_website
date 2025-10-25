@@ -595,3 +595,133 @@ main {
 .footer-bottom a:hover {
   opacity: 60%;
 }
+
+
+
+/* =============================
+   📱 АДАПТАЦИЯ ФУТЕРА
+============================= */
+
+/* --- Планшеты и мелкие ноутбуки --- */
+@media (max-width: 1024px) {
+  .footer-container {
+    padding: 20px;
+  }
+
+  .footer-right {
+    font-size: 18px;
+  }
+
+  .footer-left a {
+    width: 45px;
+    height: 45px;
+  }
+
+  .footer-left a img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .footer-bottom {
+    gap: 40px;
+    margin-top: 40px;
+  }
+}
+
+/* --- Телефоны (основная адаптация) --- */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 10px;
+  }
+
+  .icons-social {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footer-left {
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .footer-left a {
+    width: 40px;
+    height: 40px;
+  }
+
+  .footer-left a img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .footer-right {
+    font-size: 16px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    gap: 20px;
+  }
+
+  .footer-bottom a {
+    font-size: 14px;
+  }
+}
+
+/* --- Очень маленькие телефоны (iPhone SE, старые Android) --- */
+@media (max-width: 480px) {
+  .footer-container {
+    border-block-start: 6px solid #FFFEA5; /* немного тоньше линия */
+  }
+
+  .footer-left a {
+    width: 35px;
+    height: 35px;
+  }
+
+  .footer-left a img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .footer-right {
+    font-size: 14px;
+  }
+
+  .footer-bottom a {
+    font-size: 13px;
+  }
+
+  .icons-social {
+    gap: 15px;
+  }
+}
+
+/* --- Очень большие экраны --- */
+@media (min-width: 1400px) {
+  .footer-container {
+    max-width: 1400px;
+  }
+
+  .footer-right {
+    font-size: 22px;
+  }
+
+  .footer-left a {
+    width: 55px;
+    height: 55px;
+  }
+
+  .footer-left a img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .footer-bottom {
+    gap: 90px;
+  }
+}
