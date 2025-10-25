@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!--Шрифты-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kurale&display=swap" rel="stylesheet"> 
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap" rel="stylesheet">
+
+  <title>Podobravo</title>
+
+  <!--Стили-->
+  <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+   <!--Header-->
+    <header class="header">
+      <div class="container">
+
+        <div class="header-left">
+          <div class="settings">
+            <a href="#"><img src="/images/setting.png" alt="Настройки" class="icon"></a>
+          </div>
+
+          <div class="logo">
+            <img src="/images/logo.png" alt="Podobravo logo" class="logo-img">
+          </div>
+        </div>
+
+        <nav class="main-nav">
+          <a href="/russian/consumer_ru/main_page_ru/consumer_ru.html" class="nav-link">Главная</a>
+          <a href="about_ru.html" class="nav-link">О нас</a>
+        </nav>
+
+        <div class="header-icons">
+          <a href="#"><img src="/images/account.png" alt="Профиль" class="icon"></a>
+          <a href="#"><img src="/images/like.png" alt="Лайк" class="icon"></a>
+          <a href="#" class="openbtn cart-icon" onclick="toggleCart()">
+            <img src="/images/cart.png" alt="Корзина" class="icon">
+            <span class="cart-count">0</span>
+          </a>
+        </div>
+
+        <div class="language">
+          <button onclick="languageFunction()" class="btn-lang"></button>
+          <div id="languageDropdown" class="language-content">
+            <a href="#"><img src="/images/germany.png" alt="russia"></a>
+            <a href="#"><img src="/images/america.png" alt="russia"></a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+  <div class="about">
+    <h2 class="about-header">О нас</h2>
+    <div class="social-links">
+        <div class="gmail">
+            <a href="mailto:someone@example.com">
+              <img src="/images/gmail.png" alt="Gmail">
+              <p>mailto:someone@example.com</p>
+            </a>
+        </div>
+
+        <div class="insta">
+            <a href="#" target="_blank">
+              <img src="/images/instagram.png" alt="Insta">
+              <p>insta_insta</p>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+  <!--Shoping cart-->
+  <div id="shoppingCart" class="shopping-cart">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">Закрыть</a>
+    <p>Пусто</p>
+  </div>
+  
+<script src="/russian/scripts/main_page.js"></script>
+<script src="/russian/scripts/shopping_cart.js"></script>
+</body>
+</html>

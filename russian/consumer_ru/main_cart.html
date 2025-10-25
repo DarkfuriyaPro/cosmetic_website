@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Шрифты-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kurale&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Island+Moments&display=swap" rel="stylesheet">
+
+    <title>Podobravo</title>
+
+    <!--Стили-->
+    <link rel="stylesheet" href="/main_page.css" />
+    <link rel="stylesheet" href="/foot_care.css" />
+    <link rel="stylesheet" href="/shopping_cart.css" />
+</head>
+
+<body>
+    <div id="main">
+        <!--Header-->
+        <header class="header">
+            <div class="container">
+
+                <div class="header-left">
+                    <a href="/russian/consumer_ru/main_page_ru/consumer_ru.html">Podobravo</a>
+                </div>
+
+                <div class="icons-language">
+                    <div class="header-icons">
+                        <a href="#"><img src="/images/account.png" alt="Профиль" class="icon"></a>
+                        <a href="#"><img src="/images/like.png" alt="Лайк" class="icon"></a>
+                        <a href="#" class="openbtn cart-icon" onclick="toggleCart()">
+                            <img src="/images/cart.png" alt="Корзина" class="icon">
+                            <span class="cart-count">0</span>
+                        </a>
+                    </div>
+
+                    <div class="divider"></div> <!-- вертикальная линия -->
+
+                    <div class="language">
+                        <button onclick="languageFunction()" class="btn-lang"></button>
+                        <div id="languageDropdown" class="language-content">
+                            <a href="#"><img src="/images/germany.png" alt="russia"></a>
+                            <a href="#"><img src="/images/america.png" alt="russia"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="wrapper">
+            <div class="cart-header">
+                <h1 class="title">Корзина</h1>
+
+                <div class="steps">
+                    <span class="step active">Корзина</span>
+                    <span class="arrow active">→</span>
+                    <span class="step">Доставка</span>
+                    <span class="arrow">→</span>
+                    <span class="step">Оплата</span>
+                </div>
+            </div>
+
+            <div class="main-cart">
+                <!-- Левая часть — товары -->
+                <div class="block-cart-main">
+                    <div class="main-empty">
+                        <svg viewBox="0 0 200 200" width="200" height="200">
+                            <defs>
+                                <!-- Верхняя дуга -->
+                                <path id="topArc" d="M 100,100 m -60,0 a 60,60 0 1,1 120,0" />
+                                <!-- Нижняя дуга (уменьшенный радиус 60, в обратную сторону) -->
+                                <path id="bottomArc" d="M 100,100 m -60,0 a 60,60 0 0,0 120,0" />
+                            </defs>
+
+                            <circle cx="100" cy="100" r="80" fill="none" stroke="#ffffff" stroke-width="5" />
+
+                            <text font-size="20" fill="#ffffff" font-family="Roboto Serif" text-anchor="middle"
+                                letter-spacing="2">
+                                <textPath href="#topArc" startOffset="50%" dominant-baseline="middle">
+                                    Корзина
+                                </textPath>
+                            </text>
+
+                            <text font-size="20" fill="#ffffff" font-family="Roboto Serif" text-anchor="middle"
+                                letter-spacing="2">
+                                <textPath href="#bottomArc" startOffset="50%" dominant-baseline="middle">
+                                    Пустая
+                                </textPath>
+                            </text>
+                        </svg>
+                    </div>
+                </div>
+
+
+                <div class="shopping-cart-divider"></div> <!-- вертикальная линия -->
+
+                <!-- Правая часть — стоимость и кнопка -->
+                <div class="block-summary">
+                    <div class="summary-content">
+                        <div class="total-box"></div>
+                        <div class="to-delivery">
+                            <a href="#" class="go-to-delivery-btn">К доставке</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <!--Footer-->
+        <footer class="footer">
+            <div class="footer-container">
+
+                <div class="icons-social">
+                    <div class="footer-left">
+                        <a href="#"><img src="/images/instagram_green.png" alt="instagram"></a>
+                        <a href="#"><img src="/images/gmail.png" alt="gmail"></a>
+                        <a href="#"><img src="/images/telegram.png" alt="telegram"></a>
+                    </div>
+                    <div class="footer-right">+4901234352543</div>
+                </div>
+
+
+                <div class="footer-bottom">
+                    <a href="#">Доставка</a>
+                    <a href="#">Контакты</a>
+                    <a href="#">Политика конфиденциальности</a>
+                </div>
+
+            </div>
+        </footer>
+    </div>
+
+    <!--Shoping cart-->
+    <div id="shoppingCart" class="shopping-cart">
+        <div class="cart-container">
+
+
+            <div class="upper-pannel">
+                <div class="total-price">
+                    Итого: <span class="amount-count">0</span>
+                </div>
+
+                <div class="items-counter">
+                    <span>0</span>
+                </div>
+
+            </div>
+
+            <div class="empty">
+                <svg viewBox="0 0 200 200" width="200" height="200">
+                    <defs>
+                        <!-- Верхняя дуга -->
+                        <path id="topArc" d="M 100,100 m -60,0 a 60,60 0 1,1 120,0" />
+                        <!-- Нижняя дуга (уменьшенный радиус 60, в обратную сторону) -->
+                        <path id="bottomArc" d="M 100,100 m -60,0 a 60,60 0 0,0 120,0" />
+                    </defs>
+
+                    <circle cx="100" cy="100" r="80" fill="none" stroke="#2C5C50" stroke-width="5" />
+
+                    <text font-size="20" fill="#2C5C50" font-family="Roboto Serif" text-anchor="middle"
+                        letter-spacing="2">
+                        <textPath href="#topArc" startOffset="50%" dominant-baseline="middle">
+                            Корзина
+                        </textPath>
+                    </text>
+
+                    <text font-size="20" fill="#2C5C50" font-family="Roboto Serif" text-anchor="middle"
+                        letter-spacing="2">
+                        <textPath href="#bottomArc" startOffset="50%" dominant-baseline="middle">
+                            Пустая
+                        </textPath>
+                    </text>
+                </svg>
+            </div>
+
+            <div class="cart-footer">
+                <a href="#" class="go-to-cart-btn">Перейти в корзину</a>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Snackbar -->
+    <div id="snackbar">Товар добавлен в корзину</div>
+    <div id="prove_product">Товар уже в корзине</div>
+
+
+    <!-- Scripts -->
+    <script src="/russian/scripts/main_page.js"></script>
+    <script src="/russian/scripts/all_small_functions.js"></script>
+    <script src="/russian/scripts/shopping_cart.js"></script>
+    <script src="/russian/scripts/main_page.js"></script>
+    <script src="/russian/scripts/main_cart.js"></script>
+</body>
+
+</html>

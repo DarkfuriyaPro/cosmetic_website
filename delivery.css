@@ -1,0 +1,165 @@
+.container {
+    padding: 40px;
+}
+
+.delivery-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: solid red 1px;
+}
+
+h1 {
+    font-size: 48px;
+    color: #FFFEA5;
+}
+
+.steps {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+}
+
+.step {
+    color: black;
+}
+
+.step.active {
+    background: #FFFEA5;
+    padding: 4px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    color: #2C5C50;
+}
+
+.arrow.active {
+    color: #FFFEA5;
+}
+
+/* Основной контейнер с формой и корзиной */
+.delivery-main {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    position: relative;
+    border: solid red 1px;
+    margin-top: 10px;
+}
+
+/* Форма — 60% ширины */
+.delivery-main form {
+    flex: 0 0 60%;
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+
+/* Корзина — 40% */
+.cart {
+    flex: 0 0 40%;
+    padding-left: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Белая линия между формой и корзиной */
+.delivery-main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 60%;
+    width: 2px;
+    background-color: white;
+    transform: translateX(-50%);
+}
+
+/* Сетка полей формы */
+.form-grid {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+    /* одинаковый отступ между всеми полями */
+}
+
+.item-street {
+    grid-column: 1 / 3;
+    /* на всю ширину */
+}
+
+.form-grid input,
+.form-grid select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: solid red 1px;
+}
+
+.cart-top {
+    margin-bottom: 10px;
+}
+
+:root {
+    --cart-item-height: 70px;
+}
+
+.cart-item {
+    height: var(--cart-item-height);
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    background-color: white;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.cart-item img {
+    height: 100%;
+    /* немного меньше высоты, чтобы был отступ сверху/снизу */
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.desc {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 5px;
+}
+
+.cart-bottom {
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 5px;
+}
+
+.price {
+    font-size: 23px;
+}
+
+.pay-btn {
+    border: none;
+    background-color: #2C5C50;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    color: white;
+    padding: 15px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 20px;
+}

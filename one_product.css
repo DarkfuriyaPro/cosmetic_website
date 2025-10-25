@@ -1,0 +1,299 @@
+/* =============================
+  ПОСЛЕ ВЫБОРА ТОВАРА
+============================= */
+
+.product-block {
+  flex: 1;
+  /* Занимает всё оставшееся пространство */
+  padding-left: 40px;
+}
+
+.foot-product {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex: 1;
+  background-color: white;
+  padding: 01px 15px 1px 15px;
+  border-radius: 40px;
+  font-family: "Roboto Serif", serif;
+}
+
+/* =============================
+  ФОТОГРАФИЯ ТОВАРА
+============================= */
+
+.product-slider {
+  position: relative;
+  max-width: 500px;
+  /* ширина блока слайдера */
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.product-slides img {
+  display: none;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.product-slides img.active {
+  display: block;
+}
+
+.product-controls {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.product-controls button {
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 20px;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.product-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 10px;
+  margin-bottom: 1px;
+}
+
+.product-indicators button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: #2C5C50;
+  cursor: pointer;
+}
+
+.product-indicators button.active {
+  background: #ccc;
+}
+
+
+
+/* =============================
+  ПРАВАЯ ЧАСТЬ ТОВАРА
+============================= */
+
+.product-desc-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.foot-product-desc {
+  margin-bottom: 30px;
+}
+
+.foot-product-desc-title,
+.foot-product-desc-price {
+  color: black;
+}
+
+.foot-product-desc-title {
+  text-align: justify;
+  margin-bottom: 10px;
+  font-size: clamp(12px, 1.5vw, 19px);
+}
+
+.foot-product-desc-price {
+  font-size: clamp(12px, 1.5vw, 20px);
+  font-weight: 550;
+}
+
+.foot-product-desc-article {
+  color: #847d7d;
+  font-size: 13px;
+}
+
+.product-options {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 5px;
+}
+
+.product-options div {
+  display: flex;
+  justify-content: center;
+  /* по горизонтали */
+  align-items: center;
+  /* по вертикали */
+  max-width: 250px;
+  height: 20px;
+  padding: 5px;
+  border: 5px solid #2C5C50;
+  border-radius: 40px;
+}
+
+.product-options div:hover {
+  background-color: #2C5C50;
+  color: white;
+}
+
+.in-stock {
+  color: #828282;
+  margin-bottom: 50px;
+  font-size: 13px;
+}
+
+
+.buy-product {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid red;
+}
+
+/*Кнопка количества*/
+.amount {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.down,
+.up {
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  border: none;
+  background-color: #2C5C50;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.amount button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.down:disabled {
+  background-color: #ccc;
+  /* серый фон */
+  color: #666;
+  /* тусклый текст */
+  cursor: not-allowed;
+  /* курсор "нельзя" */
+  transform: none;
+  /* убираем анимации/увеличение */
+  box-shadow: none;
+  /* убираем тени, если были */
+  opacity: 0.7;
+  /* чуть прозрачнее */
+}
+
+.amount button:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.number {
+  min-width: 20px;
+  text-align: center;
+  color: black;
+}
+
+.product-add-button {
+  min-height: clamp(10px, 1.5vh, 30px);
+}
+
+
+.add-product {
+  padding: 10px 20px;
+  width: 100%;
+  /* или 80% если нужно уже */
+  max-width: 250px;
+  border-radius: 10px;
+  background-color: #2C5C50;
+  /* или другой цвет */
+  color: white;
+  font-size: 16px;
+  font-family: "Roboto Serif", serif;
+  font-size: clamp(10px, 1.5vw, 15px);
+
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.add-product:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+/*Выдвижное описание*/
+.collapsible-description {
+  margin-top: 40px;
+  /* отодвигаем вниз, чтобы не налезала */
+  border: 5px solid #2C5C50;
+}
+
+.collapsible {
+  display: flex;
+  justify-content: space-between;
+  /* текст слева, стрелка справа */
+  align-items: center;
+  position: relative;
+  color: black;
+  cursor: pointer;
+  padding: 15px 0px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  font-family: "Roboto Serif", serif;
+  background: transparent;
+}
+
+.collapsible::after {
+  content: "˅";
+  /* стрелка вниз */
+  position: absolute;
+  right: 5px;
+  transition: transform 0.3s ease;
+}
+
+.collapsible.active::after {
+  transform: rotate(180deg);
+  /* переворачиваем стрелку */
+}
+
+.active,
+.collapsible:hover {
+  background-color: #2C5C50;
+  color: white;
+}
+
+.content {
+  padding: 15px 1px;
+  display: none;
+  overflow: hidden;
+  font-family: "Roboto Serif", serif;
+}
+
+.product-image,
+.product-desc-right {
+  border: 1px solid red;
+}
