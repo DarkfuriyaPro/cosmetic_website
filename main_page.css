@@ -171,8 +171,8 @@ main {
   align-items: center;
   height: var(--search-form-height);
   margin: 20px auto;
-  max-width: 1000px;
-  width: 100%;
+  width: 90%;
+  max-width: 600px;
   padding: 0 10px;
   border-radius: 40px;
   background-color: #fff;
@@ -184,6 +184,8 @@ main {
   flex: 1;
   height: 100%;
   padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
   font-family: "Roboto Serif", serif;
   font-size: calc(var(--search-form-height) * 0.3);
   border: none;
@@ -675,7 +677,8 @@ main {
 /* --- Очень маленькие телефоны (iPhone SE, старые Android) --- */
 @media (max-width: 480px) {
   .footer-container {
-    border-block-start: 6px solid #FFFEA5; /* немного тоньше линия */
+    border-block-start: 6px solid #FFFEA5;
+    /* немного тоньше линия */
   }
 
   .footer-left a {
@@ -723,5 +726,158 @@ main {
 
   .footer-bottom {
     gap: 90px;
+  }
+}
+
+
+
+/* =============================
+   📱 АДАПТАЦИЯ HEADER + SEARCH (масштабирование, без перестройки)
+============================= */
+
+/* --- Планшеты --- */
+@media (max-width: 1024px) {
+  :root {
+    --header-height: 50px;
+    --search-form-height: 50px;
+  }
+
+  .header-left a {
+    font-size: calc(var(--header-height) * 0.55);
+  }
+
+  .icon,
+  .btn-lang {
+    height: calc(var(--header-height) * 0.55);
+  }
+
+  .search-input {
+    font-size: calc(var(--search-form-height) * 0.3);
+  }
+
+  .submit-img {
+    height: calc(var(--search-form-height) * 0.45);
+  }
+}
+
+/* --- Телефоны --- */
+@media (max-width: 768px) {
+  :root {
+    --header-height: 45px;
+    --search-form-height: 45px;
+  }
+
+  .header {
+    height: var(--header-height);
+  }
+
+  .header-left a {
+    font-size: calc(var(--header-height) * 0.5);
+  }
+
+  .icons-language {
+    gap: 15px;
+  }
+
+  .icon,
+  .btn-lang {
+    height: calc(var(--header-height) * 0.5);
+  }
+
+  .search-form {
+    height: var(--search-form-height);
+    margin: 15px auto;
+    border-radius: 30px;
+  }
+
+  .search-input {
+    font-size: calc(var(--search-form-height) * 0.3);
+    padding: 0 15px;
+  }
+
+  .submit-img {
+    height: calc(var(--search-form-height) * 0.45);
+  }
+}
+
+/* --- Очень маленькие экраны (iPhone SE, старые Android) --- */
+@media (max-width: 480px) {
+  :root {
+    --header-height: 40px;
+    --search-form-height: 40px;
+  }
+
+  .header-left a {
+    font-size: calc(var(--header-height) * 0.5);
+  }
+
+  .icon,
+  .btn-lang {
+    height: calc(var(--header-height) * 0.5);
+  }
+
+  .icons-language {
+    gap: 10px;
+  }
+
+  .search-form {
+    height: var(--search-form-height);
+    margin: 10px auto;
+  }
+
+  .search-input {
+    font-size: calc(var(--search-form-height) * 0.3);
+    padding: 0 10px;
+  }
+
+  .submit-img {
+    height: calc(var(--search-form-height) * 0.45);
+  }
+}
+
+
+/* =============================
+   📱 ДОПОЛНИТЕЛЬНАЯ АДАПТАЦИЯ: КОРЗИНА + ПОИСК
+============================= */
+
+/* Базовая резиновость для цифры в корзине */
+.cart-count {
+  font-size: clamp(10px, 1.5vw, 14px);
+  width: clamp(18px, 2vw, 24px);
+  height: clamp(18px, 2vw, 24px);
+}
+
+/* Поисковое поле — динамический размер шрифта */
+.search-input {
+  font-size: clamp(12px, 2.5vw, 18px);
+}
+
+/* Адаптация для планшетов и телефонов */
+@media (max-width: 768px) {
+  .cart-count {
+    font-size: clamp(9px, 2vw, 12px);
+    width: clamp(16px, 2vw, 20px);
+    height: clamp(16px, 2vw, 20px);
+  }
+
+  .search-input::placeholder {
+    font-size: clamp(11px, 2.5vw, 16px);
+  }
+}
+
+/* Очень маленькие экраны */
+@media (max-width: 480px) {
+  .cart-count {
+    font-size: 9px;
+    width: 15px;
+    height: 15px;
+  }
+
+  .search-input {
+    font-size: 12px;
+  }
+
+  .search-input::placeholder {
+    font-size: 12px;
   }
 }

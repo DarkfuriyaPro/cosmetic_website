@@ -255,17 +255,24 @@ function toggleCart() {
   const cart = document.getElementById("shoppingCart");
   const main = document.getElementById("main");
   const isOpening = !cart.classList.contains("open");
+
   cart.classList.toggle("open");
 
+  // Если открываем
   if (isOpening) {
-    main.style.marginRight = "350px";
-    // при открытии просто рендерим/обновляем
+    const screenWidth = window.innerWidth;
+    // 📱 Если мобильное устройство — не двигаем контент
+    if (screenWidth <= 768) {
+      main.style.marginRight = "0";
+    } else {
+      main.style.marginRight = "350px";
+    }
     renderCart();
   } else {
-    main.style.marginRight = "0";
-    // при закрытии ничего не очищаем
+      main.style.marginRight = "0";
   }
 }
+
 
 // ======= ИНИЦИАЛИЗАЦИЯ =======
 document.addEventListener('DOMContentLoaded', function () {

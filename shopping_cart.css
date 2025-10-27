@@ -583,3 +583,71 @@
   visibility: visible;
   bottom: 60px;
 }
+
+
+
+
+/* =============================
+   📱 АДАПТИВ ДЛЯ МОБИЛЬНЫХ
+============================= */
+@media (max-width: 768px) {
+  /* Корзина на телефонах — на весь экран */
+  .shopping-cart.open {
+    width: 100%;
+    border-width: 3px;
+  }
+
+  /* Основной контент не должен сдвигаться */
+  #main {
+    margin-right: 0 !important;
+  }
+
+  /* Верхняя панель */
+  .upper-pannel {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .total-price,
+  .items-counter {
+    padding: 6px 10px;
+  }
+
+  /* Элементы корзины */
+  .cart-item {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  .cart-item-img {
+    max-width: 100px;
+    margin-bottom: 10px;
+  }
+
+  .cart-item-info {
+    border: none;
+    align-items: center;
+  }
+
+  .cart-item-title {
+    text-align: center;
+    font-size: 0.9rem;
+  }
+
+  .cart-item-price {
+    font-size: 0.9rem;
+  }
+
+  .quantity-btn {
+    width: 1.6em;
+    height: 1.6em;
+    font-size: 0.8em;
+  }
+
+  .go-to-cart-btn {
+    width: 90%;
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+}
