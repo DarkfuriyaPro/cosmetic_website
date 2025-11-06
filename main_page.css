@@ -50,8 +50,8 @@ main {
   width: 100%;
   box-sizing: border-box;
   margin: 0 auto;
+  padding: 0 10px;
   /* Центрирование */
-  border: 1px solid red;
 }
 
 .header-left a {
@@ -60,7 +60,6 @@ main {
   color: #2C5C50;
   font-size: calc(var(--header-height) * 0.6);
   line-height: 1;
-  border: 1px solid red;
 }
 
 /* Иконки и язык */
@@ -69,7 +68,6 @@ main {
   align-items: center;
   gap: 30px;
   height: 100%;
-  border: 1px solid red;
 }
 
 .header-icons {
@@ -176,7 +174,6 @@ main {
   padding: 0 10px;
   border-radius: 40px;
   background-color: #fff;
-  border: 1px solid red;
   box-sizing: border-box;
 }
 
@@ -192,7 +189,6 @@ main {
   outline: none;
   border-radius: 40px;
   background-color: #fff;
-  border: 1px solid red;
 }
 
 .search-input::placeholder {
@@ -227,13 +223,11 @@ main {
   /* центрирование по горизонтали */
   /* небольшой внутренний отступ */
   box-sizing: border-box;
-  border: 1px solid red;
 }
 
 .categories {
   max-width: 781px;
   margin: 0 auto;
-  border: 1px solid red;
 }
 
 .category-grid {
@@ -316,7 +310,6 @@ main {
   justify-content: center;
   min-height: 100px;
   margin-top: 50px;
-  border: 1px solid red;
 }
 
 .slider {
@@ -532,7 +525,6 @@ main {
   font-family: "Roboto Serif", serif;
   font-size: 16px;
   color: #fff;
-  border: 1px solid red;
 }
 
 .footer-container {
@@ -542,14 +534,12 @@ main {
   border-block-start: 10px solid #FFFEA5;
   margin: 0 auto;
   box-sizing: border-box;
-  border: 1px solid red;
 }
 
 .icons-social {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid red;
 }
 
 .footer-left {
