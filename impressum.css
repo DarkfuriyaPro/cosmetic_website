@@ -1,0 +1,86 @@
+body {
+    margin: 0;
+    font-family: "Roboto Serif", serif;
+    background-color: #2C5C50;
+}
+
+/* Основной контейнер Impressum */
+.impressum {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Контентный блок */
+.impressum-content {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+/* Заголовок */
+.impressum-header {
+  font-family: "Island Moments", cursive;
+  font-size: clamp(35px, 8vw, 80px);
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Текст и ссылки */
+.impressum-content h2 {
+    margin-top: 25px;
+    color: black;
+    font-size: 1.2rem;
+}
+
+.impressum-content p {
+    line-height: 1.6;
+    color: black;
+    font-size: 1rem;
+}
+
+.impressum-content a {
+    color: #2C5C50;
+    text-decoration: none;
+    word-break: break-word;
+    /* предотвращает выход длинных ссылок за границы */
+}
+
+.impressum-content a:hover {
+    text-decoration: underline;
+}
+
+/* 🔹 Адаптивность для маленьких экранов */
+@media (max-width: 768px) {
+    .impressum {
+        margin: 20px auto;
+        padding: 0 10px;
+    }
+
+    .impressum-content {
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .impressum-content h2 {
+        font-size: 1.1rem;
+    }
+
+    .impressum-content p {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .impressum-content {
+        padding: 15px;
+    }
+
+    .impressum-content p,
+    .impressum-content h2 {
+        font-size: 0.9rem;
+    }
+}

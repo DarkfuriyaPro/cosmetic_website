@@ -1,52 +1,55 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!--Шрифты-->
+  <!--Шрифты-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kurale&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Kurale&display=swap" rel="stylesheet">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap"
+    rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Island+Moments&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Island+Moments&display=swap" rel="stylesheet">
 
   <title>Podobravo</title>
 
   <!--Стили-->
-  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/main_page.css" />
+  <link rel="stylesheet" href="/impressum.css" />
 </head>
 
 <body>
-   <!--Header-->
-    <header class="header">
-      <div class="container">
+  <!--Header-->
+  <header class="header">
+    <div class="container">
 
-        <div class="header-left">
-          <div class="settings">
-            <a href="#"><img src="/images/setting.png" alt="Настройки" class="icon"></a>
-          </div>
+      <div class="header-left">
+        <a href="/russian/specialist_ru/main_page_ru/specialist_ru.html">Podobravo</a>
+      </div>
 
-          <div class="logo">
-            <img src="/images/logo.png" alt="Podobravo logo" class="logo-img">
-          </div>
-        </div>
-
-        <nav class="main-nav">
-          <a href="/russian/consumer_ru/main_page_ru/consumer_ru.html" class="nav-link">Главная</a>
-          <a href="about_ru.html" class="nav-link">О нас</a>
-        </nav>
-
+      <div class="icons-language">
         <div class="header-icons">
           <a href="#"><img src="/images/account.png" alt="Профиль" class="icon"></a>
           <a href="#"><img src="/images/like.png" alt="Лайк" class="icon"></a>
-          <a href="#" class="openbtn cart-icon" onclick="toggleCart()">
+          <a href="#" class="cart-icon">
             <img src="/images/cart.png" alt="Корзина" class="icon">
             <span class="cart-count">0</span>
           </a>
         </div>
+
+        <div class="divider"></div> <!-- вертикальная линия -->
 
         <div class="language">
           <button onclick="languageFunction()" class="btn-lang"></button>
@@ -56,35 +59,85 @@
           </div>
         </div>
       </div>
-    </header>
+    </div>
+  </header>
 
-  <div class="about">
-    <h2 class="about-header">О нас</h2>
-    <div class="social-links">
-        <div class="gmail">
-            <a href="mailto:someone@example.com">
-              <img src="/images/gmail.png" alt="Gmail">
-              <p>mailto:someone@example.com</p>
-            </a>
-        </div>
+  <div class="impressum">
+    <div class="impressum-header">Импрессум</div>
+    <div class="impressum-content">
+      <p>
+        Angaben gemäß § 5 TMG und § 55 RStV
 
-        <div class="insta">
-            <a href="#" target="_blank">
-              <img src="/images/instagram.png" alt="Insta">
-              <p>insta_insta</p>
-            </a>
-        </div>
+        Verantwortlich für den Inhalt und Betreiberin der Website:
+        Krystyna Varava
+        Einzelunternehmen (Kleinunternehmerin gemäß § 19 UStG)
+
+        Geschäftsadresse:
+        51379 Leverkusen
+        Deutschland
+
+        <a href="mailto:someone@example.com">
+          <img src="/images/gmail.png" alt="Gmail">
+          <p>mailto:someone@example.com</p>
+        </a>
+      </p>
+
+      <h2>Unternehmensgegenstand</h2>
+      <p>Handel und Vertrieb von professionellen Produkten im Bereich Fußpflege, Fußgesundheit und Kosmetik,
+        sowie Schulungs- und Beratungstätigkeiten im Rahmen von B2B- und B2C-Geschäften in Deutschland, der Schweiz und
+        der EU.</p>
+
+      <h2>Gewerbeanmeldung</h2>
+      <p>Erfolgt bei der Stadt Leverkusen (Ordnungsamt Leverkusen).
+        Zuständige Aufsichtsbehörde: Ordnungsamt Leverkusen.</p>
+
+      <h2>Umsatzsteuerstatus</h2>
+      <p>
+        Kleinunternehmerin gemäß § 19 UStG – keine Ausweisung der Umsatzsteuer.
+      </p>
+
+      <h2>Haftung für Inhalte</h2>
+      <p>
+        Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt.
+        Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte wird keine Gewähr übernommen.
+        Nach §§ 8–10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde
+        Informationen zu überwachen.
+        Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben
+        hiervon unberührt.
+      </p>
+
+      <h2>Haftung für Links</h2>
+      <p>
+        Diese Website enthält ggf. Links zu externen Websites Dritter, auf deren Inhalte kein Einfluss besteht.
+        Für diese fremden Inhalte übernehmen wir keine Gewähr.
+        Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich.
+      </p>
+
+      <h2>Urheberrecht</h2>
+      <p>
+        Alle Texte, Fotos, Logos, Grafiken und Produktbeschreibungen auf dieser Website unterliegen dem deutschen
+        Urheberrecht.
+        Die Vervielfältigung, Bearbeitung oder Verbreitung außerhalb der Grenzen des Urheberrechts
+        bedürfen der schriftlichen Zustimmung von Krystyna Varava.
+        Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.
+
+        Online-Streitbeilegung gemäß Art. 14 Abs. 1 ODR-VO
+
+        Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+        👉 https://ec.europa.eu/consumers
+        Unsere E-Mail-Adresse lautet: bewegungssystem@gmail.com
+
+        Leverkusen, Oktober 2026
+        Krystyna Varava
+        Inhaberin – Bewegungssystem Distribution & Academy
+      </p>
+
+
     </div>
   </div>
 
-
-  <!--Shoping cart-->
-  <div id="shoppingCart" class="shopping-cart">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">Закрыть</a>
-    <p>Пусто</p>
-  </div>
-  
-<script src="/russian/scripts/main_page.js"></script>
-<script src="/russian/scripts/shopping_cart.js"></script>
+  <script src="/russian/scripts/main_page.js"></script>
+  <script src="/russian/scripts/shopping_cart.js"></script>
 </body>
+
 </html>
