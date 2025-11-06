@@ -14,6 +14,9 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden !important;
+  width: 100%;
+  max-width: 100%;
 }
 
 main {
@@ -258,7 +261,7 @@ main {
   width: 70px;
   height: 20px;
   padding: 35px 35px;
-  border-radius: 30px;
+  border-radius: 10px;
   flex-shrink: 0;
 
   overflow: hidden;
@@ -514,32 +517,40 @@ main {
 
 
 /* =============================
-   ФУТЕР
+   ФУТЕР (центрированный и симметричный)
 ============================= */
 
 .footer {
   display: flex;
   align-items: center;
-  margin: auto;
+  justify-content: center; /* центрируем сам контейнер */
   width: 100%;
   font-family: "Roboto Serif", serif;
   font-size: 16px;
   color: #fff;
+  background-color: #2C5C50;
 }
 
 .footer-container {
-  max-width: 1200px;
-  /* Или сколько тебе нужно */
   width: 100%;
-  border-block-start: 10px solid #FFFEA5;
+  max-width: 1200px;
   margin: 0 auto;
   box-sizing: border-box;
+
+  /* 🟡 Жёлтая граница по центру */
+  border-block-start: 10px solid #FFFEA5;
+
+  /* 🧭 Симметричные внутренние отступы */
+  padding: 20px 40px;
 }
 
+/* --- Основная структура --- */
 .icons-social {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .footer-left {
@@ -551,7 +562,7 @@ main {
   display: flex;
   width: 50px;
   height: 50px;
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: #FFFEA5;
   align-items: center;
   justify-content: center;
@@ -572,6 +583,7 @@ main {
   justify-content: flex-end;
   margin-top: 50px;
   gap: 70px;
+  flex-wrap: wrap;
 }
 
 .footer-bottom a {
@@ -588,16 +600,14 @@ main {
   opacity: 60%;
 }
 
-
-
 /* =============================
-   📱 АДАПТАЦИЯ ФУТЕРА
+   📱 АДАПТИВ
 ============================= */
 
 /* --- Планшеты и мелкие ноутбуки --- */
 @media (max-width: 1024px) {
   .footer-container {
-    padding: 20px;
+    padding: 20px 30px; /* симметрично, но чуть меньше */
   }
 
   .footer-right {
@@ -620,12 +630,15 @@ main {
   }
 }
 
-/* --- Телефоны (основная адаптация) --- */
+/* --- Телефоны --- */
 @media (max-width: 768px) {
   .footer {
     flex-direction: column;
     text-align: center;
-    padding: 20px 10px;
+  }
+
+  .footer-container {
+    padding: 20px 20px; /* равномерные отступы */
   }
 
   .icons-social {
@@ -664,21 +677,11 @@ main {
   }
 }
 
-/* --- Очень маленькие телефоны (iPhone SE, старые Android) --- */
+/* --- Очень маленькие телефоны --- */
 @media (max-width: 480px) {
   .footer-container {
     border-block-start: 6px solid #FFFEA5;
-    /* немного тоньше линия */
-  }
-
-  .footer-left a {
-    width: 35px;
-    height: 35px;
-  }
-
-  .footer-left a img {
-    width: 25px;
-    height: 25px;
+    padding: 15px; /* чуть меньше, но симметрично */
   }
 
   .footer-right {
@@ -698,6 +701,7 @@ main {
 @media (min-width: 1400px) {
   .footer-container {
     max-width: 1400px;
+    padding: 30px 60px; /* чуть больше отступы на широких */
   }
 
   .footer-right {
@@ -718,6 +722,7 @@ main {
     gap: 90px;
   }
 }
+
 
 
 
