@@ -5,14 +5,16 @@
 .main-product-title {
   text-align: center;
   color: #FFFEA5;
-  font-size: 50px;
+  font-size: clamp(24px, 4vw, 50px);
+  /* ← адаптивный размер */
+  font-family: "Kurale", serif;
+  margin: 30px auto;
 }
 
 .layout {
   max-width: 1200px;
   display: flex;
   margin: 40px auto;
-  border: 1px solid red;
 }
 
 /* =============================
@@ -81,7 +83,6 @@
   flex: 1;
   /* Занимает всё оставшееся пространство */
   padding-left: 40px;
-  border: 1px solid red;
 }
 
 .product-grid {
@@ -109,7 +110,6 @@
   box-sizing: border-box;
   /* равномерные отступы */
   width: 100%;
-  border: 1px solid red;
 }
 
 .card a {
@@ -129,7 +129,6 @@
   object-fit: cover;
   /* изображение на всю ширину */
   border-radius: 20px;
-  border: 1px solid red;
   /* по вкусу */
 }
 
@@ -141,7 +140,6 @@
   margin-top: 10px;
   margin-bottom: 10px;
   gap: 20px;
-  border: 1px solid red;
 }
 
 .product-desc {
@@ -167,7 +165,7 @@
   margin-bottom: 10px;
 }
 
-.product-price{
+.product-price {
   font-size: clamp(0.6rem, 2vw, 1rem);
   font-weight: 550;
 }
@@ -201,7 +199,6 @@
   display: flex;
   justify-content: center;
   margin-top: auto;
-  border: 1px solid red;
 }
 
 .add-to-cart {
@@ -221,7 +218,7 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.add-to-cart:hover{
+.add-to-cart:hover {
   transform: scale(1.1);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
@@ -240,6 +237,9 @@
 .dropdown {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  /* чтобы при узких экранах кнопки не вылазили */
+  gap: 10px;
 }
 
 .drop-filter,
@@ -251,26 +251,32 @@
 .btn-sort {
   display: flex;
   width: 100%;
+  max-width: clamp(140px, 30vw, 200px);
+  /* ← адаптивная ширина */
   background-color: #FFFEA5;
-  padding: auto;
   border: none;
   border-radius: 20px;
   cursor: pointer;
   align-items: center;
   justify-content: center;
+  padding: clamp(6px, 1vw, 10px) clamp(10px, 2vw, 20px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-filter img,
 .btn-sort img {
-  height: 40px;
-  margin-right: 20px;
+  height: clamp(20px, 4vw, 40px);
+  /* ← уменьшается с экраном */
+  margin-right: clamp(8px, 2vw, 20px);
 }
 
 .btn-filter p,
 .btn-sort p {
   color: #2C5C50;
-  font-size: 16px;
+  font-size: clamp(12px, 2.5vw, 18px);
+  /* ← адаптивный текст */
   font-family: "Roboto Serif", serif;
+  white-space: nowrap;
 }
 
 .btn-filter:hover,
@@ -304,6 +310,5 @@
   background-color: #d0cf75;
 }
 
-.show {
-  display: block;
-}
+
+
