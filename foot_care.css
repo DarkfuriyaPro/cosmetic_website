@@ -49,7 +49,7 @@
   background-color: #FFFEA5;
   color: #2C5C50;
   text-decoration: none;
-  border-radius: 30px;
+  border-radius: 10px;
   font-family: "Roboto Serif", serif;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   font-size: clamp(12px, 1.2vw, 15px);
@@ -96,7 +96,7 @@
   height: auto;
   min-height: 300px;
   background-color: #fff;
-  border-radius: 40px;
+  border-radius: 10px;
   padding: 10px 15px;
   display: flex;
   /* flex-контейнер */
@@ -128,7 +128,7 @@
   height: 300px;
   object-fit: cover;
   /* изображение на всю ширину */
-  border-radius: 20px;
+  border-radius: 10px;
   /* по вкусу */
 }
 
@@ -170,30 +170,6 @@
   font-weight: 550;
 }
 
-
-.liked-product {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.like {
-  display: flex;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #2C5C50;
-  /* или другой цвет */
-  border: none;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-
-.like img {
-  width: 30px;
-  height: 30px;
-}
-
 .add-button {
   width: 100%;
   display: flex;
@@ -206,7 +182,7 @@
   width: 100%;
   /* или 80% если нужно уже */
   max-width: 250px;
-  border-radius: 15px;
+  border-radius: 10px;
   background-color: #2C5C50;
   /* или другой цвет */
   color: #fff;
@@ -238,47 +214,57 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  /* чтобы при узких экранах кнопки не вылазили */
-  gap: 10px;
+  gap: 5px;
 }
 
+/* минимальная ширина */
 .drop-filter,
 .drop-sort {
-  min-width: 180px;
+  min-width: 90px;
 }
 
+/* общие стили для кнопок */
 .btn-filter,
 .btn-sort {
   display: flex;
-  width: 100%;
-  max-width: clamp(140px, 30vw, 200px);
-  /* ← адаптивная ширина */
-  background-color: #FFFEA5;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
   align-items: center;
   justify-content: center;
-  padding: clamp(6px, 1vw, 10px) clamp(10px, 2vw, 20px);
+  width: 100%;
+  max-width: clamp(90px, 25vw, 140px);
+  background-color: #FFFEA5;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: "Roboto Serif", serif;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.btn-filter img,
-.btn-sort img {
-  height: clamp(20px, 4vw, 40px);
-  /* ← уменьшается с экраном */
-  margin-right: clamp(8px, 2vw, 20px);
+/* фильтр — стандартные отступы */
+.btn-filter {
+  padding: clamp(4px, 0.8vw, 8px) clamp(8px, 1.5vw, 18px);
 }
 
+/* сортировка — чуть больше отступы по бокам */
+.btn-sort {
+  padding: clamp(4px, 0.8vw, 8px) clamp(12px, 2vw, 28px);
+}
+
+/* иконки */
+.btn-filter img,
+.btn-sort img {
+  height: clamp(16px, 3vw, 28px);
+  margin-right: clamp(4px, 1vw, 8px); /* ближе к слову */
+}
+
+/* текст */
 .btn-filter p,
 .btn-sort p {
   color: #2C5C50;
-  font-size: clamp(12px, 2.5vw, 18px);
-  /* ← адаптивный текст */
-  font-family: "Roboto Serif", serif;
+  font-size: clamp(11px, 2vw, 16px);
   white-space: nowrap;
 }
 
+/* hover-эффекты */
 .btn-filter:hover,
 .btn-sort:hover,
 .btn-filter:focus,
@@ -312,3 +298,87 @@
 
 
 
+/* =============================
+   АДАПТИВ ДЛЯ МОБИЛЬНЫХ ЭКРАНОВ
+============================= */
+@media (max-width: 768px) {
+  /* Основной контейнер теперь вертикальный */
+  .layout {
+    flex-direction: column;
+    align-items: stretch;
+    margin: 20px auto;
+    border: none;
+  }
+
+  /* Сайдбар становится горизонтальным блоком */
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 4px solid #FFFEA5; /* горизонтальная линия */
+    padding: 10px 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch; /* плавный свайп на iOS */
+  }
+
+  /* Скрываем полосу прокрутки, но оставляем возможность скролла */
+  .sidebar::-webkit-scrollbar {
+    display: none;
+  }
+  .sidebar {
+    -ms-overflow-style: none;  /* IE и Edge */
+    scrollbar-width: none;     /* Firefox */
+  }
+
+  /* Навигация внутри сайдбара — в одну строку */
+  .side-nav ul {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 1px;
+  }
+
+  .side-list {
+    margin-bottom: 0; /* убираем вертикальные отступы */
+    flex: 0 0 auto; /* не сжимается */
+  }
+
+  .side-list a {
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 10px;
+    min-height: unset;
+    white-space: nowrap;
+  }
+
+  /* Продукты идут после сайдбара */
+  .products {
+    padding-left: 0;
+    padding-top: 20px;
+    border: none;
+  }
+
+  /* Убираем фильтры и сортировку на маленьких экранах */
+  .drop-filter,
+  .drop-sort {
+    display: none !important;
+  }
+
+  /* Корректируем сетку карточек */
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+  }
+
+  .product-img img {
+    height: 200px;
+  }
+
+  .add-to-cart {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}
