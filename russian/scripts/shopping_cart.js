@@ -254,14 +254,14 @@ document.addEventListener('click', function (e) {
 function toggleCart() {
   const cart = document.getElementById("shoppingCart");
   const main = document.getElementById("main");
+  const overlay = document.getElementById("cartOverlay");
   const isOpening = !cart.classList.contains("open");
 
   cart.classList.toggle("open");
+  if (overlay) overlay.classList.toggle("active", isOpening);
 
-  // Если открываем
   if (isOpening) {
     const screenWidth = window.innerWidth;
-    // 📱 Если мобильное устройство — не двигаем контент
     if (screenWidth <= 768) {
       main.style.marginRight = "0";
     } else {
@@ -269,9 +269,11 @@ function toggleCart() {
     }
     renderCart();
   } else {
-      main.style.marginRight = "0";
+    main.style.marginRight = "0";
   }
 }
+
+
 
 
 // ======= ИНИЦИАЛИЗАЦИЯ =======

@@ -3,32 +3,45 @@
 ============================= */
 
 .shopping-cart {
-  width: 0;
-  height: 100%;
   position: fixed;
-  z-index: 1;
   top: 0;
   right: 0;
+  height: 100vh;
+  width: 0;
   background-color: #fff;
-  overflow-x: auto;
-  transition: 0.5s;
-  font-family: "Roboto Serif", serif;
-  box-sizing: border-box;
-  border: none;
-  /* Добавь padding здесь */
+  overflow-y: auto;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  transition: width 0.4s ease;
+  z-index: 1000;
 }
 
-
-/* При открытии */
 .shopping-cart.open {
   width: 350px;
-  border: 5px solid #00493F;
+  border-left: 5px solid #00493F;
 }
 
 #main {
-  position: relative;
-  transition: margin-right 0.5s;
+  transition: margin-right 0.4s ease;
 }
+
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 900; /* чуть меньше, чем корзина */
+}
+
+.cart-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 
 .cart-container {
   width: 100%;
@@ -99,6 +112,25 @@
   background-color: #2C5C50;
   border-radius: 10px;
   padding: 8px;
+}
+
+/* Мобильная версия корзины */
+@media (max-width: 768px) {
+  .shopping-cart {
+    width: 100%;
+    max-width: none;
+    box-shadow: none;
+    border-left: none;
+  }
+
+  .shopping-cart.open {
+    width: 100%;
+  }
+
+  /* чтобы контент под корзиной не сдвигался */
+  #main {
+    margin-right: 0 !important;
+  }
 }
 
 
@@ -243,10 +275,6 @@
   height: auto;
 }
 
-
-
-
-
 /* =============================
    ФУТЕР БОКОВОЙ КОРЗИНЫ
 ============================= */
@@ -261,8 +289,8 @@
   background-color: #2C5C50;
   color: white;
   font-family: "Roboto Serif", serif;
-  padding: 12px 24px;
-  font-size: 18px;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  padding: 10px 20px;
   text-decoration: none;
   border-radius: 12px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -582,72 +610,4 @@
   opacity: 1;
   visibility: visible;
   bottom: 60px;
-}
-
-
-
-
-/* =============================
-   📱 АДАПТИВ ДЛЯ МОБИЛЬНЫХ
-============================= */
-@media (max-width: 768px) {
-  /* Корзина на телефонах — на весь экран */
-  .shopping-cart.open {
-    width: 100%;
-    border-width: 3px;
-  }
-
-  /* Основной контент не должен сдвигаться */
-  #main {
-    margin-right: 0 !important;
-  }
-
-  /* Верхняя панель */
-  .upper-pannel {
-    font-size: 16px;
-    margin-bottom: 20px;
-  }
-
-  .total-price,
-  .items-counter {
-    padding: 6px 10px;
-  }
-
-  /* Элементы корзины */
-  .cart-item {
-    flex-direction: column;
-    align-items: center;
-    height: auto;
-  }
-
-  .cart-item-img {
-    max-width: 100px;
-    margin-bottom: 10px;
-  }
-
-  .cart-item-info {
-    border: none;
-    align-items: center;
-  }
-
-  .cart-item-title {
-    text-align: center;
-    font-size: 0.9rem;
-  }
-
-  .cart-item-price {
-    font-size: 0.9rem;
-  }
-
-  .quantity-btn {
-    width: 1.6em;
-    height: 1.6em;
-    font-size: 0.8em;
-  }
-
-  .go-to-cart-btn {
-    width: 90%;
-    font-size: 16px;
-    padding: 10px 20px;
-  }
 }
