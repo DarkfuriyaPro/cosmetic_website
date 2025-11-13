@@ -254,17 +254,17 @@ document.addEventListener('click', function (e) {
 function toggleCart() {
   const cart = document.getElementById("shoppingCart");
   const main = document.getElementById("main");
-  const overlay = document.getElementById("cartOverlay");
   const isOpening = !cart.classList.contains("open");
 
   cart.classList.toggle("open");
-  if (overlay) overlay.classList.toggle("active", isOpening);
 
   if (isOpening) {
     const screenWidth = window.innerWidth;
     if (screenWidth <= 768) {
+      // 📱 На телефонах корзина на весь экран, ничего не двигаем
       main.style.marginRight = "0";
     } else {
+      // 💻 На ноутбуках и десктопах сдвигаем контент
       main.style.marginRight = "350px";
     }
     renderCart();
@@ -272,6 +272,7 @@ function toggleCart() {
     main.style.marginRight = "0";
   }
 }
+
 
 
 
