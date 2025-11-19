@@ -230,19 +230,19 @@ main {
 .categories {
   max-width: 781px;
   margin: 0 auto;
+  position: relative;
 }
 
 .category-grid {
   display: flex;
-  flex-wrap: wrap;
-  /* ✅ Позволяет растягиваться или переноситься */
-  justify-content: center;
+  flex-wrap: nowrap;
+  /* ❗ запрет на перенос строк */
+  overflow-x: auto;
+  /* ❗ включаем горизонтальный скролл */
+  scrollbar-width: none;
+  /* скрыть полосу в Firefox */
   gap: 20px;
   padding: 15px 0;
-
-  /* убери прокрутку */
-  overflow-x: unset;
-  scrollbar-width: none;
   border-bottom: 2px solid #FFFEA5;
 }
 
@@ -522,7 +522,8 @@ main {
 .footer {
   display: flex;
   align-items: center;
-  justify-content: center; /* центрируем сам контейнер */
+  justify-content: center;
+  /* центрируем сам контейнер */
   width: 100%;
   font-family: "Roboto Serif", serif;
   font-size: 16px;
@@ -606,7 +607,8 @@ main {
 /* --- Планшеты и мелкие ноутбуки --- */
 @media (max-width: 1024px) {
   .footer-container {
-    padding: 20px 30px; /* симметрично, но чуть меньше */
+    padding: 20px 30px;
+    /* симметрично, но чуть меньше */
   }
 
   .footer-right {
@@ -637,7 +639,8 @@ main {
   }
 
   .footer-container {
-    padding: 20px 20px; /* равномерные отступы */
+    padding: 20px 20px;
+    /* равномерные отступы */
   }
 
   .icons-social {
@@ -680,7 +683,8 @@ main {
 @media (max-width: 480px) {
   .footer-container {
     border-block-start: 6px solid #FFFEA5;
-    padding: 15px; /* чуть меньше, но симметрично */
+    padding: 15px;
+    /* чуть меньше, но симметрично */
   }
 
   .footer-right {
@@ -700,7 +704,8 @@ main {
 @media (min-width: 1400px) {
   .footer-container {
     max-width: 1400px;
-    padding: 30px 60px; /* чуть больше отступы на широких */
+    padding: 30px 60px;
+    /* чуть больше отступы на широких */
   }
 
   .footer-right {
