@@ -135,7 +135,7 @@
   box-sizing: border-box;
   height: 100px;
   /* фиксируем высоту */
-  margin-bottom: 15px;
+  margin-bottom: 2.5rem;
 }
 
 /* Левая часть */
@@ -288,7 +288,7 @@
 /* Мобильная версия корзины */
 @media (max-width: 768px) {
   .shopping-cart {
-    width: 100%;
+    width: 0;
     max-width: none;
     box-shadow: none;
     border-left: none;
