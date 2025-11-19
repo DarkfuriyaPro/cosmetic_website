@@ -16,7 +16,6 @@
         href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap"
         rel="stylesheet">
 
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Island+Moments&display=swap" rel="stylesheet">
@@ -25,13 +24,13 @@
 
     <!--Стили-->
     <link rel="stylesheet" href="/main_page.css" />
+    <link rel="stylesheet" href="/one_product.css" />
     <link rel="stylesheet" href="/all_categories.css" />
     <link rel="stylesheet" href="/shopping_cart.css" />
 </head>
 
 <body>
     <div id="main">
-
 
         <!--Header-->
         <header class="header">
@@ -64,7 +63,6 @@
             </div>
         </header>
 
-
         <!--Search Form-->
         <section class="search-section">
             <form class="search-form" action="#" method="GET">
@@ -75,144 +73,106 @@
             </form>
         </section>
 
+
+        <!--One Product-->
         <div class="layout">
 
             <!--Sidebar-->
             <aside class="sidebar">
                 <nav class="side-nav">
                     <ul>
-                        <li class="side-list"><a href="foot_care_ru.html" class="active">Уходовая косметика для
+                        <li class="side-list"><a href="#">Уходовая косметика для
                                 лица<span class="arrow">›</span></a></li>
                         <li class="side-list"><a href="#">Расходные материалы<span class="arrow">›</span></a></li>
                         <li class="side-list"><a href="#">Ортониксия<span class="arrow">›</span></a></li>
                         <li class="side-list"><a href="#">Аппараты для педикюра<span class="arrow">›</span></a></li>
                         <li class="side-list"><a href="#">Подарочные наборы<span class="arrow">›</span></a></li>
+                        <li class="side-list"><a href="/russian/specialist_ru/instruments_ru/instruments.html"
+                                class="active">Инструменты<span class="arrow">›</span></a></li>
                     </ul>
                 </nav>
             </aside>
 
-            <!--Products-->
-            <main class="products">
+            <main class="product-block">
 
-                <!--Filter and Sorting-->
-                <div class="dropdown">
-                    <div class="drop-filter">
-                        <button onclick="filterFunction()" class="btn-filter">
-                            <img src="/images/filter.png" alt="Filter">
-                            <p>Фильтры</p>
-                        </button>
-                        <div id="filterDropdown" class="content-filter">
-                            <a href="#about">Süda</a>
-                            <a href="#base">Akilein</a>
-                            <a href="#blog">Arkada</a>
+
+                <div class="foot-product" data-product-id="111">
+
+                    <div class="product-slider">
+                        <div class="product-slides">
+                            <img src="/images/TR111L/TR111L_1.jpg" alt="Товар 1" class="active">
+                            <img src="/images/TR111L/TR111L_2.jpg" alt="Товар 2">
+                            <img src="/images/TR111L/TR111L_3.jpg" alt="Товар 3">
                         </div>
+                        <div class="product-controls" aria-hidden="false">
+                            <button class="product-prev" aria-label="Предыдущий слайд">&larr;</button>
+                            <button class="product-next" aria-label="Следующий слайд">&rarr;</button>
+                        </div>
+
+                        <div class="product-indicators" role="tablist" aria-label="Навигация по слайдам"></div>
                     </div>
 
-                    <div class="drop-sort">
-                        <button onclick="sortFunction()" class="btn-sort">
-                            <img src="/images/sort.png">
-                            <p>Сортировка</p>
-                        </button>
-                        <div id="sortDropdown" class="content-sort">
-                            <a href="#about">About</a>
-                            <a href="#base">Base</a>
-                            <a href="#blog">Blog</a>
-                            <a href="#contact">Contact</a>
+
+
+                    <div class="product-desc-right">
+                        <div class="foot-product-desc">
+                            <div class="foot-product-desc-title">Кусачки в форме луны, 14 см, с наклонной головкой ½
+                            </div>
+                            <div class="foot-product-desc-price">  31.00€</div>
                         </div>
-                    </div>
-                </div>
 
-                <div class="product-grid">
-                    <div class="card" data-product-id="1">
-                        <div class="card-container">
-                            <a href="/russian/specialist_ru/foot_care_category_ru/foot_product_ru/product_ru.html">
-                                <div class="product-img">
-                                    <img src="/images/main1.png" alt="Товар">
-                                </div>
-                                <div class="after-img">
-                                    <div class="product-desc">
-                                        <div class="product-title">Aaaaaadвфывыфвыфвыфвфывыфвфывфвфвфыв</div>
-                                        <div class="product-price"><span class="price-value">500.50</span><span>€</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
+                        <div class="in-stock">В наличии, доставка 500 дней</div>
 
-                            <div class="add-button">
-                                <button class="add-to-cart" type="button">В корзину</button>
+                        <div class="buy-product">
+                            <div class="amount">
+                                <button class="down">-</button>
+                                <span class="number">1</span>
+                                <button class="up">+</button>
+                            </div>
+
+                            <div class="product-add-button">
+                                <button class="add-product">В корзину</button>
+                            </div>
+                        </div>
+
+                        <div class="collapsible-description">
+                            <button type="button" class="collapsible">Описание товара</button>
+                            <div class="content">
+                                <p>
+TR111L
+Кусачки для ногтей с головкой, длина 14,0 см
+Имеют, подобно ногтевому кусачку, слегка изогнутую режущую поверхность, повторяющую форму ногтя на пальце ноги. Благодаря закруглённой режущей кромке эти кусачки особенно хорошо подходят для обрезки углов ногтей или вросших ногтей. Двойная перекрестная пружина позволяет без усилий подстригать даже твёрдые ногти на ногах.
+Преимущества:
+
+Долгий срок службы благодаря использованию нержавеющей стали
+Двойная перекрестная пружина и эргономичная ручка облегчают обрезку толстых, крепких, твёрдых, глубоко расположенных или вросших ногтей
+Очень тонкая режущая кромка подходит для придания формы ногтям, а также для точной и бережной обрезки остатков кожи и кутикулы
+Изготовлены вручную, стерилизуемые, гипоаллергенные (без никеля)
+Идеально подходят для путешествий или в качестве подарка
+
+Размеры:
+
+Длина: 140 мм
+Длина режущей кромки: 23,0 мм
+
+Модели:
+
+Остроконечные
+Пламенная форма
+Короткая режущая кромка
+
+Применение:
+Перед использованием очистите ногти и при необходимости слегка размягчите их. Установите кусачки с изогнутой режущей кромкой на нужное место и аккуратно укоротите ногти или углы. После использования тщательно очистите и продезинфицируйте инструмент.
+Состав:
+Кусачки для ногтей 14 см, режущая кромка пламенная, длина 23,0 мм.</p>
                             </div>
                         </div>
                     </div>
-
-
-                    <div class="card" data-product-id="1">
-                        <div class="card-container">
-                            <a href="/russian/specialist_ru/foot_care_category_ru/foot_product_ru/product_ru.html">
-                                <div class="product-img">
-                                    <img src="/images/foto1.png" alt="Товар">
-                                </div>
-                                <div class="after-img">
-                                    <div class="product-desc">
-                                        <div class="product-title">выавыаываывававыаывавыаыавы</div>
-                                        <div class="product-price"><span class="price-value">500</span><span>€</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <div class="add-button">
-                                <button class="add-to-cart" type="button">В корзину</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card" data-product-id="1">
-                        <div class="card-container">
-                            <a href="#">
-                                <div class="product-img">
-                                    <img src="/images/foto1.png" alt="Товар">
-                                </div>
-                                <div class="after-img">
-                                    <div class="product-desc">
-                                        <div class="product-title">В</div>
-                                        <div class="product-price"><span class="price-value">500</span><span>€</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <div class="add-button">
-                                <button class="add-to-cart" type="button">В корзину</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card" data-product-id="1">
-                        <div class="card-container">
-                            <a href="#">
-                                <div class="product-img">
-                                    <img src="/images/foto1.png" alt="Товар">
-                                </div>
-                                <div class="after-img">
-                                    <div class="product-desc">
-                                        <div class="product-title">Г</div>
-                                        <div class="product-price"><span class="price-value">500</span><span>€</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <div class="add-button">
-                                <button class="add-to-cart" type="button">В корзину</button>
-                            </div>
-                        </div>
-                    </div>
-
-
-
                 </div>
             </main>
         </div>
+
+
 
 
         <!--Footer-->
@@ -239,6 +199,8 @@
         </footer>
     </div>
 
+
+
     <!--Shoping cart-->
     <div id="shoppingCart" class="shopping-cart">
         <div class="cart-container">
@@ -246,7 +208,7 @@
 
             <div class="upper-pannel">
                 <div class="total-price">
-                    Итого:<span class="amount-count">0</span>
+                    Итого: <span class="amount-count">0</span>
                 </div>
 
                 <div class="items-counter">
@@ -285,26 +247,24 @@
 
 
             <div class="cart-footer">
-                <a href="/main_cart.html" class="go-to-cart-btn">Перейти в корзину</a>
+                <a href="/russian/consumer_ru/main_cart.html" class="go-to-cart-btn">Перейти в корзину</a>
             </div>
 
         </div>
 
     </div>
 
-    <!-- Overlay (темный фон при открытой корзине) -->
-    <div id="cartOverlay" class="cart-overlay" aria-hidden="true"></div>
 
-
-    <!-- Snackbar -->
-    <div id="snackbar">Товар добавлен в корзину</div>
-    <div id="prove_product">Товар уже в корзине</div>
-
-
-    <!-- Scripts -->
     <script src="/russian/scripts/main_page.js"></script>
     <script src="/russian/scripts/all_small_functions.js"></script>
     <script src="/russian/scripts/shopping_cart.js"></script>
+    <script src="/russian/scripts/one_product_slider.js" defer></script>
+    <script src="/russian/scripts/one_product_amount.js"></script>
+
+    <!-- Popup "Товар уже в корзине" -->
+    <div id="prove_product" class="prove-popup">
+        Товар уже в корзине
+    </div>
 </body>
 
 </html>

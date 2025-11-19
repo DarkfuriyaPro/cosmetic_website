@@ -158,7 +158,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid red;
 }
 
 /*Кнопка количества*/
@@ -287,13 +286,9 @@
 }
 
 .content {
-  padding: 15px 1px;
+  padding: 15px 3px;
   display: none;
+  text-align: justify;
   overflow: hidden;
   font-family: "Roboto Serif", serif;
-}
-
-.product-image,
-.product-desc-right {
-  border: 1px solid red;
 }
