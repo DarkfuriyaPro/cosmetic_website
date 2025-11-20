@@ -61,7 +61,7 @@ function renderCart() {
           <div class="cart-item-title">${item.title || 'Без названия'}</div>
           <div class="price_quantity">
             <div class="cart-item-price">
-              <span class="price-value">${item.price}</span><span>€</span>
+              <span class="price-value">${parseFloat(item.price).toFixed(2).replace('.', ',')}</span>
             </div>
             <div class="cart-item-quantity">
               <button class="quantity-btn decrease">−</button>
@@ -181,7 +181,11 @@ function updateTotalPrice() {
   }, 0);
   const amountEl = document.querySelector('.amount-count');
   if (amountEl) {
-    amountEl.innerText = (total % 1 === 0 ? Math.round(total) : total.toFixed(2)) + '€';
+    const formatted = (total % 1 === 0 ? Math.round(total).toFixed(2) : total.toFixed(2))
+      .replace('.', ',');
+
+    amountEl.innerText = formatted + '€';
+
   }
 }
 
