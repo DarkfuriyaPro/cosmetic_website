@@ -292,3 +292,125 @@
   overflow: hidden;
   font-family: "Roboto Serif", serif;
 }
+
+
+
+
+
+/* =============================
+     АДАПТАЦИЯ PRODUCT-BLOCK
+============================= */
+
+/* Планшеты и телефоны до 768px */
+@media (max-width: 768px) {
+
+  .product-block {
+    padding: 30px;
+  }
+
+  .foot-product {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 15px;
+  }
+
+  /* Фото товара */
+  .product-slider {
+    max-width: 100%;
+  }
+
+  .product-controls button {
+    font-size: 18px;
+    padding: 4px 8px;
+  }
+
+  /* Правая часть */
+  .product-desc-right {
+    margin-left: 0;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .foot-product-desc-title {
+    font-size: 18px;
+  }
+
+  .foot-product-desc-price {
+    font-size: 18px;
+  }
+
+  .in-stock {
+    text-align: left;
+    margin-bottom: 25px;
+  }
+
+  .buy-product {
+    flex-direction: row;        /* оставляем горизонтально */
+    align-items: center;        /* выравнивание по центру */
+   justify-content: space-between;/* прижать к левому краю */
+    gap: 10px;                  /* меньше отступ между блоками */
+    width: 100%;                /* адаптивная ширина */
+  }
+
+  .amount {
+    gap: 8px;                  /* меньше пространство между кнопками */
+  }
+
+  .down,
+  .up {
+    width: 28px;                /* чуть меньше кнопки */
+    height: 28px;
+    font-size: 16px;
+  }
+
+  .add-product {
+    padding: 8px 16px;          /* уменьшаем padding */
+    font-size: 16px;            /* размер шрифта чуть меньше */
+    max-width: 150px;           /* не занимает всю ширину */
+  }
+
+  /* Описание */
+  .collapsible {
+    font-size: 16px;
+    padding: 15px 5px;
+  }
+
+  .content {
+    font-size: 15px;
+  }
+}
+
+
+/* Маленькие телефоны ≤ 480px */
+@media (max-width: 480px) {
+
+  .foot-product {
+    padding: 8px;
+  }
+
+  .foot-product-desc-title {
+    font-size: 16px;
+  }
+
+  .foot-product-desc-price {
+    font-size: 16px;
+  }
+
+  .add-product {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .collapsible {
+    font-size: 14px;
+  }
+
+  .content {
+    font-size: 14px;
+  }
+
+  .product-controls button {
+    font-size: 16px;
+    padding: 4px 6px;
+  }
+}
