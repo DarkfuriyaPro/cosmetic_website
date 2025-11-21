@@ -7,11 +7,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap" rel="stylesheet">
   <title>Podobravo</title>
+
   <style>
-    /* --- Базовая часть (оставил твои значения) --- */
     :root{
-      /* Настройка минимального и максимального масштаба (при желании поменяешь) */
-      --btn-scale: clamp(0.9, 2.4vw, 1); /* пример: от 0.9 до 1, по vw */
+      --btn-scale: clamp(0.9, 2.4vw, 1);
     }
 
     * { box-sizing: border-box; }
@@ -19,12 +18,12 @@
     body {
       margin: 0;
       padding: 0;
-      font-family: "Roboto Serif", serif; /* исправлено для корректного рендера */
+      font-family: "Roboto Serif", serif;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      min-height: 100vh; /* лучше min-height */
+      min-height: 100vh;
       background: #2C5C50;
       text-align: center;
     }
@@ -37,72 +36,122 @@
     }
 
     .button-container {
-      display: flex; /* Включаем Flexbox */
-      gap: 20px; /* Расстояние между кнопками */
+      display: flex;
+      gap: 20px;
       align-items: center;
       justify-content: center;
       flex-wrap: wrap;
     }
 
-    /* --- Внешняя оболочка (фон и паддинги остаются постоянными) --- */
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 25px 40px;               /* фиксированные отступы — не будут масштабироваться */
+      padding: 25px 40px;
       margin: 10px;
       cursor: pointer;
       border: none;
       border-radius: 15px;
-      background-color: #FFFEA5;       /* фон НЕ будет масштабироваться */
+      background-color: #FFFEA5;
       color: #2C5C50;
       text-decoration: none;
-      /* сохраняем кликабельную область */
       position: relative;
       overflow: visible;
     }
 
-    /* --- Внутренний элемент: именно он масштабируется --- */
     .button__inner {
-      display: inline-block;           /* нужно, чтобы transform работал по содержимому */
-      transform-origin: center center; /* масштабируем к центру */
+      display: inline-block;
+      transform-origin: center center;
       transform: scale(var(--btn-scale));
-      transition: transform 160ms linear; /* плавность при изменении размеров окна (необязательно) */
-      white-space: nowrap;              /* чтобы текст не переносился при масштабировании */
+      transition: transform 160ms linear;
+      white-space: nowrap;
       font-family: "Roboto Serif", serif;
       font-weight: 400;
-      font-size: 20px;                  /* базовый размер текста — будет масштабироваться */
+      font-size: 20px;
       line-height: 1;
     }
 
-    /* hover (чтобы при наведении не ломалось) */
     .button:hover .button__inner {
-      /* небольшой эффект — опционально */
       transform: scale(calc(var(--btn-scale) * 1.02));
     }
 
-    /* --- Для очень маленьких экранов можно уменьшить масштаб сильнее --- */
     @media (max-width: 380px) {
-      :root { --btn-scale: clamp(0.78, 4.2vw, 0.95); } /* пример более агрессивного уменьшения */
-      .button { padding: 20px 32px; } /* можно чуть уменьшить padding на очень маленьких экранах */
+      :root { --btn-scale: clamp(0.78, 4.2vw, 0.95); }
+      .button { padding: 20px 32px; }
       h1 { font-size: 1.2rem; margin-bottom: 30px; }
     }
 
-    /* --- Если хочешь, чтобы кнопки располагались вертикально на узких экранах --- */
     @media (max-width: 600px) {
       .button-container { flex-direction: column; gap: 12px; }
     }
   </style>
 </head>
 <body>
-  <h1>Кем вы являетесь?</h1>
+
+  <!-- Добавили ID для перевода -->
+  <h1 id="title">Кем вы являетесь?</h1>
+
   <div class="button-container">
-    <a href="/russian/consumer_ru/main_page_ru/consumer_ru.html" class="button">
+    <a id="buyer-btn" class="button" href="#">
       <span class="button__inner">Я покупатель</span>
     </a>
-    <a href="/russian/specialist_ru/main_page_ru/specialist_ru.html" class="button">
+
+    <a id="specialist-btn" class="button" href="#">
       <span class="button__inner">Я специалист</span>
     </a>
   </div>
+
+  <script>
+    const userLang = navigator.language || navigator.userLanguage;
+    const lang = userLang.substring(0, 2);
+
+    const title = document.getElementById("title");
+    const buyerBtn = document.getElementById("buyer-btn");
+    const specialistBtn = document.getElementById("specialist-btn");
+
+    const translations = {
+      ru: {
+        title: "Кем вы являетесь?",
+        buyer: "Я покупатель",
+        specialist: "Я специалист"
+      },
+      de: {
+        title: "Wer sind Sie?",
+        buyer: "Ich bin Käufer",
+        specialist: "Ich bin Spezialist"
+      },
+      en: {
+        title: "Who are you?",
+        buyer: "I am a customer",
+        specialist: "I am a specialist"
+      }
+    };
+
+    const routes = {
+      ru: {
+        buyer: "/russian/consumer_ru/main_page_ru/consumer_ru.html",
+        specialist: "/russian/specialist_ru/main_page_ru/specialist_ru.html"
+      },
+      de: {
+        buyer: "/german/consumer_de/main_page_de/consumer_de.html",
+        specialist: "/german/specialist_de/main_page_de/specialist_de.html"
+      },
+      en: {
+        buyer: "/english/consumer_en/main_page_en/consumer_en.html",
+        specialist: "/english/specialist_en/main_page_en/specialist_en.html"
+      }
+    };
+
+    const currentText = translations[lang] || translations["ru"];
+    const currentRoutes = routes[lang] || routes["ru"];
+
+    title.textContent = currentText.title;
+    buyerBtn.querySelector(".button__inner").textContent = currentText.buyer;
+    specialistBtn.querySelector(".button__inner").textContent = currentText.specialist;
+
+    buyerBtn.href = currentRoutes.buyer;
+    specialistBtn.href = currentRoutes.specialist;
+  </script>
+
 </body>
 </html>
