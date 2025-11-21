@@ -136,16 +136,33 @@ main {
 .btn-lang {
   width: calc(var(--header-height) * 0.6);
   height: calc(var(--header-height) * 0.6);
-  background-image: url('/images/russia.png');
   background-size: cover;
   background-color: transparent;
   border: none;
   cursor: pointer;
 }
 
+.btn-lang.lang-ru {
+  background-image: url('/images/russia.png');
+}
+
+.btn-lang.lang-de {
+  background-image: url('/images/germany.png');
+}
+
+.btn-lang.lang-en {
+  background-image: url('/images/united-kingdom.png');
+}
+
+
 .btn-lang:hover,
 .btn-lang:focus {
   opacity: 60%;
+}
+
+.language {
+  position: relative;
+  display: inline-block;
 }
 
 .language-content {
@@ -174,6 +191,11 @@ main {
   width: 60px;
   height: 60px;
 }
+
+.language-content.show {
+  display: block;
+}
+
 
 
 
