@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Шрифты-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kurale&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Island+Moments&display=swap" rel="stylesheet">
+
+    <title>Podobravo</title>
+
+    <!--Стили-->
+    <link rel="stylesheet" href="/main_page.css" />
+    <link rel="stylesheet" href="/all_categories.css" />
+    <link rel="stylesheet" href="/shopping_cart.css" />
+</head>
+
+<body>
+    <div id="main">
+
+
+        <!--Header-->
+        <header class="header">
+            <div class="container">
+
+                <div class="header-left">
+                    <a href="#">Podobravo</a>
+                </div>
+
+                <div class="icons-language">
+                    <div class="header-icons">
+                        <a href="#"><img src="/images/account.png" alt="Профиль" class="icon"></a>
+                        <a href="#" class="cart-icon">
+                            <img src="/images/cart.png" alt="Корзина" class="icon">
+                            <span class="cart-count">0</span>
+                        </a>
+                    </div>
+
+                    <div class="divider"></div> <!-- вертикальная линия -->
+
+                    <div class="language">
+                        <button onclick="languageFunction()" class="btn-lang lang-de"></button>
+                        <div id="languageDropdown" class="language-content">
+                            <a href="/russian/specialist_ru/main_page_ru/specialist_ru.html"><img
+                                    src="/images/russia.png" alt="russian"></a>
+                            <a href="#"><img src="/images/america.png" alt="english"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <!--Search Form-->
+        <section class="search-section">
+            <form class="search-form" action="#" method="GET">
+                <button type="submit" class="search-btn">
+                    <img class="submit-img" src="/images/search.png">
+                </button>
+                <input type="text" class="search-input" placeholder="Suchen..." name="search">
+            </form>
+        </section>
+
+        <div class="layout">
+
+            <!--Sidebar-->
+            <aside class="sidebar">
+                <nav class="side-nav">
+                    <ul>
+                        <li class="side-list"><a href="#">Fuß Kosmetik<span class="arrow">›</span></a></li>
+                        <li class="side-list"><a href="/german/specialist_de/instruments_de/instruments_de.html"
+                                class="active">Instrumente<span class="arrow">›</span></a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!--Products-->
+            <main class="products">
+
+                <!--Filter and Sorting-->
+                <div class="dropdown">
+                    <div class="drop-filter">
+                        <button onclick="filterFunction()" class="btn-filter">
+                            <img src="/images/filter.png" alt="Filter">
+                            <p>Filter</p>
+                        </button>
+                        <div id="filterDropdown" class="content-filter">
+                            <a href="#about">Süda</a>
+                            <a href="#base">Akilein</a>
+                            <a href="#blog">Arkada</a>
+                        </div>
+                    </div>
+
+                    <div class="drop-sort">
+                        <button onclick="sortFunction()" class="btn-sort">
+                            <img src="/images/sort.png">
+                            <p>Sortierung</p>
+                        </button>
+                        <div id="sortDropdown" class="content-sort">
+                            <a href="#about">About</a>
+                            <a href="#base">Base</a>
+                            <a href="#blog">Blog</a>
+                            <a href="#contact">Contact</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-grid">
+                    <div class="card" data-product-id="TR106C">
+                        <div class="card-container">
+                            <a href="#">
+                                <div class="product-img">
+                                    <img src="/images/TR106C/TR106C_1.jpg" alt="Товар">
+                                </div>
+                                <div class="after-img">
+                                    <div class="product-desc">
+                                        <div class="product-title">Nagelhautzange aus Edelstahl 10 cm - 7 mm</div>
+                                        <div class="product-price"><span class="price-value">21,50</span><span>€</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="add-button">
+                                <button class="add-to-cart" type="button">In den Warenkorb</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card" data-product-id="TR111L">
+                        <div class="card-container">
+                            <a href="/russian/specialist_ru/instruments_ru/instruments_products/TR/TR111L.html">
+                                <div class="product-img">
+                                    <img src="/images/TR111L/TR111L_1.jpg" alt="Товар">
+                                </div>
+                                <div class="after-img">
+                                    <div class="product-desc">
+                                        <div class="product-title">Zangen 14 cm- Halbmondförmige Schneide
+                                        </div>
+                                        <div class="product-price"><span class="price-value">31,00</span><span>€</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="add-button">
+                                <button class="add-to-cart" type="button">In den Warenkorb</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" data-product-id="TR127R">
+                        <div class="card-container">
+                            <a href="/russian/specialist_ru/instruments_ru/instruments_products/TR/TR127R.html">
+                                <div class="product-img">
+                                    <img src="/images/TR127R/TR217R_1.jpg" alt="Товар">
+                                </div>
+                                <div class="after-img">
+                                    <div class="product-desc">
+                                        <div class="product-title">Ergonomischer zangen-gerade Schneide 17 mm</div>
+                                        <div class="product-price"><span class="price-value">51,00</span><span>€</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="add-button">
+                                <button class="add-to-cart" type="button">In den Warenkorb</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" data-product-id="RS1">
+                        <div class="card-container">
+                            <a href="/russian/specialist_ru/instruments_ru/instruments_products/RS1.html">
+                                <div class="product-img">
+                                    <img src="/images/RS1/RS1_1.jpg" alt="Товар">
+                                </div>
+                                <div class="after-img">
+                                    <div class="product-desc">
+                                        <div class="product-title">Excavator doppelendig aus Edelstahl</div>
+                                        <div class="product-price"><span class="price-value">7,00</span><span>€</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="add-button">
+                                <button class="add-to-cart" type="button">In den Warenkorb</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" data-product-id="PZ103F">
+                        <div class="card-container">
+                            <a href="/russian/specialist_ru/instruments_ru/instruments_products/PZ103F.html">
+                                <div class="product-img">
+                                    <img src="/images/PZ103F/PZ103F_1.jpg" alt="Товар">
+                                </div>
+                                <div class="after-img">
+                                    <div class="product-desc">
+                                        <div class="product-title">Edelstahl Pinzette - Feine Spitze</div>
+                                        <div class="product-price"><span class="price-value">6,00</span><span>€</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="add-button">
+                                <button class="add-to-cart" type="button">In den Warenkorb</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card" data-product-id="1061111271103">
+                        <div class="card-container">
+                            <a href="/russian/specialist_ru/instruments_ru/instruments_products/podoset_basic.html">
+                                <div class="product-img">
+                                    <img src="/images/PODO-SET/PodoSet.jpg" alt="Товар">
+                                </div>
+                                <div class="after-img">
+                                    <div class="product-desc">
+                                        <div class="product-title">Podologen-Set Basic</div>
+                                        <div class="product-price"><span class="price-value">116,50</span><span>€</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="add-button">
+                                <button class="add-to-cart" type="button">In den Warenkorb</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card" data-product-id="MICRO-0">
+                        <div class="card-container">
+                            <a href="/russian/specialist_ru/instruments_ru/instruments_products/MICRO/micro-0.html">
+                                <div class="product-img">
+                                    <img src="/images/MICRO/MICRO-0_1.jpg" alt="Товар">
+                                </div>
+                                <div class="after-img">
+                                    <div class="product-desc">
+                                        <div class="product-title">Medizinische Mikroklingen n° 0 (st 50)</div>
+                                        <div class="product-price"><span class="price-value"> 16,00
+                                            </span><span>€</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="add-button">
+                                <button class="add-to-cart" type="button">In den Warenkorb</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card" data-product-id="MICRO-05">
+                        <div class="card-container">
+                            <a href="/russian/specialist_ru/instruments_ru/instruments_products/MICRO/micro-0,5.html">
+                                <div class="product-img">
+                                    <img src="/images/MICRO/MICRO-05_1.jpg" alt="Товар">
+                                </div>
+                                <div class="after-img">
+                                    <div class="product-desc">
+                                        <div class="product-title">Medizinische Mikroklingen n° 0,5 (st 50)</div>
+                                        <div class="product-price"><span class="price-value"> 16,00
+                                            </span><span>€</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="add-button">
+                                <button class="add-to-cart" type="button">In den Warenkorb</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card" data-product-id="MICRO-1">
+                        <div class="card-container">
+                            <a href="/russian/specialist_ru/instruments_ru/instruments_products/MICRO/micro-1.html">
+                                <div class="product-img">
+                                    <img src="/images/MICRO/MICRO-1_1.jpg" alt="Товар">
+                                </div>
+                                <div class="after-img">
+                                    <div class="product-desc">
+                                        <div class="product-title">Medizinische Mikroklingen n° 1 (st 50) </div>
+                                        <div class="product-price"><span class="price-value"> 16,00
+                                            </span><span>€</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="add-button">
+                                <button class="add-to-cart" type="button">In den Warenkorb</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card" data-product-id="MICRO-2">
+                        <div class="card-container">
+                            <a href="/russian/specialist_ru/instruments_ru/instruments_products/MICRO/micro-2.html">
+                                <div class="product-img">
+                                    <img src="/images/MICRO/MICRO-2_1.jpg" alt="Товар">
+                                </div>
+                                <div class="after-img">
+                                    <div class="product-desc">
+                                        <div class="product-title">Medizinische Mikroklingen n° 2 (st 50) </div>
+                                        <div class="product-price"><span class="price-value"> 16,00
+                                            </span><span>€</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="add-button">
+                                <button class="add-to-cart" type="button">In den Warenkorb</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card" data-product-id="MICRO-25">
+                        <div class="card-container">
+                            <a href="/russian/specialist_ru/instruments_ru/instruments_products/MICRO/micro-2,5.html">
+                                <div class="product-img">
+                                    <img src="/images/MICRO/MICRO-25_1.jpg" alt="Товар">
+                                </div>
+                                <div class="after-img">
+                                    <div class="product-desc">
+                                        <div class="product-title">Medizinische Mikroklingen n° 2,5 (st 50) </div>
+                                        <div class="product-price"><span class="price-value"> 16,00
+                                            </span><span>€</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="add-button">
+                                <button class="add-to-cart" type="button">In den Warenkorb</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card" data-product-id="MICRO-3">
+                        <div class="card-container">
+                            <a href="/russian/specialist_ru/instruments_ru/instruments_products/MICRO/micro-3.html">
+                                <div class="product-img">
+                                    <img src="/images/MICRO/MICRO-3_1.jpg" alt="Товар">
+                                </div>
+                                <div class="after-img">
+                                    <div class="product-desc">
+                                        <div class="product-title">Medizinische Mikroklingen n° 3 (st 50)</div>
+                                        <div class="product-price"><span class="price-value"> 16,00
+                                            </span><span>€</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="add-button">
+                                <button class="add-to-cart" type="button">In den Warenkorb</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card" data-product-id="MICRO-5">
+                        <div class="card-container">
+                            <a href="/russian/specialist_ru/instruments_ru/instruments_products/MICRO/micro-5.html">
+                                <div class="product-img">
+                                    <img src="/images/MICRO/MICRO-5_1.jpg" alt="Товар">
+                                </div>
+                                <div class="after-img">
+                                    <div class="product-desc">
+                                        <div class="product-title">Medizinische Mikroklingen n° 5 (st 25) </div>
+                                        <div class="product-price"><span class="price-value"> 12,00
+                                            </span><span>€</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="add-button">
+                                <button class="add-to-cart" type="button">In den Warenkorb</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card" data-product-id="KITSAB">
+                        <div class="card-container">
+                            <a href="/russian/specialist_ru/instruments_ru/instruments_products/KIT/KITSAB.html">
+                                <div class="product-img">
+                                    <img src="/images/KIT/KITSAB_1.jpg" alt="Товар">
+                                </div>
+                                <div class="after-img">
+                                    <div class="product-desc">
+                                        <div class="product-title">Griff-kit -ästhetische klingen 0-1 MT1 </div>
+                                        <div class="product-price"><span class="price-value"> 44,00
+                                            </span><span>€</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="add-button">
+                                <button class="add-to-cart" type="button">In den Warenkorb</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card" data-product-id="KITMAB">
+                        <div class="card-container">
+                            <a href="/russian/specialist_ru/instruments_ru/instruments_products/KIT/KITMAB.html">
+                                <div class="product-img">
+                                    <img src="/images/KIT/KITMAB_1.jpg" alt="Товар">
+                                </div>
+                                <div class="after-img">
+                                    <div class="product-desc">
+                                        <div class="product-title">Griff-kit -ästhetische klingen 2-3 MT2 </div>
+                                        <div class="product-price"><span class="price-value"> 44,00
+                                            </span><span>€</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="add-button">
+                                <button class="add-to-cart" type="button">In den Warenkorb</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card" data-product-id="KITLAB">
+                        <div class="card-container">
+                            <a href="/russian/specialist_ru/instruments_ru/instruments_products/KIT/KITLAB.html">
+                                <div class="product-img">
+                                    <img src="/images/KIT/KITLAB_1.jpg" alt="Товар">
+                                </div>
+                                <div class="after-img">
+                                    <div class="product-desc">
+                                        <div class="product-title">Griff-kit -ästhetische mikroklingen 5+MT2</div>
+                                        <div class="product-price"><span class="price-value"> 44,00
+                                            </span><span>€</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="add-button">
+                                <button class="add-to-cart" type="button">In den Warenkorb</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card" data-product-id="KT101">
+                        <div class="card-container">
+                            <a href="/russian/specialist_ru/instruments_ru/instruments_products/KT/KT101.html">
+                                <div class="product-img">
+                                    <img src="/images/KT/KT101_1.jpg" alt="Товар">
+                                </div>
+                                <div class="after-img">
+                                    <div class="product-desc">
+                                        <div class="product-title">Griff-kit – mikroklingen Größe 0-0,5-1</div>
+                                        <div class="product-price"><span class="price-value"> 40,00
+                                            </span><span>€</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="add-button">
+                                <button class="add-to-cart" type="button">In den Warenkorb</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card" data-product-id="KT102">
+                        <div class="card-container">
+                            <a href="/russian/specialist_ru/instruments_ru/instruments_products/KT/KT102.html">
+                                <div class="product-img">
+                                    <img src="/images/KT/KT102_1.jpg" alt="Товар">
+                                </div>
+                                <div class="after-img">
+                                    <div class="product-desc">
+                                        <div class="product-title">Griff-kit – mikroklingen Größe 2-2,5-3</div>
+                                        <div class="product-price"><span class="price-value"> 40,00
+                                            </span><span>€</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="add-button">
+                                <button class="add-to-cart" type="button">In den Warenkorb</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card" data-product-id="KT103">
+                        <div class="card-container">
+                            <a href="/russian/specialist_ru/instruments_ru/instruments_products/KT/KT103.html">
+                                <div class="product-img">
+                                    <img src="/images/KT/KT103_1.jpg" alt="Товар">
+                                </div>
+                                <div class="after-img">
+                                    <div class="product-desc">
+                                        <div class="product-title">Griff-kit – mikroklingen Größe 4-5</div>
+                                        <div class="product-price"><span class="price-value"> 40,00
+                                            </span><span>€</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="add-button">
+                                <button class="add-to-cart" type="button">In den Warenkorb</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card" data-product-id="MA125A">
+                        <div class="card-container">
+                            <a href="/russian/specialist_ru/instruments_ru/instruments_products/MA/MA125A.html">
+                                <div class="product-img">
+                                    <img src="/images/MA/MA125A_1.jpg" alt="Товар">
+                                </div>
+                                <div class="after-img">
+                                    <div class="product-desc">
+                                        <div class="product-title">KIT Shark Handgriffe aus Aluminium 0-3 </div>
+                                        <div class="product-price"><span class="price-value"> 55,00
+                                            </span><span>€</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="add-button">
+                                <button class="add-to-cart" type="button">In den Warenkorb</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card" data-product-id="MA126I">
+                        <div class="card-container">
+                            <a href="/russian/specialist_ru/instruments_ru/instruments_products/MA/MA126I.html">
+                                <div class="product-img">
+                                    <img src="/images/MA/MA126I_1.jpg" alt="Товар">
+                                </div>
+                                <div class="after-img">
+                                    <div class="product-desc">
+                                        <div class="product-title">KIT-Shark Handgriffe Edelstahlköpfe 0-3</div>
+                                        <div class="product-price"><span class="price-value"> 98,00
+                                            </span><span>€</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="add-button">
+                                <button class="add-to-cart" type="button">In den Warenkorb</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card" data-product-id="MA107I">
+                        <div class="card-container">
+                            <a href="/russian/specialist_ru/instruments_ru/instruments_products/MA/MA107I.html">
+                                <div class="product-img">
+                                    <img src="/images/MA/MA107I_1.jpg" alt="Товар">
+                                </div>
+                                <div class="after-img">
+                                    <div class="product-desc">
+                                        <div class="product-title">Edelstahlgriff Mikroklingen Größe 4-5</div>
+                                        <div class="product-price"><span class="price-value"> 70,00
+                                            </span><span>€</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="add-button">
+                                <button class="add-to-cart" type="button">In den Warenkorb</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card" data-product-id="MIX0-05-1">
+                        <div class="card-container">
+                            <a href="/russian/specialist_ru/instruments_ru/instruments_products/MIX/MIX0-05-1.html">
+                                <div class="product-img">
+                                    <img src="/images/MIX/MIX0-05-1_1.jpg" alt="Товар">
+                                </div>
+                                <div class="after-img">
+                                    <div class="product-desc">
+                                        <div class="product-title">Ästhetische Mischklingen 0-0,5-1 (st 23)</div>
+                                        <div class="product-price"><span class="price-value"> 7,50 </span><span>€</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="add-button">
+                                <button class="add-to-cart" type="button">In den Warenkorb</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card" data-product-id="MIX2-25-3">
+                        <div class="card-container">
+                            <a href="/russian/specialist_ru/instruments_ru/instruments_products/MIX/MIX2-25-3.html">
+                                <div class="product-img">
+                                    <img src="/images/MIX/MIX2-25-3_1.jpg" alt="Товар">
+                                </div>
+                                <div class="after-img">
+                                    <div class="product-desc">
+                                        <div class="product-title">Ästhetische Mischklingen 2-2,5-3 (st 24) </div>
+                                        <div class="product-price"><span class="price-value"> 7,50 </span><span>€</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="add-button">
+                                <button class="add-to-cart" type="button">In den Warenkorb</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card" data-product-id="MIX4-5">
+                        <div class="card-container">
+                            <a href="/russian/specialist_ru/instruments_ru/instruments_products/MIX/MIX4-5.html">
+                                <div class="product-img">
+                                    <img src="/images/MIX/MIX4-5_1.jpg" alt="Товар">
+                                </div>
+                                <div class="after-img">
+                                    <div class="product-desc">
+                                        <div class="product-title">Ästhetische Mischklingen 4-5 (st 15) </div>
+                                        <div class="product-price"><span class="price-value"> 7,50 </span><span>€</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="add-button">
+                                <button class="add-to-cart" type="button">In den Warenkorb</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card" data-product-id="MT1">
+                        <div class="card-container">
+                            <a href="/russian/specialist_ru/instruments_ru/instruments_products/MT/MT1.html">
+                                <div class="product-img">
+                                    <img src="/images/MT/MT1_1.jpg" alt="Товар">
+                                </div>
+                                <div class="after-img">
+                                    <div class="product-desc">
+                                        <div class="product-title">Montagewerkzeug für Klingen Größen 0-2</div>
+                                        <div class="product-price"><span class="price-value"> 3,00 </span><span>€</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="add-button">
+                                <button class="add-to-cart" type="button">In den Warenkorb</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card" data-product-id="MT2">
+                        <div class="card-container">
+                            <a href="/russian/specialist_ru/instruments_ru/instruments_products/MT/MT2.html">
+                                <div class="product-img">
+                                    <img src="/images/MT/MT2_1.jpg" alt="Товар">
+                                </div>
+                                <div class="after-img">
+                                    <div class="product-desc">
+                                        <div class="product-title">Montagewerkzeug für Klingen Größen 3-5</div>
+                                        <div class="product-price"><span class="price-value"> 3,00 </span><span>€</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="add-button">
+                                <button class="add-to-cart" type="button">In den Warenkorb</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+
+
+        <!--Footer-->
+        <footer class="footer">
+            <div class="footer-container">
+
+                <div class="icons-social">
+                    <div class="footer-left">
+                        <a href="#"><img src="/images/instagram_green.png" alt="instagram"></a>
+                        <a href="#"><img src="/images/gmail.png" alt="gmail"></a>
+                        <a href="#"><img src="/images/telegram.png" alt="telegram"></a>
+                    </div>
+                    <div class="footer-right">+4901234352543</div>
+                </div>
+
+
+                <div class="footer-bottom">
+                    <a href="#">Impressum</a>
+                    <a href="#">AGB</a>
+                    <a href="#">Datenshutz</a>
+                </div>
+
+            </div>
+        </footer>
+    </div>
+
+    <!--Shoping cart-->
+    <div id="shoppingCart" class="shopping-cart">
+        <div class="cart-container">
+
+
+            <div class="upper-pannel">
+                <div class="total-price">
+                    Итого:<span class="amount-count">0</span>
+                </div>
+
+                <div class="items-counter">
+                    <span>0</span>
+                </div>
+
+            </div>
+
+            <div class="empty">
+                <svg viewBox="0 0 200 200" width="200" height="200">
+                    <defs>
+                        <!-- Верхняя дуга -->
+                        <path id="topArc" d="M 100,100 m -60,0 a 60,60 0 1,1 120,0" />
+                        <!-- Нижняя дуга (уменьшенный радиус 60, в обратную сторону) -->
+                        <path id="bottomArc" d="M 100,100 m -60,0 a 60,60 0 0,0 120,0" />
+                    </defs>
+
+                    <circle cx="100" cy="100" r="80" fill="none" stroke="#2C5C50" stroke-width="5" />
+
+                    <text font-size="20" fill="#2C5C50" font-family="Roboto Serif" text-anchor="middle"
+                        letter-spacing="2">
+                        <textPath href="#topArc" startOffset="50%" dominant-baseline="middle">
+                            Корзина
+                        </textPath>
+                    </text>
+
+                    <text font-size="20" fill="#2C5C50" font-family="Roboto Serif" text-anchor="middle"
+                        letter-spacing="2">
+                        <textPath href="#bottomArc" startOffset="50%" dominant-baseline="middle">
+                            Пустая
+                        </textPath>
+                    </text>
+                </svg>
+            </div>
+
+
+
+            <div class="cart-footer">
+                <a href="/main_cart.html" class="go-to-cart-btn">Перейти In den Warenkorb</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Overlay (темный фон при открытой корзине) -->
+    <div id="cartOverlay" class="cart-overlay" aria-hidden="true"></div>
+
+
+    <!-- Snackbar -->
+    <div id="snackbar">Товар добавлен In den Warenkorb</div>
+    <div id="prove_product">Товар уже в корзине</div>
+
+
+    <!-- Scripts -->
+    <script src="/scripts/main_page.js"></script>
+    <script src="/scripts/all_small_functions.js"></script>
+    <script src="/scripts/shopping_cart.js"></script>
+</body>
+
+</html>
