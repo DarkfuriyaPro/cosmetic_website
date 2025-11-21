@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Шрифты-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kurale&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Island+Moments&display=swap" rel="stylesheet">
+
+    <title>Podobravo</title>
+
+    <!--Стили-->
+    <link rel="stylesheet" href="/main_page.css" />
+    <link rel="stylesheet" href="/one_product.css" />
+    <link rel="stylesheet" href="/all_categories.css" />
+    <link rel="stylesheet" href="/shopping_cart.css" />
+</head>
+
+<body>
+    <div id="main">
+
+        <!--Header-->
+        <header class="header">
+            <div class="container">
+
+                <div class="header-left">
+                    <a href="/russian/specialist_ru/main_page_ru/specialist_ru.html">Podobravo</a>
+                </div>
+
+                <div class="icons-language">
+                    <div class="header-icons">
+                        <a href="#"><img src="/images/account.png" alt="Профиль" class="icon"></a>
+                        <a href="#"><img src="/images/like.png" alt="Лайк" class="icon"></a>
+                        <a href="#" class="cart-icon">
+                            <img src="/images/cart.png" alt="Корзина" class="icon">
+                            <span class="cart-count">0</span>
+                        </a>
+                    </div>
+
+                    <div class="divider"></div> <!-- вертикальная линия -->
+
+                    <div class="language">
+                        <button onclick="languageFunction()" class="btn-lang"></button>
+                        <div id="languageDropdown" class="language-content">
+                            <a href="#"><img src="/images/germany.png" alt="russia"></a>
+                            <a href="#"><img src="/images/america.png" alt="russia"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!--Search Form-->
+        <section class="search-section">
+            <form class="search-form" action="#" method="GET">
+                <button type="submit" class="search-btn">
+                    <img class="submit-img" src="/images/search.png">
+                </button>
+                <input type="text" class="search-input" placeholder="Поиск..." name="search">
+            </form>
+        </section>
+
+
+        <!--One Product-->
+        <div class="layout">
+
+            <!--Sidebar-->
+            <aside class="sidebar">
+                <nav class="side-nav">
+                    <ul>
+                        <li class="side-list"><a href="#">Уходовая косметика для
+                                лица<span class="arrow">›</span></a></li>
+                        <li class="side-list"><a href="#">Расходные материалы<span class="arrow">›</span></a></li>
+                        <li class="side-list"><a href="#">Ортониксия<span class="arrow">›</span></a></li>
+                        <li class="side-list"><a href="#">Аппараты для педикюра<span class="arrow">›</span></a></li>
+                        <li class="side-list"><a href="#">Подарочные наборы<span class="arrow">›</span></a></li>
+                        <li class="side-list"><a href="/russian/specialist_ru/instruments_ru/instruments.html"
+                                class="active">Инструменты<span class="arrow">›</span></a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <main class="product-block">
+
+
+                <div class="foot-product" data-product-id="C1208">
+
+                    <div class="product-slider">
+                        <div class="product-slides">
+                            <img src="/images/C/C1108_1.jpg" alt="Товар 1" class="active">
+                        </div>
+                        <div class="product-controls" aria-hidden="false">
+                            <button class="product-prev" aria-label="Предыдущий слайд">&larr;</button>
+                            <button class="product-next" aria-label="Следующий слайд">&rarr;</button>
+                        </div>
+
+                        <div class="product-indicators" role="tablist" aria-label="Навигация по слайдам"></div>
+                    </div>
+
+
+
+                    <div class="product-desc-right">
+                        <div class="foot-product-desc">
+                            <div class="foot-product-desc-title">Лосьон для чувствительной кожи Медекс Lotion Fragilis - 250 мл
+                            </div>
+                            <div class="foot-product-desc-price">  44,10€</div>
+                        </div>
+
+                        <div class="in-stock">В наличии, доставка 500 дней</div>
+
+                        <div class="buy-product">
+                            <div class="amount">
+                                <button class="down">-</button>
+                                <span class="number">1</span>
+                                <button class="up">+</button>
+                            </div>
+
+                            <div class="product-add-button">
+                                <button class="add-product">В корзину</button>
+                            </div>
+                        </div>
+
+                        <div class="collapsible-description">
+                            <button type="button" class="collapsible">Описание товара</button>
+                            <div class="content">
+                                <p>
+C 1208
+Нежный очищающий лосьон
+С геранью и другими активными компонентами [1].
+Тип кожи
+Подходит для всех типов кожи. Также подходит для чувствительной, обезвоженной и сухой кожи.
+Упаковка
+Флакон 250 мл
+Инструкция по применению:
+Рекомендуется использовать «Lotion Fragilis Special» на завершающем этапе ухода для восстановления pH-баланса кожи. Регулярное применение вместе с другими средствами, такими как «Lait Elure Special», даст отличные результаты даже на проблемной коже.
+Характеристики:
+[1] Этот лосьон с геранью подходит для всех типов кожи, включая чувствительную. Он содержит несколько увлажняющих компонентов, которые помогают восстановить защитный барьер кожи. Поэтому лосьон Fragilis также идеально подходит для проблемной кожи.
+Активные ингредиенты
+Герань
+Герань (Pelargonium Graveolens / Odorantissimum) обладает прекрасным ароматом, оказывает противогрибковое, антибактериальное и спазмолитическое (расслабляющее) действие.
+Глицерин (натурального происхождения)
+Растительный глицерин — это маленькая молекула, которая притягивает и удерживает воду. Эти свойства делают его важным компонентом натуральных увлажняющих факторов, отвечающих за поддержание естественного баланса влаги кожи.
+В конце XVIII века, задолго до появления нефтехимической промышленности, немец Карл Вильгельм Шееле впервые получил глицерин путем омыления оливкового масла. Хотя с тех пор процесс изменился, способ получения растительного глицерина из натуральных масел остался практически прежним. Совершенствовались только требования к чистоте в соответствии с современными фармацевтическими стандартами. Это означает, что Medex использует чистый растительный глицерин.
+Молочная кислота
+Это альфа-гидроксикислота, содержащаяся в различных фруктах (например, помидорах) и молочных продуктах (например, йогурте). L-молочная кислота — это природный стереоизомер, который также присутствует в организме человека. В высоких концентрациях оказывает отшелушивающее действие, стимулирует образование новых клеток эпидермиса. По сравнению с другими альфа-гидроксикислотами L-молочная кислота показывает лучшие результаты в лечении гиперпигментации кожи (например, гликолевая кислота гораздо менее эффективна). Производные L-молочной кислоты — одни из немногих природных веществ, способных нейтрализовать выработку фермента тирозиназы при высоких концентрациях. Тирозиназа стимулирует пигментацию кожи, поэтому её деактивация останавливает первый этап образования пигмента. Кроме того, L-молочная кислота отвечает за стереоселективный синтез церамидов в коже. Высокий уровень церамидов укрепляет липидный барьер, предотвращая обезвоживание кожи. Интересно, что стимуляция синтеза церамидов происходит только благодаря природному стереоизомеру L-молочной кислоты.
+Ниацинамид
+Способствует синтезу церамидов в коже, естественным образом укрепляя барьер кожи за счет формирования ламеллярных липидных слоев. Таким образом, он увлажняет кожу и улучшает её защитные функции. При дефиците витамина B3 кожа со временем приобретает нездоровый вид (состояние называется пеллагра).
+Лактат натрия
+Небольшая молекула, похожая на соль, которая связывает воду и удерживает её. Эти свойства делают его важным компонентом натурального увлажняющего фактора, отвечающего за естественный баланс влаги кожи.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+
+
+
+        <!--Footer-->
+        <footer class="footer">
+            <div class="footer-container">
+
+                <div class="icons-social">
+                    <div class="footer-left">
+                        <a href="#"><img src="/images/instagram_green.png" alt="instagram"></a>
+                        <a href="#"><img src="/images/gmail.png" alt="gmail"></a>
+                        <a href="#"><img src="/images/telegram.png" alt="telegram"></a>
+                    </div>
+                    <div class="footer-right">+4901234352543</div>
+                </div>
+
+
+                <div class="footer-bottom">
+                    <a href="#">Доставка</a>
+                    <a href="#">Контакты</a>
+                    <a href="#">Политика конфиденциальности</a>
+                </div>
+
+            </div>
+        </footer>
+    </div>
+
+
+
+    <!--Shoping cart-->
+    <div id="shoppingCart" class="shopping-cart">
+        <div class="cart-container">
+
+
+            <div class="upper-pannel">
+                <div class="total-price">
+                    Итого: <span class="amount-count">0</span>
+                </div>
+
+                <div class="items-counter">
+                    <span>0</span>
+                </div>
+
+            </div>
+
+            <div class="empty">
+                <svg viewBox="0 0 200 200" width="200" height="200">
+                    <defs>
+                        <!-- Верхняя дуга -->
+                        <path id="topArc" d="M 100,100 m -60,0 a 60,60 0 1,1 120,0" />
+                        <!-- Нижняя дуга (уменьшенный радиус 60, в обратную сторону) -->
+                        <path id="bottomArc" d="M 100,100 m -60,0 a 60,60 0 0,0 120,0" />
+                    </defs>
+
+                    <circle cx="100" cy="100" r="80" fill="none" stroke="#2C5C50" stroke-width="5" />
+
+                    <text font-size="20" fill="#2C5C50" font-family="Roboto Serif" text-anchor="middle"
+                        letter-spacing="2">
+                        <textPath href="#topArc" startOffset="50%" dominant-baseline="middle">
+                            Корзина
+                        </textPath>
+                    </text>
+
+                    <text font-size="20" fill="#2C5C50" font-family="Roboto Serif" text-anchor="middle"
+                        letter-spacing="2">
+                        <textPath href="#bottomArc" startOffset="50%" dominant-baseline="middle">
+                            Пустая
+                        </textPath>
+                    </text>
+                </svg>
+            </div>
+
+
+
+            <div class="cart-footer">
+                <a href="/russian/consumer_ru/main_cart.html" class="go-to-cart-btn">Перейти в корзину</a>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="/scripts/main_page.js"></script>
+    <script src="/scripts/all_small_functions.js"></script>
+    <script src="/scripts/shopping_cart.js"></script>
+    <script src="/scripts/one_product_slider.js" defer></script>
+    <script src="/scripts/one_product_amount.js"></script>
+
+    <!-- Popup "Товар уже в корзине" -->
+    <div id="prove_product" class="prove-popup">
+        Товар уже в корзине
+    </div>
+</body>
+
+</html>
