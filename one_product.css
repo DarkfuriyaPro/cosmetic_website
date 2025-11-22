@@ -77,12 +77,12 @@
   height: 10px;
   border-radius: 50%;
   border: none;
-  background: #2C5C50;
+  background: #ccc;
   cursor: pointer;
 }
 
 .product-indicators button.active {
-  background: #ccc;
+  background: #2C5C50;
 }
 
 

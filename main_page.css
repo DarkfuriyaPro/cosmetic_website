@@ -299,13 +299,13 @@ main {
   background-color: #FFFEA5;
   color: #2C5C50;
   font-family: "Roboto Serif", serif;
-  font-size: 19px;
+  font-size: 1.1875em; /* 19px / 16px = 1.1875em */
   text-decoration: none;
 
-  width: 70px;
-  height: 20px;
-  padding: 35px 35px;
-  border-radius: 10px;
+  width: 4.375em;   /* 70px / 16px */
+  height: 1.25em;   /* 20px / 16px */
+  padding: 1.8em 1.9em; /* 35px / 16px */
+  border-radius: 0.625em; /* 10px / 16px */
   flex-shrink: 0;
 
   overflow: hidden;
@@ -445,13 +445,13 @@ main {
   height: 10px;
   border-radius: 50%;
   border: 0;
-  background: #2C5C50;
+  background: white;
   padding: 0;
   cursor: pointer;
 }
 
 .indicators button[aria-pressed="true"] {
-  background: white;
+  background: #2C5C50;
   transform: scale(1.2);
 }
 
