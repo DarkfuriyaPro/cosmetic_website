@@ -71,12 +71,17 @@ main {
   /* Центрирование */
 }
 
-.header-left a {
-  font-family: "Island Moments", cursive;
-  text-decoration: none;
-  color: #2C5C50;
-  font-size: calc(var(--header-height) * 0.6);
-  line-height: 1;
+/* Лого в хедере */
+.logo-link {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.logo-img {
+  height: calc(var(--header-height) * 1.5); /* логотип автоматически подстраивается */
+  width: auto;
+  display: block;
 }
 
 /* Иконки и язык */
