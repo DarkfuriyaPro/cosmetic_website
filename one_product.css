@@ -64,11 +64,12 @@
 }
 
 .product-indicators {
+  position:absolute;
+  bottom: .6rem;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  justify-content: center;
-  gap: 6px;
-  margin-top: 10px;
-  margin-bottom: 1px;
+  gap: .5rem;
 }
 
 .product-indicators button {
