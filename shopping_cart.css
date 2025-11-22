@@ -202,6 +202,7 @@
 .cart-item-price {
   font-size: clamp(0.8rem, 1.5vw, 1rem);
   flex-shrink: 0;
+  font-weight: 500;
 }
 
 /* Количество */

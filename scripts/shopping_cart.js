@@ -61,7 +61,7 @@ function renderCart() {
           <div class="cart-item-title">${item.title || 'Без названия'}</div>
           <div class="price_quantity">
             <div class="cart-item-price">
-              <span class="price-value">${parseFloat(item.price).toFixed(2).replace('.', ',')}</span>
+              <span class="price-value">${parseFloat(item.price).toFixed(2).replace('.', ',')}</span><span>€</span>
             </div>
             <div class="cart-item-quantity">
               <button class="quantity-btn decrease">−</button>
