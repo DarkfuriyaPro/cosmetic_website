@@ -22,7 +22,7 @@
 ============================= */
 
 .sidebar {
-  width: 250px;
+  width: 220px;
   padding-right: 40px;
   height: auto;
   border-right: 4px solid #FFFEA5;
@@ -87,7 +87,7 @@
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
   margin-top: 50px;
 }
@@ -110,6 +110,7 @@
   box-sizing: border-box;
   /* равномерные отступы */
   width: 100%;
+  justify-content: space-between;
 }
 
 .card a {
@@ -135,11 +136,8 @@
 .after-img {
   flex: 1;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   margin-top: 10px;
   gap: 20px;
-  border: 1px solid red;
 }
 
 .product-desc {
@@ -164,6 +162,12 @@
   word-wrap: break-word;
   /* перенос длинных слов */
   margin-bottom: 10px;
+}
+
+.price-cart{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .product-price {
