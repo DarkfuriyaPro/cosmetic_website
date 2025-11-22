@@ -79,7 +79,8 @@ main {
 }
 
 .logo-img {
-  height: calc(var(--header-height) * 1.5); /* логотип автоматически подстраивается */
+  height: calc(var(--header-height) * 1.5);
+  /* логотип автоматически подстраивается */
   width: auto;
   display: block;
 }
@@ -273,19 +274,21 @@ main {
   max-width: 781px;
   margin: 0 auto;
   position: relative;
+  overflow: visible !important;
 }
 
 .category-grid {
   display: flex;
   flex-wrap: nowrap;
-  /* ❗ запрет на перенос строк */
-  overflow-x: auto;
-  /* ❗ включаем горизонтальный скролл */
-  scrollbar-width: none;
-  /* скрыть полосу в Firefox */
   gap: 20px;
   padding: 15px 0;
   border-bottom: 2px solid #FFFEA5;
+
+  overflow-x: auto;
+  /* прокрутка работает */
+  overflow-y: visible;
+  /* категории не обрезаются */
+  scrollbar-width: none;
 }
 
 .category-grid::-webkit-scrollbar {
@@ -320,6 +323,22 @@ main {
   transform: scale(1.1);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
+
+.category-grid::-webkit-scrollbar {
+  display: none;
+  /* скрыть полосу (Chrome/Safari) */
+}
+
+/* <-- КЛЮЧ! Центрируем, если категорий мало (меньше 2) --> */
+.category-grid:not(:has(.category-item:nth-child(5))) {
+  justify-content: center;
+}
+
+/* <-- Если категорий 3+ → выравнивание слева (чтобы работал скролл) --> */
+.category-grid:has(.category-item:nth-child(5)) {
+  justify-content: flex-start;
+}
+
 
 @media (max-width: 768px) {
   .category-grid a {
