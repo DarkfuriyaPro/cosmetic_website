@@ -154,7 +154,7 @@
 }
 
 .product-title {
-  font-size: clamp(0.6rem, 2vw, 1rem);
+  font-size: clamp(0.7rem, 4vw, 1rem);
   line-height: 1.2;
   max-width: 100%;
   white-space: normal;
@@ -172,7 +172,7 @@
 
 .product-price {
   margin-bottom: 6px;
-  font-size: clamp(0.6rem, 2vw, 1rem);
+  font-size: clamp(0.7rem, 4vw, 1rem);
   font-weight: 550;
 }
 

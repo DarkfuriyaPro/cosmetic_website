@@ -132,9 +132,38 @@
     margin-right: 0 !important;
   }
 
-  .cart-back-btn {
-    display: block; /* показываем только в мобилке */
+  /* Верхняя панель в мобильной версии */
+
+  .upper-pannel {
+    display: grid;
+    grid-template-columns: auto 1fr auto;  
+    /* 1 — total-price
+       2 — items-counter (теперь центр)
+       3 — cart-back-btn справа */
+    align-items: center;
+    column-gap: 10px;
+    position: relative;
   }
+
+  .items-counter {
+    justify-self: start; /* смещаем левее */
+  }
+
+  .cart-back-btn {
+    display: block;
+    position: static; /* убираем absolute */
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #2C5C50;
+    cursor: pointer;
+  }
+
+  /* Чтобы больше не перекрывал элементы */
+  .cart-back-btn {
+    z-index: auto;
+  }
+
 }
 
 

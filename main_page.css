@@ -299,13 +299,16 @@ main {
   background-color: #FFFEA5;
   color: #2C5C50;
   font-family: "Roboto Serif", serif;
-  font-size: 1.1875em; /* 19px / 16px = 1.1875em */
+  font-size: clamp(0.8em, 2.2vw, 1.1875em);
   text-decoration: none;
 
-  width: 4.375em;   /* 70px / 16px */
-  height: 1.25em;   /* 20px / 16px */
-  padding: 1.8em 1.9em; /* 35px / 16px */
-  border-radius: 0.625em; /* 10px / 16px */
+  width: clamp(3em, 10vw, 4.375em);
+  height: clamp(1em, 3vw, 1.25em);
+
+  padding: clamp(1em, 4vw, 1.8em) clamp(1em, 4.8vw, 1.8em);
+
+  border-radius: 0.625em;
+  /* 10px / 16px */
   flex-shrink: 0;
 
   overflow: hidden;
