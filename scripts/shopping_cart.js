@@ -277,6 +277,18 @@ function toggleCart() {
   }
 }
 
+document.addEventListener('click', function (e) {
+  const target = e.target;
+
+  // ← кнопка назад в корзине
+  if (target.closest('.cart-back-btn')) {
+    toggleCart();
+    return;
+  }
+
+  // ... остальной код ...
+});
+
 
 
 
