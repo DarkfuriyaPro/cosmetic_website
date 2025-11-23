@@ -2,19 +2,21 @@ document.addEventListener("DOMContentLoaded", function () {
   const mainCartBlock = document.querySelector(".block-cart-main");
   const mainEmpty = mainCartBlock.querySelector(".main-empty");
 
-  // Загружаем товары из localStorage
   const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 
   if (cartItems.length === 0) {
-    if (mainEmpty) mainEmpty.style.display = "flex"; // показать "корзина пустая"
+    if (mainEmpty) mainEmpty.style.display = "flex";
     return;
   }
 
-  if (mainEmpty) mainEmpty.style.display = "none"; // скрыть пустую корзину
+  if (mainEmpty) mainEmpty.style.display = "none";
 
   cartItems.forEach(item => {
+    const priceNum = parseFloat(String(item.price).replace(",", "."));
+
     const productEl = document.createElement("div");
     productEl.classList.add("main-cart-item");
+
     productEl.innerHTML = `
       <div class="main-content-row">
         <div class="main-cart-img">
@@ -23,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="main-cart-info">
           <div class="main-cart-title">${item.title}</div>
           <div class="main-price-quantity">
-            <div class="main-price">${item.price}</div>
+            <div class="main-price">${formatPrice(priceNum)}</div>
             <div class="main-quantity">
               <button class="decrease">−</button>
               <span class="main-count">${item.quantity}</span>
@@ -36,6 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <img src="/images/trash.png" alt="Удалить">
       </button>
     `;
+
     mainCartBlock.appendChild(productEl);
   });
 
@@ -44,27 +47,38 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// Обновление итоговой суммы
+// ------ УТИЛИТЫ ------
+
+// Готовое форматирование цены: 12,50€
+function formatPrice(value) {
+  if (!value) value = 0;
+  return value.toFixed(2).replace(".", ",") + "€";
+}
+
+
+// ------ ОБНОВЛЕНИЕ ИТОГА ------
+
 function updateMainCartSummary() {
   const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
   let total = 0;
 
   cartItems.forEach(item => {
-    let price = parseFloat(item.price.replace(/[^\d.,]/g, "").replace(",", "."));
-    let qty = parseInt(item.quantity);
-    total += price * qty;
+    let priceNumber = parseFloat(String(item.price).replace(",", "."));
+    total += priceNumber * item.quantity;
   });
 
   const totalBox = document.querySelector(".block-summary .total-box");
   if (totalBox) {
-    totalBox.innerHTML = `Итого: <span>${total.toFixed(2)} €</span>`;
+    totalBox.innerHTML = `
+      Итого: <span>${formatPrice(total)}</span>
+    `;
   }
 }
 
 
-// Обработчики для удаления и изменения количества
+// ------ ОБРАБОТЧИКИ ------
+
 function attachMainCartHandlers() {
-  // Удаление товара
   document.querySelectorAll(".main-delete").forEach(btn => {
     btn.addEventListener("click", function () {
       const itemEl = this.closest(".main-cart-item");
@@ -83,7 +97,6 @@ function attachMainCartHandlers() {
     });
   });
 
-  // Изменение количества
   document.querySelectorAll(".main-quantity button").forEach(btn => {
     btn.addEventListener("click", function () {
       const itemEl = this.closest(".main-cart-item");

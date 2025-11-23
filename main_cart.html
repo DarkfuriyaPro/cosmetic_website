@@ -36,13 +36,15 @@
             <div class="container">
 
                 <div class="header-left">
-                    <a href="/russian/specialist_ru/main_page_ru/specialist_ru.html">Podobravo</a>
+                    <a href="/russian/specialist_ru/main_page_ru/specialist_ru.html" class="logo-link">
+                        <img src="/images/header-logo.png" alt="Varava" class="logo-img">
+                    </a>
                 </div>
+
 
                 <div class="icons-language">
                     <div class="header-icons">
                         <a href="#"><img src="/images/account.png" alt="Профиль" class="icon"></a>
-                        <a href="#"><img src="/images/like.png" alt="Лайк" class="icon"></a>
                         <a href="#" class="openbtn cart-icon" onclick="toggleCart()">
                             <img src="/images/cart.png" alt="Корзина" class="icon">
                             <span class="cart-count">0</span>
@@ -52,9 +54,10 @@
                     <div class="divider"></div> <!-- вертикальная линия -->
 
                     <div class="language">
-                        <button onclick="languageFunction()" class="btn-lang"></button>
+                        <button onclick="languageFunction()" class="btn-lang lang-ru"></button>
                         <div id="languageDropdown" class="language-content">
-                            <a href="#"><img src="/images/germany.png" alt="russia"></a>
+                            <a href="#"><img
+                                    src="/images/germany.png" alt="russia"></a>
                             <a href="#"><img src="/images/america.png" alt="russia"></a>
                         </div>
                     </div>
@@ -149,7 +152,6 @@
             </div>
         </footer>
     </div>
-
     <!--Shoping cart-->
     <div id="shoppingCart" class="shopping-cart">
         <div class="cart-container">
@@ -157,7 +159,7 @@
 
             <div class="upper-pannel">
                 <div class="total-price">
-                    Итого: <span class="amount-count">0</span>
+                    Итого:<span class="amount-count">0</span>
                 </div>
 
                 <div class="items-counter">
@@ -193,8 +195,10 @@
                 </svg>
             </div>
 
+
+
             <div class="cart-footer">
-                <a href="#" class="go-to-cart-btn">Перейти в корзину</a>
+                <a href="/main_cart.html" class="go-to-cart-btn">Перейти в корзину</a>
             </div>
 
         </div>
@@ -208,11 +212,11 @@
 
 
     <!-- Scripts -->
-    <script src="/russian/scripts/main_page.js"></script>
-    <script src="/russian/scripts/all_small_functions.js"></script>
-    <script src="/russian/scripts/shopping_cart.js"></script>
-    <script src="/russian/scripts/main_page.js"></script>
-    <script src="/russian/scripts/main_cart.js"></script>
+    <script src="scripts/main_page.js"></script>
+    <script src="scripts/all_small_functions.js"></script>
+    <script src="scripts/shopping_cart.js"></script>
+    <script src="scripts/main_page.js"></script>
+    <script src="scripts/main_cart.js"></script>
 </body>
 
 </html>

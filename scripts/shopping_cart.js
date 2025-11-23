@@ -1,4 +1,3 @@
-// shopping_cart.js (полностью замените им ваш файл)
 
 // ======= УТИЛИТЫ =======
 function qs(selector, ctx = document) { return ctx.querySelector(selector); }
@@ -53,28 +52,29 @@ function renderCart() {
       if (item.id) cartItem.dataset.productId = String(item.id);
 
       cartItem.innerHTML = `
-      <div class="cart-item-left">
-        <div class="cart-item-img">
-          <img src="${item.img || ''}" alt="Товар">
+  <div class="cart-item-left">
+    <div class="cart-item-img">
+      <img src="${item.img || ''}" alt="Товар">
+    </div>
+    <div class="cart-item-info">
+      <div class="cart-item-title">${item.title || 'Без названия'}</div>
+      <div class="price_quantity">
+        <div class="cart-item-price">
+          <span class="price-value">${(item.price * item.quantity).toFixed(2).replace('.', ',')}</span><span>€</span>
         </div>
-        <div class="cart-item-info">
-          <div class="cart-item-title">${item.title || 'Без названия'}</div>
-          <div class="price_quantity">
-            <div class="cart-item-price">
-              <span class="price-value">${parseFloat(item.price).toFixed(2).replace('.', ',')}</span><span>€</span>
-            </div>
-            <div class="cart-item-quantity">
-              <button class="quantity-btn decrease">−</button>
-              <span class="quantity-number">${item.quantity}</span>
-              <button class="quantity-btn increase">+</button>
-            </div>
-          </div>
+        <div class="cart-item-quantity">
+          <button class="quantity-btn decrease">−</button>
+          <span class="quantity-number">${item.quantity}</span>
+          <button class="quantity-btn increase">+</button>
         </div>
       </div>
-      <button class="cart-item-remove">
-        <img src="/images/trash.png" alt="Удалить">
-      </button>
-      `;
+    </div>
+  </div>
+  <button class="cart-item-remove">
+    <img src="/images/trash.png" alt="Удалить">
+  </button>
+`;
+
 
       cartContainer.insertBefore(cartItem, footer);
     });
