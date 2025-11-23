@@ -171,59 +171,54 @@ Edelstahl Pinzette - Feine Spitze</p>
 
 
 
-    <!--Shoping cart-->
-    <div id="shoppingCart" class="shopping-cart">
-        <div class="cart-container">
-
-
-            <div class="upper-pannel">
-                <div class="total-price">
-                    Итого: <span class="amount-count">0</span>
-                </div>
-
-                <div class="items-counter">
-                    <span>0</span>
-                </div>
-
-            </div>
-
-            <div class="empty">
-                <svg viewBox="0 0 200 200" width="200" height="200">
-                    <defs>
-                        <!-- Верхняя дуга -->
-                        <path id="topArc" d="M 100,100 m -60,0 a 60,60 0 1,1 120,0" />
-                        <!-- Нижняя дуга (уменьшенный радиус 60, в обратную сторону) -->
-                        <path id="bottomArc" d="M 100,100 m -60,0 a 60,60 0 0,0 120,0" />
-                    </defs>
-
-                    <circle cx="100" cy="100" r="80" fill="none" stroke="#2C5C50" stroke-width="5" />
-
-                    <text font-size="20" fill="#2C5C50" font-family="Roboto Serif" text-anchor="middle"
-                        letter-spacing="2">
-                        <textPath href="#topArc" startOffset="50%" dominant-baseline="middle">
-                            Корзина
-                        </textPath>
-                    </text>
-
-                    <text font-size="20" fill="#2C5C50" font-family="Roboto Serif" text-anchor="middle"
-                        letter-spacing="2">
-                        <textPath href="#bottomArc" startOffset="50%" dominant-baseline="middle">
-                            Пустая
-                        </textPath>
-                    </text>
-                </svg>
-            </div>
-
-
-
-            <div class="cart-footer">
-                <a href="/russian/consumer_ru/main_cart.html" class="go-to-cart-btn">Перейти в корзину</a>
-            </div>
-
+<!--Shoping cart-->
+  <div id="shoppingCart" class="shopping-cart">
+    <div class="cart-container">
+      <div class="upper-pannel">
+        <div class="total-price">
+          Gesamt:<span class="amount-count">0</span>
         </div>
 
-    </div>
+        <div class="items-counter">
+          <span>0</span>
+        </div>
 
+        <button class="cart-back-btn">
+          ←
+        </button>
+      </div>
+
+      <div class="empty">
+        <svg viewBox="0 0 200 200" width="200" height="200">
+          <defs>
+            <!-- Верхняя дуга -->
+            <path id="topArc" d="M 100,100 m -60,0 a 60,60 0 1,1 120,0" />
+            <!-- Нижняя дуга (уменьшенный радиус 60, в обратную сторону) -->
+            <path id="bottomArc" d="M 100,100 m -60,0 a 60,60 0 0,0 120,0" />
+          </defs>
+
+          <circle cx="100" cy="100" r="80" fill="none" stroke="#2C5C50" stroke-width="5" />
+
+          <text font-size="20" fill="#2C5C50" font-family="Roboto Serif" text-anchor="middle" letter-spacing="2">
+            <textPath href="#topArc" startOffset="50%" dominant-baseline="middle">
+              Warenkorb
+            </textPath>
+          </text>
+
+          <text font-size="20" fill="#2C5C50" font-family="Roboto Serif" text-anchor="middle" letter-spacing="2">
+            <textPath href="#bottomArc" startOffset="50%" dominant-baseline="middle">
+              ist leer
+            </textPath>
+          </text>
+        </svg>
+      </div>
+
+      <div class="cart-footer">
+        <a href="/main_cart.html" class="go-to-cart-btn">Zum Warenkorb</a>
+      </div>
+
+    </div>
+  </div>
 
     <script src="/scripts/main_page.js"></script>
     <script src="/scripts/all_small_functions.js"></script>
