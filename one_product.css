@@ -150,7 +150,8 @@
 
 .in-stock {
   color: #828282;
-  margin-bottom: 50px;
+  margin-top: 70px;
+  margin-bottom: 8px;
   font-size: 13px;
 }
 
@@ -159,6 +160,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 18px;
 }
 
 /*Кнопка количества*/
@@ -244,9 +246,9 @@
 
 /*Выдвижное описание*/
 .collapsible-description {
-  margin-top: 40px;
   /* отодвигаем вниз, чтобы не налезала */
   border: 5px solid #2C5C50;
+  border-radius: 10px;
 }
 
 .collapsible {
@@ -257,7 +259,7 @@
   position: relative;
   color: black;
   cursor: pointer;
-  padding: 15px 0px;
+  padding: 15px 1px;
   width: 100%;
   border: none;
   text-align: left;
@@ -342,15 +344,16 @@
 
   .in-stock {
     text-align: left;
-    margin-bottom: 25px;
+    margin-top: 10px;
+    margin-bottom: 8px;
   }
 
   .buy-product {
     flex-direction: row;        /* оставляем горизонтально */
     align-items: center;        /* выравнивание по центру */
    justify-content: space-between;/* прижать к левому краю */
-    gap: 10px;                  /* меньше отступ между блоками */
     width: 100%;                /* адаптивная ширина */
+    margin-bottom: 10px;
   }
 
   .amount {
