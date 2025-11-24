@@ -99,9 +99,12 @@ function attachMainCartHandlers() {
 
   document.querySelectorAll(".main-quantity button").forEach(btn => {
     btn.addEventListener("click", function () {
+
       const itemEl = this.closest(".main-cart-item");
       const title = itemEl.querySelector(".main-cart-title").innerText.trim();
       const numberEl = itemEl.querySelector(".main-count");
+      const priceEl = itemEl.querySelector(".main-price");
+
       let qty = parseInt(numberEl.innerText);
 
       if (this.classList.contains("increase")) qty++;
@@ -110,13 +113,23 @@ function attachMainCartHandlers() {
       numberEl.innerText = qty;
 
       let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
       cartItems = cartItems.map(i => {
-        if (i.title === title) i.quantity = qty;
+        if (i.title === title) {
+          i.quantity = qty;
+
+          // 🔥 ПЕРЕСЧЁТ ЦЕНЫ И ОБНОВЛЕНИЕ НА СТРАНИЦЕ
+          const priceNum = parseFloat(String(i.price).replace(",", "."));
+          const newTotal = priceNum * qty;
+          priceEl.innerText = formatPrice(newTotal);
+        }
         return i;
       });
+
       localStorage.setItem("cart", JSON.stringify(cartItems));
 
       updateMainCartSummary();
     });
-  });
+});
+
 }
