@@ -830,6 +830,10 @@ main {
     --search-form-height: 45px;
   }
 
+  .container{
+    padding-right: 10px;
+  }
+
   .header {
     height: var(--header-height);
   }

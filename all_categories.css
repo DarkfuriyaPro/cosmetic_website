@@ -164,7 +164,7 @@
   margin-bottom: 10px;
 }
 
-.price-cart{
+.price-cart {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -186,8 +186,6 @@
 .add-to-cart {
   padding: 10px 20px;
   width: 100%;
-  /* или 80% если нужно уже */
-  max-width: 250px;
   border-radius: 10px;
   background-color: #2C5C50;
   /* или другой цвет */
@@ -198,6 +196,10 @@
   border: none;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  box-sizing: border-box;
 }
 
 .add-to-cart:hover {
@@ -259,7 +261,8 @@
 .btn-filter img,
 .btn-sort img {
   height: clamp(16px, 3vw, 28px);
-  margin-right: clamp(4px, 1vw, 8px); /* ближе к слову */
+  margin-right: clamp(4px, 1vw, 8px);
+  /* ближе к слову */
 }
 
 /* текст */
@@ -308,6 +311,7 @@
    АДАПТИВ ДЛЯ МОБИЛЬНЫХ ЭКРАНОВ
 ============================= */
 @media (max-width: 768px) {
+
   /* Основной контейнер теперь вертикальный */
   .layout {
     flex-direction: column;
@@ -320,21 +324,26 @@
   .sidebar {
     width: 100%;
     border-right: none;
-    border-bottom: 4px solid #FFFEA5; /* горизонтальная линия */
+    border-bottom: 4px solid #FFFEA5;
+    /* горизонтальная линия */
     padding: 10px 0;
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
-    -webkit-overflow-scrolling: touch; /* плавный свайп на iOS */
+    -webkit-overflow-scrolling: touch;
+    /* плавный свайп на iOS */
   }
 
   /* Скрываем полосу прокрутки, но оставляем возможность скролла */
   .sidebar::-webkit-scrollbar {
     display: none;
   }
+
   .sidebar {
-    -ms-overflow-style: none;  /* IE и Edge */
-    scrollbar-width: none;     /* Firefox */
+    -ms-overflow-style: none;
+    /* IE и Edge */
+    scrollbar-width: none;
+    /* Firefox */
   }
 
   /* Навигация внутри сайдбара — в одну строку */
@@ -348,8 +357,10 @@
   }
 
   .side-list {
-    margin-bottom: 0; /* убираем вертикальные отступы */
-    flex: 0 0 auto; /* не сжимается */
+    margin-bottom: 0;
+    /* убираем вертикальные отступы */
+    flex: 0 0 auto;
+    /* не сжимается */
   }
 
   .side-list a {

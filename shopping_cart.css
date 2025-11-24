@@ -109,60 +109,10 @@
   color: #2C5C50;
   cursor: pointer;
 
-  display: none; /* по умолчанию скрыта */
-  z-index: 2000; /* чтобы всегда была сверху */
-}
-
-/* Мобильная версия корзины */
-@media (max-width: 768px) {
-  .shopping-cart {
-    width: 100%;
-    max-width: none;
-    box-shadow: none;
-    border-left: none;
-  }
-
-  .shopping-cart.open {
-    width: 100%;
-  }
-
-  /* чтобы контент под корзиной не сдвигался */
-  #main {
-    margin-right: 0 !important;
-  }
-
-  /* Верхняя панель в мобильной версии */
-
-  .upper-pannel {
-    display: grid;
-    grid-template-columns: auto 1fr auto;  
-    /* 1 — total-price
-       2 — items-counter (теперь центр)
-       3 — cart-back-btn справа */
-    align-items: center;
-    column-gap: 10px;
-    position: relative;
-  }
-
-  .items-counter {
-    justify-self: start; /* смещаем левее */
-  }
-
-  .cart-back-btn {
-    display: block;
-    position: static; /* убираем absolute */
-    font-size: 2rem;
-    background: none;
-    border: none;
-    color: #2C5C50;
-    cursor: pointer;
-  }
-
-  /* Чтобы больше не перекрывал элементы */
-  .cart-back-btn {
-    z-index: auto;
-  }
-
+  display: none;
+  /* по умолчанию скрыта */
+  z-index: 2000;
+  /* чтобы всегда была сверху */
 }
 
 
@@ -198,17 +148,18 @@
 
 /* Картинка */
 .cart-item-img {
-  flex: 0 0 25%;
-  max-width: 80px;
+  flex: 0 0 auto;
   height: 100%;
   display: flex;
   align-items: center;
 }
 
 .cart-item-img img {
-  width: 100%;
   height: 100%;
-  object-fit: contain;
+  width: auto;
+  max-width: 70px;
+  /* ← вот это уменьшает ширину */
+  object-fit: cover;
   border-radius: 0.6em;
 }
 
@@ -346,9 +297,56 @@
     width: 100%;
   }
 
-  /* контент не сдвигается на телефонах */
+  /* чтобы контент под корзиной не сдвигался */
   #main {
     margin-right: 0 !important;
+  }
+
+  /* Верхняя панель в мобильной версии */
+
+  .upper-pannel {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    /* 1 — total-price
+       2 — items-counter (теперь центр)
+       3 — cart-back-btn справа */
+    align-items: center;
+    column-gap: 10px;
+    position: relative;
+  }
+
+  .items-counter {
+    justify-self: start;
+    /* смещаем левее */
+  }
+
+  .cart-back-btn {
+    display: block;
+    position: static;
+    /* убираем absolute */
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #2C5C50;
+    cursor: pointer;
+  }
+
+  /* Чтобы больше не перекрывал элементы */
+  .cart-back-btn {
+    z-index: auto;
+  }
+
+  .cart-item-title {
+    flex: 1;
+    font-size: clamp(0.7rem, 1.8vw, 0.95rem);
+    /* адаптивный размер */
+    line-height: 1.2;
+    white-space: normal;
+    /* перенос строк */
+    word-break: break-word;
+    /* перенос длинных слов */
+    overflow: hidden;
+    /* чтобы не вылезал за блок */
   }
 }
 
@@ -362,7 +360,6 @@
 .wrapper {
   max-width: 1200px;
   margin: 40px auto;
-  border: 1px solid red;
 }
 
 .cart-header {
@@ -411,7 +408,6 @@
 .block-cart-main {
   flex: 2;
   /* занимает больше места */
-  border: 1px solid red;
   /* только для наглядности */
   display: grid;
   gap: 10px;
@@ -429,7 +425,6 @@
 .block-summary {
   flex: 1;
   /* занимает меньше места */
-  border: 1px solid red;
   /* только для наглядности */
 }
 
@@ -482,7 +477,6 @@
   flex: 1;
   min-width: 0;
   height: 100%;
-  border: 1px solid red;
 }
 
 /* Название */
@@ -504,7 +498,7 @@
 
 /* Цена */
 .main-price {
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-weight: 500;
   color: black;
 }
@@ -566,30 +560,6 @@
   height: 22px;
 }
 
-/* 📱 Адаптив */
-@media (max-width: 600px) {
-  .main-cart-item {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .main-content-row {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .main-cart-img {
-    max-width: 100px;
-  }
-
-  .main-price-quantity {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-}
-
-
 .main-empty {
   display: flex;
   justify-content: center;
@@ -630,6 +600,148 @@
   transform: scale(1.1);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
+
+
+
+/* 📱 Адаптив для корзины */
+@media (max-width: 768px) {
+
+  .wrapper {
+    padding: 0 10px;
+    margin-top: 1px;
+  }
+
+  .cart-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .steps {
+    font-size: 10px;
+  }
+
+  .main-cart {
+    flex-direction: column;
+    /* ВСТАЛИ В СТОЛБИК */
+    gap: 20px;
+  }
+
+  .shopping-cart-divider {
+    display: none;
+    /* убираем вертикальную полоску */
+  }
+
+  .block-cart-main,
+  .block-summary {
+    width: 100%;
+    /* пусть оба блока растягиваются */
+  }
+
+  .block-summary {
+    order: 3;
+    /* переносим вниз */
+  }
+
+  .block-cart-main {
+    order: 2;
+  }
+
+  .cart-header {
+    order: 1;
+  }
+
+  /* Чуть уменьшаем заголовок */
+  .title {
+    font-size: 32px;
+  }
+
+  /* Общий блок товара */
+  .main-cart-item {
+    padding: 0.4rem;
+    gap: 0.6rem;
+    border-radius: 8px;
+    margin-bottom: 0.7rem;
+  }
+
+  /* Внутренний флекс */
+  .main-content-row {
+    gap: 0.6rem;
+  }
+
+  /* Картинка уменьшается */
+  .main-cart-img {
+    flex: 0 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .main-cart-img img {
+    height: 100%;
+    width: auto;
+    max-width: 75px;
+    /* ← вот это уменьшает ширину */
+    object-fit: cover;
+    border-radius: 0.6em;
+  }
+
+  /* Текст */
+  .main-cart-title {
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+    line-height: 1.2;
+  }
+
+  /* Цена и количество — всегда в одну строку */
+  .main-price-quantity {
+    flex-wrap: nowrap;
+    gap: 0.6rem;
+  }
+
+  /* Цена */
+  .main-price {
+    font-size: 0.9rem;
+  }
+
+  /* Количество */
+  .main-quantity {
+    gap: 0.3rem;
+  }
+
+  .main-quantity button {
+    width: 22px;
+    height: 22px;
+    font-size: 0.8rem;
+    border-radius: 5px;
+  }
+
+  .main-count {
+    font-size: 0.9rem;
+    min-width: 20px;
+  }
+
+  /* Кнопка удаления */
+  .main-delete {
+    flex: 0 0 auto;
+    background: #ffd1d1;
+    border: none;
+    border-radius: 0.4em;
+    width: 2em;
+    height: 1.6em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .main-delete img {
+    width: 100%;
+    height: auto;
+  }
+}
+
 
 
 
