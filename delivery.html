@@ -35,15 +35,17 @@
         <!--Header-->
         <header class="header">
             <div class="container">
+
                 <div class="header-left">
-                    <a href="consumer_ru.html">Podobravo</a>
+                    <a href="/russian/specialist_ru/main_page_ru/specialist_ru.html" class="logo-link">
+                        <img src="/images/header-logo.png" alt="Varava" class="logo-img">
+                    </a>
                 </div>
 
                 <div class="icons-language">
                     <div class="header-icons">
                         <a href="#"><img src="/images/account.png" alt="Профиль" class="icon"></a>
-                        <a href="#"><img src="/images/like.png" alt="Лайк" class="icon"></a>
-                        <a href="#" class="openbtn cart-icon" onclick="toggleCart()">
+                        <a href="#" class="cart-icon">
                             <img src="/images/cart.png" alt="Корзина" class="icon">
                             <span class="cart-count">0</span>
                         </a>
@@ -52,9 +54,10 @@
                     <div class="divider"></div> <!-- вертикальная линия -->
 
                     <div class="language">
-                        <button onclick="languageFunction()" class="btn-lang"></button>
+                        <button onclick="languageFunction()" class="btn-lang lang-ru"></button>
                         <div id="languageDropdown" class="language-content">
-                            <a href="#"><img src="/images/germany.png" alt="russia"></a>
+                            <a href="/german/specialist_de/main_page_de/specialist_de.html"><img
+                                    src="/images/germany.png" alt="russia"></a>
                             <a href="#"><img src="/images/america.png" alt="russia"></a>
                         </div>
                     </div>
@@ -62,24 +65,14 @@
             </div>
         </header>
 
-        <!--Search Form-->
-        <section class="search-section">
-            <form class="search-form" action="#" method="GET">
-                <button type="submit" class="search-btn">
-                    <img class="submit-img" src="/images/search.png">
-                </button>
-                <input type="text" class="search-input" placeholder="Поиск..." name="search">
-            </form>
-        </section>
-
-        <div class="container">
+        <div class="delivery-container">
             <div class="delivery-header">
                 <h1>Доставка</h1>
                 <div class="steps">
                     <div class="step active">Корзина</div>
-                    <div class="arrow">→</div>
+                    <div class="arrow active">→</div>
                     <div class="step active">Доставка</div>
-                    <div class="arrow">→</div>
+                    <div class="arrow active">→</div>
                     <div class="step">Оплата</div>
                 </div>
             </div>
@@ -100,34 +93,37 @@
                     </div>
                 </form>
 
-                <div class="cart">
-                    <div class="cart-top">
-                        <div class="cart-item">
+                <div class="delivery-cart">
+                    <div class="delivery-cart-top">
+                        <div class="delivery-cart-item">
                             <img src="/Cosmetic/images/main1.png" alt="">
-                            <div class="desc">
-                                <div class="product-title">Название товара</div>
-                                <div class="product-price">10€ × 1</div>
+                            <div class="delivery-desc">
+                                <div class="delivery-product-title">Название товара</div>
+                                <div class="delivery-product-price">10€ × 1</div>
                             </div>
                         </div>
-                        <div class="cart-item">
+                        <div class="delivery-cart-item">
                             <img src="/Cosmetic/images/main1.png" alt="">
-                            <div class="desc">
-                                <div class="product-title">Название товара</div>
-                                <div class="product-price">10€ × 1</div>
+                            <div class="delivery-desc">
+                                <div class="delivery-product-title">Название товара</div>
+                                <div class="delivery-product-price">10€ × 1</div>
                             </div>
                         </div>
-                        <div class="cart-item">
+                        <div class="delivery-cart-item">
                             <img src="/Cosmetic/images/main1.png" alt="">
-                            <div class="desc">
-                                <div class="product-title">Название товара</div>
-                                <div class="product-price">10€ × 1</div>
+                            <div class="delivery-desc">
+                                <div class="delivery-product-title">Название товара</div>
+                                <div class="delivery-product-price">10€ × 1</div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="cart-bottom">
-                        <div class="price">Стоимость: 30€</div>
-                        <button class="pay-btn">К оплате</button>
+                    <div class="delivery-cart-bottom">
+                        <div class="delivery-price">Стоимость: 30€</div>
+                        <div class="go-to-pay">
+                            <a href="#" class="go-to-pay-btn">К оплате</a>
+                        </div>
+
                     </div>
                 </div>
 
@@ -136,11 +132,12 @@
         </div>
 
 
+
         <!--Footer-->
         <footer class="footer">
             <div class="footer-container">
 
-                <div class="icons-phone">
+                <div class="icons-social">
                     <div class="footer-left">
                         <a href="#"><img src="/images/instagram_green.png" alt="instagram"></a>
                         <a href="#"><img src="/images/gmail.png" alt="gmail"></a>
@@ -151,12 +148,15 @@
 
 
                 <div class="footer-bottom">
-                    <a href="#">Доставка</a>
-                    <a href="#">Контакты</a>
+                    <a href="/russian/specialist_ru/footer/impressum.html">Импрессум</a>
+                    <a href="#">Пользовательское соглашение</a>
                     <a href="#">Политика конфиденциальности</a>
                 </div>
 
             </div>
         </footer>
+
+        <script src="/scripts/delivery.js"></script>
+
 
 </body>
