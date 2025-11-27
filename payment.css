@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #2C5C50;
+    font-family: 'Roboto Serif', serif;
+    color: white;
+}
+
+.payment-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+h1 {
+    font-size: 48px;
+    color: #FFFEA5;
+    margin-bottom: 10px;
+}
+
+.steps {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    margin-bottom: 30px;
+}
+
+.step {
+    padding: 4px 10px;
+    border-radius: 10px;
+    background: grey;
+    color: white;
+}
+
+.step.active {
+    background: #FFFEA5;
+    color: #2C5C50;
+    font-weight: bold;
+}
+
+.arrow {
+    color: #FFFEA5;
+}
+
+/* Основной блок */
+.payment-main {
+    display: flex;
+    gap: 30px;
+}
+
+/* Левый блок: способы оплаты */
+.payment-methods {
+    flex: 0 0 60%;
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.payment-methods h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* Кнопка Stripe */
+.pay-btn {
+    display: block;
+    background: #2C5C50;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-bottom: 20px;
+    transition: 0.2s;
+}
+
+.pay-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* PayPal */
+.paypal-box {
+    margin-bottom: 30px;
+}
+
+/* QR */
+.qr-pay {
+    text-align: center;
+}
+
+.qr-pay img {
+    width: 200px;
+    margin-top: 10px;
+}
+
+/* Блок корзины */
+.payment-cart {
+    flex: 0 0 40%;
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.cart-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    background: #f7f7f7;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.cart-item img {
+    width: 70px;
+    height: 70px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.total-price {
+    font-size: 22px;
+    margin-top: 20px;
+    font-weight: bold;
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Оплата — Podobravo</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/payment.css" />
+
+    <link rel="stylesheet" href="/main_page.css" />
+    <link rel="stylesheet" href="/delivery.css" />
+</head>
+
+<body>
+
+    <div class="payment-container">
+
+        <h1>Оплата</h1>
+
+        <div class="steps">
+            <div class="step">Корзина</div>
+            <div class="arrow">→</div>
+            <div class="step">Доставка</div>
+            <div class="arrow">→</div>
+            <div class="step active">Оплата</div>
+        </div>
+
+        <div class="payment-main">
+
+            <!--Блок способов оплаты-->
+            <div class="payment-methods">
+
+                <h2>Выберите способ оплаты</h2>
+
+                <!--Stripe-->
+                <a href="https://buy.stripe.com/ВАША_ССЫЛКА" class="pay-btn">
+                    Оплатить картой / Klarna / SEPA
+                </a>
+
+                <!--PayPal-->
+                <div class="paypal-box">
+                    <div id="paypal-button-container"></div>
+                </div>
+
+                <!--QR Оплата-->
+                <div class="qr-pay">
+                    <h3>Оплата по QR-коду</h3>
+                    <img src="/images/qr.png" alt="QR для оплаты">
+                </div>
+
+            </div>
+
+            <!--Блок корзины-->
+            <div class="payment-cart">
+
+                <h2>Ваш заказ</h2>
+
+                <div class="cart-item">
+                    <img src="/Cosmetic/images/main1.png" alt="">
+                    <div class="desc">
+                        <div class="title">Название товара</div>
+                        <div class="price">10€ × 1</div>
+                    </div>
+                </div>
+
+                <div class="cart-item">
+                    <img src="/Cosmetic/images/main1.png" alt="">
+                    <div class="desc">
+                        <div class="title">Название товара</div>
+                        <div class="price">10€ × 1</div>
+                    </div>
+                </div>
+
+                <div class="total-price">Итого: 20€</div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- PayPal SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=ВАШ_PAYPAL_ID&currency=EUR"></script>
+
+    <script>
+        paypal.Buttons().render("#paypal-button-container");
+    </script>
+
+</body>
+
+</html>
