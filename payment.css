@@ -1,21 +1,18 @@
-body {
-    margin: 0;
-    padding: 0;
-    background: #2C5C50;
-    font-family: 'Roboto Serif', serif;
-    color: white;
-}
-
 .payment-container {
     max-width: 1200px;
     margin: 40px auto;
-    padding: 0 20px;
+}
+
+.payment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: solid red 1px;
 }
 
 h1 {
     font-size: 48px;
     color: #FFFEA5;
-    margin-bottom: 10px;
 }
 
 .steps {
@@ -23,30 +20,31 @@ h1 {
     align-items: center;
     gap: 10px;
     font-size: 12px;
-    margin-bottom: 30px;
 }
 
 .step {
-    padding: 4px 10px;
-    border-radius: 10px;
-    background: grey;
-    color: white;
+    color: black;
 }
 
 .step.active {
     background: #FFFEA5;
-    color: #2C5C50;
+    padding: 4px 10px;
+    border-radius: 10px;
     font-weight: bold;
+    color: #2C5C50;
 }
 
 .arrow {
-    color: #FFFEA5;
+    color: black;
 }
 
 /* Основной блок */
 .payment-main {
     display: flex;
-    gap: 30px;
+    align-items: flex-start;
+    gap: 10px;
+    position: relative;
+    margin-top: 10px;
 }
 
 /* Левый блок: способы оплаты */
