@@ -42,9 +42,21 @@ h1 {
 .payment-main {
     display: flex;
     align-items: flex-start;
-    gap: 10px;
+    gap: 0;
     position: relative;
+    border: solid red 1px;
     margin-top: 10px;
+}
+
+.payment-main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 60%;
+    width: 2px;
+    background-color: white;
+    transform: translateX(-50%);
 }
 
 /* Левый блок: способы оплаты */
@@ -52,8 +64,9 @@ h1 {
     flex: 0 0 60%;
     background: white;
     color: black;
-    padding: 20px;
     border-radius: 15px;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .payment-methods h2 {
@@ -97,36 +110,57 @@ h1 {
 /* Блок корзины */
 .payment-cart {
     flex: 0 0 40%;
-    background: white;
-    color: black;
-    padding: 20px;
-    border-radius: 15px;
-}
-
-.cart-item {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-    background: #f7f7f7;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.cart-item img {
-    width: 70px;
-    height: 70px;
-    border-radius: 8px;
-    object-fit: cover;
-}
-
-.desc {
+    padding-left: 20px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border: solid red 1px;
 }
 
-.total-price {
-    font-size: 22px;
-    margin-top: 20px;
-    font-weight: bold;
+.payment-cart-top {
+    margin-bottom: 10px;
+}
+
+.payment-cart-bottom{
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 7px;
+}
+
+
+:root {
+    --cart-item-height: 70px;
+}
+
+.payment-cart-item {
+    height: var(--cart-item-height);
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    background-color: white;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.payment-cart-item img {
+    height: 100%;
+    /* немного меньше высоты, чтобы был отступ сверху/снизу */
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.payment-desc {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 5px;
+}
+
+.payment-price {
+    font-size: 23px;
 }
