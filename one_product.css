@@ -291,7 +291,7 @@
 .content {
   padding: 15px 3px;
   display: none;
-  text-align: justify;
+  text-align: left;
   overflow: hidden;
   font-family: "Roboto Serif", serif;
 }
