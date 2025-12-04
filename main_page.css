@@ -217,7 +217,7 @@ main {
   width: 90%;
   max-width: 600px;
   padding: 0 10px;
-  border-radius: 40px;
+  border-radius: 10px;
   background-color: #fff;
   box-sizing: border-box;
 }
@@ -225,14 +225,12 @@ main {
 .search-input {
   flex: 1;
   height: 100%;
-  padding: 0 20px;
   width: 100%;
   box-sizing: border-box;
   font-family: "Roboto Serif", serif;
   font-size: calc(var(--search-form-height) * 0.3);
   border: none;
   outline: none;
-  border-radius: 40px;
   background-color: #fff;
 }
 
@@ -246,7 +244,7 @@ main {
   align-items: center;
   justify-content: center;
   height: 100%;
-  padding: 0 20px;
+  padding: 0 10px;
   border: none;
   cursor: pointer;
   border-radius: 100px;
@@ -273,22 +271,36 @@ main {
 .categories {
   max-width: 781px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* ключ */
   position: relative;
   overflow: visible !important;
+}
+
+.category-wrapper {
+  position: relative;
+  overflow: visible;  /* ← ключ */
+  z-index: 5;
 }
 
 .category-grid {
   display: flex;
   flex-wrap: nowrap;
   gap: 20px;
-  padding: 15px 0;
-  border-bottom: 2px solid #FFFEA5;
-
+  padding: 15px 15px;
   overflow-x: auto;
   /* прокрутка работает */
   overflow-y: visible;
   /* категории не обрезаются */
   scrollbar-width: none;
+
+}
+
+.divider-categories{
+  border-bottom: 2px solid #FFFEA5;
+  width: fit-content;
+  align-self: center;
 }
 
 .category-grid::-webkit-scrollbar {
@@ -307,7 +319,7 @@ main {
 
   padding: clamp(1em, 4vw, 1.8em) clamp(1em, 4.8vw, 1.8em);
 
-  border-radius: 0.625em;
+  border-radius: 10px;
   /* 10px / 16px */
   flex-shrink: 0;
 
@@ -318,6 +330,8 @@ main {
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  z-index: 10;
 
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -325,6 +339,11 @@ main {
 .category-grid a:hover {
   transform: scale(1.1);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.category-item {
+  position: relative;
+  z-index: 2; /* важное */
 }
 
 .category-grid::-webkit-scrollbar {
