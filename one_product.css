@@ -64,7 +64,7 @@
 }
 
 .product-indicators {
-  position:absolute;
+  position: absolute;
   bottom: .6rem;
   left: 50%;
   transform: translateX(-50%);
@@ -270,10 +270,18 @@
 }
 
 .collapsible::after {
-  content: "˅";
-  /* стрелка вниз */
+ content: ""; /* важно убрать текст */
   position: absolute;
   right: 5px;
+  top: 50%;
+  transform: translateY(-50%); /* чтобы вертикально по центру */
+
+  width: 12px;   /* ширина стрелки */
+  height: 12px;  /* высота стрелки */
+  background-image: url('/images/arrow_collapsible.png'); /* твоя картинка */
+  background-size: contain;   /* чтобы пропорции сохранились */
+  background-repeat: no-repeat;
+
   transition: transform 0.3s ease;
 }
 
@@ -349,28 +357,37 @@
   }
 
   .buy-product {
-    flex-direction: row;        /* оставляем горизонтально */
-    align-items: center;        /* выравнивание по центру */
-   justify-content: space-between;/* прижать к левому краю */
-    width: 100%;                /* адаптивная ширина */
+    flex-direction: row;
+    /* оставляем горизонтально */
+    align-items: center;
+    /* выравнивание по центру */
+    justify-content: space-between;
+    /* прижать к левому краю */
+    width: 100%;
+    /* адаптивная ширина */
     margin-bottom: 10px;
   }
 
   .amount {
-    gap: 5px;                  /* меньше пространство между кнопками */
+    gap: 5px;
+    /* меньше пространство между кнопками */
   }
 
   .down,
   .up {
-    width: 28px;                /* чуть меньше кнопки */
+    width: 28px;
+    /* чуть меньше кнопки */
     height: 28px;
     font-size: 16px;
   }
 
   .add-product {
-    padding: 8px 16px;          /* уменьшаем padding */
-    font-size: 16px;            /* размер шрифта чуть меньше */
-    max-width: 150px;           /* не занимает всю ширину */
+    padding: 8px 16px;
+    /* уменьшаем padding */
+    font-size: 16px;
+    /* размер шрифта чуть меньше */
+    max-width: 150px;
+    /* не занимает всю ширину */
   }
 
   /* Описание */
