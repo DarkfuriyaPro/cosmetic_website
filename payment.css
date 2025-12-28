@@ -7,7 +7,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: solid red 1px;
 }
 
 h1 {
@@ -41,60 +40,65 @@ h1 {
 /* Основной блок */
 .payment-main {
     display: flex;
-    align-items: flex-start;
-    gap: 0;
-    position: relative;
-    border: solid red 1px;
-    margin-top: 10px;
-}
-
-.payment-main::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 60%;
-    width: 2px;
-    background-color: white;
-    transform: translateX(-50%);
+    align-items: stretch;
+    /* заставим дочерние блоки быть одинаковой высоты */
+    gap: 20px;
 }
 
 /* Левый блок: способы оплаты */
 .payment-methods {
-    flex: 0 0 60%;
-    background: white;
-    color: black;
-    border-radius: 15px;
-    padding: 20px;
-    box-sizing: border-box;
+    flex: 2;
+    /* занимает больше места */
+    /* только для наглядности */
+    display: grid;
+    gap: 1rem;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .payment-methods h2 {
-    margin-bottom: 20px;
     font-size: 24px;
 }
 
-/* Кнопка Stripe */
-.pay-btn {
-    display: block;
-    background: #2C5C50;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    border-radius: 10px;
-    text-decoration: none;
-    margin-bottom: 20px;
-    transition: 0.2s;
+.payment-buttons {
+    display: flex;
+    gap: 1rem;
 }
 
-.pay-btn:hover {
+.payment-buttons>div {
+    width: 110px;
+    height: 70px;
+    border: 1px solid #2C5C50;
+    border-radius: 10px;
+    padding: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.payment-buttons>div.active {
+    border: 5px solid #2C5C50;
+
+}
+
+.mastercard-btn img,
+.paypal-box img,
+.qr-pay img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* картинка вписывается в контейнер */
+    display: block;
+    /* убирает лишние пробелы под картинкой */
+}
+
+
+.mastercard-btn:hover,
+.paypal-box:hover,
+.qr-pay:hover {
     transform: scale(1.03);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-}
-
-/* PayPal */
-.paypal-box {
-    margin-bottom: 30px;
 }
 
 /* QR */
@@ -107,22 +111,21 @@ h1 {
     margin-top: 10px;
 }
 
+.payment-divider {
+    width: 2px;
+    /* толщина линии */
+    background: white;
+    /* цвет линии */
+    flex-shrink: 0;
+    /* не даём ей сжиматься */
+}
+
 /* Блок корзины */
 .payment-cart {
-    flex: 0 0 40%;
-    padding-left: 20px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border: solid red 1px;
+    flex: 1;
 }
 
-.payment-cart-top {
-    margin-bottom: 10px;
-}
-
-.payment-cart-bottom{
+.payment-cart-bottom {
     background-color: white;
     border-radius: 10px;
     display: flex;

@@ -74,22 +74,23 @@
                     <h2>Выберите способ оплаты</h2>
 
                     <!--Stripe-->
-                    <a href="https://buy.stripe.com/ВАША_ССЫЛКА" class="pay-btn">
-                        Оплатить картой / Klarna / SEPA
-                    </a>
+                    <div class="payment-buttons">
+                        <div class="mastercard-btn" data-payment-url="https://buy.stripe.com/ВАША_ССЫЛКА">
+                            <img src="/images/mastercard.png" alt="Mastercard" />
+                        </div>
 
-                    <!--PayPal-->
-                    <div class="paypal-box">
-                        <div id="paypal-button-container"></div>
-                    </div>
+                        <div class="paypal-box" data-payment-url="https://www.paypal.com/paypalme/вашаккаунт">
+                            <img src="/images/paypal.png" alt="PayPal" />
+                        </div>
 
-                    <!--QR Оплата-->
-                    <div class="qr-pay">
-                        <h3>Оплата по QR-коду</h3>
-                        <img src="/images/qr.png" alt="QR для оплаты">
+                        <div class="qr-pay" data-payment-url="/qr-payment-page.html">
+                            <img src="/images/qr.png" alt="QR для оплаты">
+                        </div>
                     </div>
 
                 </div>
+
+                <div class="payment-divider"></div> <!-- вертикальная линия -->
 
 
                 <div class="payment-cart">
@@ -133,12 +134,36 @@
 
     </div>
 
-    <!-- PayPal SDK -->
-    <script src="https://www.paypal.com/sdk/js?client-id=ВАШ_PAYPAL_ID&currency=EUR"></script>
-
     <script>
-        paypal.Buttons().render("#paypal-button-container");
+        let selectedPaymentUrl = null;
+
+        // Выбираем все кнопки оплаты
+        const paymentButtons = document.querySelectorAll('.payment-buttons > div');
+        paymentButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Убираем класс active у всех кнопок
+                paymentButtons.forEach(b => b.classList.remove('active'));
+
+                // Добавляем active выбранной кнопке
+                btn.classList.add('active');
+
+                // Сохраняем ссылку
+                selectedPaymentUrl = btn.dataset.paymentUrl;
+            });
+        });
+
+        // Кнопка "К оплате"
+        const goToPayBtn = document.querySelector('.go-to-pay-btn');
+        goToPayBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // чтобы не перезагружать страницу
+            if (selectedPaymentUrl) {
+                window.location.href = selectedPaymentUrl;
+            } else {
+                alert("Пожалуйста, выберите метод оплаты");
+            }
+        });
     </script>
+
 
 </body>
 
