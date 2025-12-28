@@ -427,7 +427,7 @@
   /* занимает больше места */
   /* только для наглядности */
   display: grid;
-  gap: 10px;
+  gap: 1rem;
 }
 
 .shopping-cart-divider {
@@ -451,10 +451,10 @@
 .main-cart-item {
   position: relative;
   display: flex;
+  max-height: 120px;
   gap: 1rem;
   padding: 0.6rem;
   border-radius: 10px;
-  margin-bottom: 1rem;
   background: #fff;
   box-sizing: border-box;
   width: 100%;
