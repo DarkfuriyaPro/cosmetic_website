@@ -124,7 +124,7 @@ function addProductToCart({ id, title, price, img, quantity = 1 }) {
 
   saveCartToStorage();
   renderCart();
-  showSnackbar('Товар добавлен в корзину');
+  showSnackbar();
 }
 
 
@@ -190,20 +190,46 @@ function updateTotalPrice() {
 }
 
 // ======= SNACKBAR (простая подсказка) =======
-function showSnackbar(text) {
+function showSnackbar() {
   const sn = document.getElementById('snackbar');
   if (!sn) return;
-  sn.innerText = text;
+
+  // Определяем язык страницы из <html lang="...">
+  const lang = document.documentElement.lang || 'de';
+
+  // Сообщения для разных языков
+  const messages = {
+    de: 'Hinzugefügt',
+    ru: 'Добавлено',
+    en: 'Added'
+  };
+
+  // Подставляем текст по языку
+  sn.innerText = messages[lang] || messages['de'];
+
+  // Показываем snackbar
   sn.classList.add('show');
   setTimeout(() => sn.classList.remove('show'), 1800);
 }
 
+
 function showAlreadyInCartPopup() {
   const popup = document.getElementById('prove_product');
   if (!popup) return;
+
+  const lang = document.documentElement.lang || 'de';
+  const messages = {
+    de: 'Das Produkt ist bereits im Warenkorb',
+    ru: 'Товар уже в корзине',
+    en: 'Product is already in the cart'
+  };
+
+  popup.innerText = messages[lang] || messages['de'];
+
   popup.classList.add('show');
   setTimeout(() => popup.classList.remove('show'), 1800);
 }
+
 
 
 // ======= ОБЩИЕ ОБРАБОТЧИКИ (ДЕЛЕГИРОВАНИЕ) =======
@@ -314,3 +340,4 @@ document.addEventListener('DOMContentLoaded', function () {
 window.addProductToCart = addProductToCart;
 window.findCartItemIndexByIdOrTitle = findCartItemIndexByIdOrTitle;
 window.showAlreadyInCartPopup = showAlreadyInCartPopup;
+window.showSnackbar = showSnackbar;
