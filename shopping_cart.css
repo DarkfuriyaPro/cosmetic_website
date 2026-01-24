@@ -449,9 +449,9 @@
 
 /* Главная корзина */
 .main-cart-item {
+  height: 100%;
   position: relative;
   display: flex;
-  max-height: 120px;
   gap: 1rem;
   padding: 0.6rem;
   border-radius: 10px;
@@ -459,6 +459,7 @@
   box-sizing: border-box;
   width: 100%;
   max-width: 900px;
+  max-height: none;
 }
 
 /* Контентная строка */

@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (mainEmpty) mainEmpty.style.display = "none";
 
   cartItems.forEach(item => {
-    const priceNum = parseFloat(String(item.price).replace(",", "."));
+    const priceNum = parseFloat(String(item.price).replace(",", ".")) * item.quantity;
 
     const productEl = document.createElement("div");
     productEl.classList.add("main-cart-item");
@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   updateMainCartSummary();
   attachMainCartHandlers();
+  syncSingleItemHeight();
 });
 
 
@@ -132,4 +133,24 @@ function attachMainCartHandlers() {
     });
 });
 
+}
+
+
+function syncSingleItemHeight() {
+  const blockSummary = document.querySelector(".block-summary");
+  const blockCartMain = document.querySelector(".block-cart-main");
+  const cartItems = document.querySelectorAll(".main-cart-item");
+
+  if (!blockSummary || !blockCartMain) return;
+
+  // только если один товар
+  if (cartItems.length === 1) {
+    const summaryHeight = blockSummary.getBoundingClientRect().height;
+
+    // 1️⃣ выравниваем контейнер
+    blockCartMain.style.height = summaryHeight + "px";
+
+    // 2️⃣ товар занимает всю высоту контейнера
+    cartItems[0].style.height = "100%";
+  }
 }

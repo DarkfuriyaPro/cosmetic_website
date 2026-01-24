@@ -33,7 +33,7 @@
     <div id="main">
 
         <!--Header-->
-   <header class="header">
+        <header class="header">
             <div class="container">
 
                 <div class="header-left">
@@ -87,7 +87,9 @@
                                 Kosmetik<span class="arrow">›</span></a></li>
                         <li class="side-list"><a href="/german/specialist_de/instruments_de/instruments_de.html"
                                 class="active">Instrumente<span class="arrow">›</span></a></li>
-                        <li class="side-list"><a href="/german/specialist_de/accessories_de/accessories_de.html">Zubehör<span class="arrow">›</span></a></li>
+                        <li class="side-list"><a
+                                href="/german/specialist_de/accessories_de/accessories_de.html">Zubehör<span
+                                    class="arrow">›</span></a></li>
                     </ul>
                 </nav>
             </aside>
@@ -137,12 +139,20 @@
                         <div class="collapsible-description">
                             <button type="button" class="collapsible">Beschreibung</button>
                             <div class="content">
-TR106C<br><br>
-Kopfschneider 14 cm - 7 mm Schnittfläche<br><br>
-NAGELZANGE: Mit dem hochwertigen Nagelknipser aus Edelstahl können Sie selbst dicke und tief eingewachsene Fußnägel mühelos schneiden. Sorgen Sie so einfach für schöne Füße.<br><br>
-KOPFSCHNEIDER: Die spezielle Schneidevorrichtung der Zange passt sich der Form des Nagels ideal an und ermöglicht ein bequemes Kürzen sowohl für Rechts- als auch für Linkshänder.<br><br>
-SCHARFE SCHNEIDE: Dank der zwei extra scharfen Spitzen können tief liegende Nagelecken hervorragend erreicht und präzise entfernt werden. Auch harte Zehennägel lassen sich mit dem Kopfschneider leicht bearbeiten.<br><br>
-HANDHABUNG: Durch die Schenkeleinrastsperre lässt sich die Nagelzange ohne viel Kraftaufwand einfach öffnen und schließen. Der glatte Griff sorgt zudem dafür, dass der Nagelschneider gut in der Hand liegt.
+                                TR106C<br><br>
+                                Kopfschneider 14 cm - 7 mm Schnittfläche<br><br>
+                                NAGELZANGE: Mit dem hochwertigen Nagelknipser aus Edelstahl können Sie selbst dicke und
+                                tief eingewachsene Fußnägel mühelos schneiden. Sorgen Sie so einfach für schöne
+                                Füße.<br><br>
+                                KOPFSCHNEIDER: Die spezielle Schneidevorrichtung der Zange passt sich der Form des
+                                Nagels ideal an und ermöglicht ein bequemes Kürzen sowohl für Rechts- als auch für
+                                Linkshänder.<br><br>
+                                SCHARFE SCHNEIDE: Dank der zwei extra scharfen Spitzen können tief liegende Nagelecken
+                                hervorragend erreicht und präzise entfernt werden. Auch harte Zehennägel lassen sich mit
+                                dem Kopfschneider leicht bearbeiten.<br><br>
+                                HANDHABUNG: Durch die Schenkeleinrastsperre lässt sich die Nagelzange ohne viel
+                                Kraftaufwand einfach öffnen und schließen. Der glatte Griff sorgt zudem dafür, dass der
+                                Nagelschneider gut in der Hand liegt.
                             </div>
                         </div>
                     </div>
@@ -178,55 +188,59 @@ HANDHABUNG: Durch die Schenkeleinrastsperre lässt sich die Nagelzange ohne viel
     </div>
 
 
-<!--Shoping cart-->
-  <div id="shoppingCart" class="shopping-cart">
-    <div class="cart-container">
-      <div class="upper-pannel">
-        <div class="total-price">
-          Gesamt:<span class="amount-count">0</span>
+    <!--Shoping cart-->
+    <div id="shoppingCart" class="shopping-cart">
+        <div class="cart-container">
+            <div class="upper-pannel">
+                <div class="total-price">
+                    Gesamt:<span class="amount-count">0</span>
+                </div>
+
+                <div class="items-counter">
+                    <span>0</span>
+                </div>
+
+                <button class="cart-back-btn">
+                    ←
+                </button>
+            </div>
+
+            <div class="empty">
+                <svg viewBox="0 0 200 200" width="200" height="200">
+                    <defs>
+                        <!-- Верхняя дуга -->
+                        <path id="topArc" d="M 100,100 m -60,0 a 60,60 0 1,1 120,0" />
+                        <!-- Нижняя дуга (уменьшенный радиус 60, в обратную сторону) -->
+                        <path id="bottomArc" d="M 100,100 m -60,0 a 60,60 0 0,0 120,0" />
+                    </defs>
+
+                    <circle cx="100" cy="100" r="80" fill="none" stroke="#2C5C50" stroke-width="5" />
+
+                    <text font-size="20" fill="#2C5C50" font-family="Roboto Serif" text-anchor="middle"
+                        letter-spacing="2">
+                        <textPath href="#topArc" startOffset="50%" dominant-baseline="middle">
+                            Warenkorb
+                        </textPath>
+                    </text>
+
+                    <text font-size="20" fill="#2C5C50" font-family="Roboto Serif" text-anchor="middle"
+                        letter-spacing="2">
+                        <textPath href="#bottomArc" startOffset="50%" dominant-baseline="middle">
+                            ist leer
+                        </textPath>
+                    </text>
+                </svg>
+            </div>
+
+            <div class="cart-footer">
+                <a href="/main_cart.html" class="go-to-cart-btn">Zum Warenkorb</a>
+            </div>
+
         </div>
-
-        <div class="items-counter">
-          <span>0</span>
-        </div>
-
-        <button class="cart-back-btn">
-          ←
-        </button>
-      </div>
-
-      <div class="empty">
-        <svg viewBox="0 0 200 200" width="200" height="200">
-          <defs>
-            <!-- Верхняя дуга -->
-            <path id="topArc" d="M 100,100 m -60,0 a 60,60 0 1,1 120,0" />
-            <!-- Нижняя дуга (уменьшенный радиус 60, в обратную сторону) -->
-            <path id="bottomArc" d="M 100,100 m -60,0 a 60,60 0 0,0 120,0" />
-          </defs>
-
-          <circle cx="100" cy="100" r="80" fill="none" stroke="#2C5C50" stroke-width="5" />
-
-          <text font-size="20" fill="#2C5C50" font-family="Roboto Serif" text-anchor="middle" letter-spacing="2">
-            <textPath href="#topArc" startOffset="50%" dominant-baseline="middle">
-              Warenkorb
-            </textPath>
-          </text>
-
-          <text font-size="20" fill="#2C5C50" font-family="Roboto Serif" text-anchor="middle" letter-spacing="2">
-            <textPath href="#bottomArc" startOffset="50%" dominant-baseline="middle">
-              ist leer
-            </textPath>
-          </text>
-        </svg>
-      </div>
-
-      <div class="cart-footer">
-        <a href="/main_cart.html" class="go-to-cart-btn">Zum Warenkorb</a>
-      </div>
-
     </div>
-  </div>
-
+    <!-- Snackbar -->
+    <div id="snackbar"></div>
+    <div id="prove_product"></div>
 
     <script src="/scripts/main_page.js"></script>
     <script src="/scripts/all_small_functions.js"></script>
@@ -234,9 +248,7 @@ HANDHABUNG: Durch die Schenkeleinrastsperre lässt sich die Nagelzange ohne viel
     <script src="/scripts/one_product_slider.js" defer></script>
     <script src="/scripts/one_product_amount.js"></script>
 
-    <!-- Snackbar -->
-    <div id="snackbar"></div>
-    <div id="prove_product"></div>
+
 </body>
 
 </html>

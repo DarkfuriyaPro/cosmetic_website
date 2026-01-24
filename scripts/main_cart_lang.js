@@ -1,59 +1,47 @@
-// 1. Берём язык из URL
-function getCurrentLang() {
-  const params = new URLSearchParams(window.location.search);
-  const lang = params.get('lang');
+// Получаем язык из URL, если нет — по умолчанию русский
+const urlParams = new URLSearchParams(window.location.search);
+const lang = urlParams.get('lang') || 'ru';
 
-  if (['ru', 'de', 'en'].includes(lang)) {
-    return lang;
-  }
-
-  return 'ru'; // по умолчанию
-}
-
-const currentLang = getCurrentLang();
-document.documentElement.lang = currentLang;
-
-// 2. Переводы
+// Словарь переводов
 const translations = {
-  ru: {
-    cart: 'Корзина',
-    empty: 'Пустая',
-    delivery: 'Доставка',
-    payment: 'Оплата',
-    total: 'Итого:',
-    toDelivery: 'К доставке',
-    goToCart: 'Перейти в корзину'
-  },
-  de: {
-    cart: 'Warenkorb',
-    empty: 'Leer',
-    delivery: 'Lieferung',
-    payment: 'Zahlung',
-    total: 'Gesamt:',
-    toDelivery: 'Zur Lieferung',
-    goToCart: 'Zum Warenkorb'
-  },
-  en: {
-    cart: 'Cart',
-    empty: 'Empty',
-    delivery: 'Delivery',
-    payment: 'Payment',
-    total: 'Total:',
-    toDelivery: 'To delivery',
-    goToCart: 'Go to cart'
-  }
+    ru: {
+        cart: "Корзина",
+        empty: "Пустая",
+        toDelivery: "К доставке",
+    },
+    de: {
+        cart: "Warenkorb",
+        empty: "ist leer",
+        toDelivery: "Zur Lieferung",
+        delivery: "Lieferung",
+        payment: "Zahlung",
+        impressum: "Impressum",
+        agb: "AGB",
+        datenschutz: "Datenschutz"
+    },
+    en: {
+        cart: "Cart",
+        empty: "Empty",
+        toDelivery: "To Delivery",
+    }
 };
 
-// 3. Применяем переводы
-function applyTranslations(lang) {
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.dataset.i18n;
-    if (translations[lang][key]) {
-      el.textContent = translations[lang][key];
-    }
-  });
+// Функция для замены текстов на нужный язык
+function setLanguageTexts(lang) {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+            el.textContent = translations[lang][key];
+        }
+    });
+
+    // Также меняем текст на SVG
+    document.querySelectorAll('textPath').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (key && translations[lang][key]) {
+            el.textContent = translations[lang][key];
+        }
+    });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  applyTranslations(currentLang);
-});
+setLanguageTexts(lang);
