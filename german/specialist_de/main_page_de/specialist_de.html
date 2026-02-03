@@ -40,6 +40,16 @@
           </a>
         </div>
 
+        <!--Search Form-->
+        <section class="search-section">
+          <form class="search-form" action="#" method="GET">
+            <button type="submit" class="search-btn">
+              <img class="submit-img" src="/images/search.png">
+            </button>
+            <input type="text" class="search-input" placeholder="Suchen..." name="search">
+          </form>
+        </section>
+
         <div class="icons-language">
           <div class="header-icons">
             <a href="#"><img src="/images/account.png" alt="Профиль" class="icon"></a>
@@ -63,16 +73,6 @@
       </div>
     </header>
 
-    <!--Search Form-->
-    <section class="search-section">
-      <form class="search-form" action="#" method="GET">
-        <button type="submit" class="search-btn">
-          <img class="submit-img" src="/images/search.png">
-        </button>
-        <input type="text" class="search-input" placeholder="Suchen..." name="search">
-      </form>
-    </section>
-
     <div class="categories-slides">
 
       <!-- Categories -->
@@ -87,24 +87,14 @@
 
       <!--Slider-->
       <div class="slider-container">
-        <section class="slider" aria-roledescription="carousel" aria-label="Пример автоперелистывающегося слайдера"
-          id="mySlider">
-          <div class="slides" id="slides">
-            <div class="slide" data-index="0">
-              <img src="/images/main1.jpeg" alt="" loading="lazy">
+          <div class="slider-scroll" id="slider">
+            <div class="slide">
+              <img src="/images/main1.jpeg" alt="">
             </div>
-            <div class="slide" data-index="1">
-              <img src="/images/main2.jpeg" alt="" loading="lazy">
+            <div class="slide">
+              <img src="/images/main2.jpeg" alt="">
             </div>
           </div>
-
-          <div class="controls" aria-hidden="false">
-            <button id="prev" aria-label="Предыдущий слайд">&larr;</button>
-            <button id="next" aria-label="Следующий слайд">&rarr;</button>
-          </div>
-
-          <div class="indicators" role="tablist" aria-label="Навигация по слайдам" id="dots"></div>
-        </section>
       </div>
 
     </div>

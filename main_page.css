@@ -43,32 +43,39 @@ main {
 ============================= */
 :root {
   --header-height: 60px;
-  --search-form-height: 60px;
-  /* Управляй размером отсюда */
+  /* можно увеличить, чтобы лого помещалось */
+  --search-form-height: 40px;
+  /* подбираем под input */
 }
+
 
 .header {
   position: sticky;
   top: 0;
   width: 100%;
   height: var(--header-height);
-  background-color: #fff;
-  border-bottom: solid #00493F;
+  /* теперь реально помещается */
   display: flex;
   align-items: center;
+  background-color: #fff;
+  border-bottom: 2px solid #00493F;
   z-index: 1000;
+  padding: 0 20px;
+  box-sizing: border-box;
+  border: 1px solid red;
 }
 
 .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
-  /* Или сколько тебе нужно */
   width: 100%;
-  box-sizing: border-box;
+  max-width: 1200px;
   margin: 0 auto;
-  /* Центрирование */
+  box-sizing: border-box;
+  height: 100%;
+  border: 1px solid red;
+  /* теперь container точно помещается в header */
 }
 
 /* Лого в хедере */
@@ -79,10 +86,61 @@ main {
 }
 
 .logo-img {
-  height: calc(var(--header-height) * 1.5);
+  height: calc(var(--header-height) * 1.2);
   /* логотип автоматически подстраивается */
   width: auto;
   display: block;
+  border: 1px solid red;
+}
+
+/*ПОИСК*/
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: var(--search-form-height);
+  margin: 20px auto;
+  width: 90%;
+  max-width: 600px;
+  padding: 0 10px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.search-input {
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "Roboto Serif", serif;
+  font-size: calc(var(--search-form-height) * 0.3);
+  border: none;
+  outline: none;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.search-input::placeholder {
+  color: #2C5C50;
+  font-size: 18px;
+}
+
+.search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 100px;
+  background-color: #fff;
+}
+
+.submit-img {
+  height: calc(var(--search-form-height) * 0.5);
 }
 
 /* Иконки и язык */
@@ -212,59 +270,6 @@ main {
 
 .language-content.show {
   display: block;
-}
-
-
-
-
-/* =============================
-   ПОИСК
-============================= */
-.search-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: var(--search-form-height);
-  margin: 20px auto;
-  width: 90%;
-  max-width: 600px;
-  padding: 0 10px;
-  border-radius: 10px;
-  background-color: #fff;
-  box-sizing: border-box;
-}
-
-.search-input {
-  flex: 1;
-  height: 100%;
-  width: 100%;
-  box-sizing: border-box;
-  font-family: "Roboto Serif", serif;
-  font-size: calc(var(--search-form-height) * 0.3);
-  border: none;
-  outline: none;
-  background-color: #fff;
-}
-
-.search-input::placeholder {
-  color: #2C5C50;
-  font-size: 18px;
-}
-
-.search-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  padding: 0 10px;
-  border: none;
-  cursor: pointer;
-  border-radius: 100px;
-  background-color: #fff;
-}
-
-.submit-img {
-  height: calc(var(--search-form-height) * 0.5);
 }
 
 /* =============================
@@ -405,35 +410,32 @@ main {
 }
 
 .slider-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100px;
-  margin-top: 50px;
-}
-
-.slider {
-  width: min(var(--w), 100%);
-  position: relative;
+  width: 100%;
   overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 6px 30px rgba(10, 20, 40, 0.08);
 }
 
-.slides {
+.slider-scroll {
   display: flex;
-  transition: transform var(--transition) ease;
-  will-change: transform;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  padding: 20px;
+
+  /* скрываем скроллбар */
+  scrollbar-width: none;
+}
+
+.slider-scroll::-webkit-scrollbar {
+  display: none;
 }
 
 .slide {
-  min-width: 100%;
-  height: var(--h);
-  display: grid;
-  place-items: center;
-  color: white;
-  font-size: clamp(1rem, 2.5vw, 2rem);
-  position: relative;
+  flex: 0 0 80%;
+  scroll-snap-align: center;
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 .slide img {
@@ -441,55 +443,6 @@ main {
   height: 100%;
   object-fit: cover;
   display: block;
-}
-
-/* controls */
-.controls {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-between;
-  transform: translateY(-50%);
-  pointer-events: none;
-}
-
-.controls button {
-  pointer-events: auto;
-  background: rgba(0, 0, 0, 0.45);
-  border: 0;
-  color: white;
-  padding: .6rem .8rem;
-  margin: 0 0.5rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-/* indicators */
-.indicators {
-  position: absolute;
-  bottom: .6rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: .5rem;
-}
-
-.indicators button {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: 0;
-  background: white;
-  padding: 0;
-  cursor: pointer;
-}
-
-.indicators button[aria-pressed="true"] {
-  background: #2C5C50;
-  transform: scale(1.2);
 }
 
 /* responsive */
