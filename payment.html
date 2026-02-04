@@ -55,14 +55,14 @@
 
         <div class="payment-container">
             <div class="payment-header">
-                <h1>Оплата</h1>
+                <h1 data-i18n="payment">Оплата</h1>
 
-                <div class="steps">
-                    <div class="step active">Корзина</div>
+               <div class="steps">
+                    <div class="step active" data-i18n="cart">Корзина</div>
                     <div class="arrow active">→</div>
-                    <div class="step active">Доставка</div>
+                    <div class="step active" data-i18n="delivery">Доставка</div>
                     <div class="arrow active">→</div>
-                    <div class="step active">Оплата</div>
+                    <div class="step active" data-i18n="payment">Оплата</div>
                 </div>
             </div>
 
@@ -100,7 +100,7 @@
                     <div class="payment-cart-bottom">
                         <div class="payment-price">Стоимость: 0€</div>
                         <div class="go-to-pay">
-                            <a href="/payment.html" class="go-to-pay-btn">К оплате</a>
+                            <a href="/payment.html" class="go-to-pay-btn" data-i18n="toPay">Оплатить</a>
                         </div>
 
                     </div>
@@ -123,10 +123,10 @@
                 </div>
 
 
-                <div class="footer-bottom">
-                    <a href="/russian/specialist_ru/footer/impressum.html">Импрессум</a>
-                    <a href="#">Пользовательское соглашение</a>
-                    <a href="#">Политика конфиденциальности</a>
+                 <div class="footer-bottom">
+                    <a href="/russian/specialist_ru/footer/impressum.html" data-i18n="impressum">Импрессум</a>
+                    <a href="#" data-i18n="agb">Пользовательское соглашение</a>
+                    <a href="#" data-i18n="datenschutz">Политика конфиденциальности</a>
                 </div>
 
             </div>
@@ -164,7 +164,7 @@
         });
     </script>
 
-
+    <script src="/scripts/main_cart_lang.js"></script>
 </body>
 
 </html>

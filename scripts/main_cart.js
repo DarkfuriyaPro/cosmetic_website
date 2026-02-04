@@ -71,7 +71,7 @@ function updateMainCartSummary() {
   const totalBox = document.querySelector(".block-summary .total-box");
   if (totalBox) {
     totalBox.innerHTML = `
-      Итого: <span>${formatPrice(total)}</span>
+      <span>${formatPrice(total)}</span>
     `;
   }
 }
