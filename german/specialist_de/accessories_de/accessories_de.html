@@ -43,6 +43,16 @@
                     </a>
                 </div>
 
+                <!--Search Form-->
+                <section class="search-section">
+                    <form class="search-form" action="#" method="GET">
+                        <button type="submit" class="search-btn">
+                            <img class="submit-img" src="/images/search.png">
+                        </button>
+                        <input type="text" class="search-input" placeholder="Suchen..." name="search">
+                    </form>
+                </section>
+
                 <div class="icons-language">
                     <div class="header-icons">
                         <a href="#"><img src="/images/account.png" alt="Профиль" class="icon"></a>
@@ -66,17 +76,6 @@
             </div>
         </header>
 
-
-        <!--Search Form-->
-        <section class="search-section">
-            <form class="search-form" action="#" method="GET">
-                <button type="submit" class="search-btn">
-                    <img class="submit-img" src="/images/search.png">
-                </button>
-                <input type="text" class="search-input" placeholder="Suchen..." name="search">
-            </form>
-        </section>
-
         <div class="layout">
 
             <!--Sidebar-->
@@ -85,8 +84,11 @@
                     <ul>
                         <li class="side-list"><a href="/german/specialist_de/foot_care_de/foot_care_de.html">Fuß
                                 Kosmetik<span class="arrow">›</span></a></li>
-                        <li class="side-list"><a href="/german/specialist_de/instruments_de/instruments_de.html">Instrumente<span class="arrow">›</span></a></li>
-                        <li class="side-list"><a href="/german/specialist_de/accessories_de/accessories_de.html" class="active">Zubehör<span class="arrow">›</span></a></li>
+                        <li class="side-list"><a
+                                href="/german/specialist_de/instruments_de/instruments_de.html">Instrumente<span
+                                    class="arrow">›</span></a></li>
+                        <li class="side-list"><a href="/german/specialist_de/accessories_de/accessories_de.html"
+                                class="active">Zubehör<span class="arrow">›</span></a></li>
                     </ul>
                 </nav>
             </aside>
@@ -157,7 +159,8 @@
                                 </div>
                                 <div class="after-img">
                                     <div class="product-desc">
-                                        <div class="product-title">Hölzerne Wattestäbchen für die Behandlung von Warzen 10 cm
+                                        <div class="product-title">Hölzerne Wattestäbchen für die Behandlung von Warzen
+                                            10 cm
                                         </div>
                                     </div>
                                 </div>
@@ -166,7 +169,7 @@
                             <div class="price-cart">
                                 <div class="product-price"><span class="price-value">1,68</span><span>€</span>
                                 </div>
-                               <div class="add-button">
+                                <div class="add-button">
                                     <button class="add-to-cart" type="button">In den Warenkorb</button>
                                 </div>
                             </div>
@@ -182,7 +185,8 @@
                                 </div>
                                 <div class="after-img">
                                     <div class="product-desc">
-                                        <div class="product-title">Hölzerne Wattestäbchen für die Behandlung von Warzen COTTON SWABS-175 20 cm</div>
+                                        <div class="product-title">Hölzerne Wattestäbchen für die Behandlung von Warzen
+                                            COTTON SWABS-175 20 cm</div>
                                     </div>
                                 </div>
                             </a>
@@ -206,7 +210,8 @@
                                 </div>
                                 <div class="after-img">
                                     <div class="product-desc">
-                                        <div class="product-title">Holz-Wattestäbchen, beidseitig, spitz zulaufend, Kunststoff, 20 cm</div>
+                                        <div class="product-title">Holz-Wattestäbchen, beidseitig, spitz zulaufend,
+                                            Kunststoff, 20 cm</div>
                                     </div>
                                 </div>
                             </a>
@@ -214,7 +219,7 @@
                             <div class="price-cart">
                                 <div class="product-price"><span class="price-value">0,84</span><span>€</span>
                                 </div>
-                               <div class="add-button">
+                                <div class="add-button">
                                     <button class="add-to-cart" type="button">In den Warenkorb</button>
                                 </div>
                             </div>
@@ -253,7 +258,8 @@
                                 </div>
                                 <div class="after-img">
                                     <div class="product-desc">
-                                        <div class="product-title">Wattestäbchen aus Kunststoff zum Auftragen von Bonder</div>
+                                        <div class="product-title">Wattestäbchen aus Kunststoff zum Auftragen von Bonder
+                                        </div>
                                     </div>
                                 </div>
                             </a>
@@ -298,53 +304,55 @@
     </div>
 
     <!--Shoping cart-->
-  <div id="shoppingCart" class="shopping-cart">
-    <div class="cart-container">
-      <div class="upper-pannel">
-        <div class="total-price">
-          Gesamt:<span class="amount-count">0</span>
+    <div id="shoppingCart" class="shopping-cart">
+        <div class="cart-container">
+            <div class="upper-pannel">
+                <div class="total-price">
+                    Gesamt:<span class="amount-count">0</span>
+                </div>
+
+                <div class="items-counter">
+                    <span>0</span>
+                </div>
+
+                <button class="cart-back-btn">
+                    ←
+                </button>
+            </div>
+
+            <div class="empty">
+                <svg viewBox="0 0 200 200" width="200" height="200">
+                    <defs>
+                        <!-- Верхняя дуга -->
+                        <path id="topArc" d="M 100,100 m -60,0 a 60,60 0 1,1 120,0" />
+                        <!-- Нижняя дуга (уменьшенный радиус 60, в обратную сторону) -->
+                        <path id="bottomArc" d="M 100,100 m -60,0 a 60,60 0 0,0 120,0" />
+                    </defs>
+
+                    <circle cx="100" cy="100" r="80" fill="none" stroke="#2C5C50" stroke-width="5" />
+
+                    <text font-size="20" fill="#2C5C50" font-family="Roboto Serif" text-anchor="middle"
+                        letter-spacing="2">
+                        <textPath href="#topArc" startOffset="50%" dominant-baseline="middle">
+                            Warenkorb
+                        </textPath>
+                    </text>
+
+                    <text font-size="20" fill="#2C5C50" font-family="Roboto Serif" text-anchor="middle"
+                        letter-spacing="2">
+                        <textPath href="#bottomArc" startOffset="50%" dominant-baseline="middle">
+                            ist leer
+                        </textPath>
+                    </text>
+                </svg>
+            </div>
+
+            <div class="cart-footer">
+                <a href="/main_cart.html" class="go-to-cart-btn">Zum Warenkorb</a>
+            </div>
+
         </div>
-
-        <div class="items-counter">
-          <span>0</span>
-        </div>
-
-        <button class="cart-back-btn">
-          ←
-        </button>
-      </div>
-
-      <div class="empty">
-        <svg viewBox="0 0 200 200" width="200" height="200">
-          <defs>
-            <!-- Верхняя дуга -->
-            <path id="topArc" d="M 100,100 m -60,0 a 60,60 0 1,1 120,0" />
-            <!-- Нижняя дуга (уменьшенный радиус 60, в обратную сторону) -->
-            <path id="bottomArc" d="M 100,100 m -60,0 a 60,60 0 0,0 120,0" />
-          </defs>
-
-          <circle cx="100" cy="100" r="80" fill="none" stroke="#2C5C50" stroke-width="5" />
-
-          <text font-size="20" fill="#2C5C50" font-family="Roboto Serif" text-anchor="middle" letter-spacing="2">
-            <textPath href="#topArc" startOffset="50%" dominant-baseline="middle">
-              Warenkorb
-            </textPath>
-          </text>
-
-          <text font-size="20" fill="#2C5C50" font-family="Roboto Serif" text-anchor="middle" letter-spacing="2">
-            <textPath href="#bottomArc" startOffset="50%" dominant-baseline="middle">
-              ist leer
-            </textPath>
-          </text>
-        </svg>
-      </div>
-
-      <div class="cart-footer">
-        <a href="/main_cart.html" class="go-to-cart-btn">Zum Warenkorb</a>
-      </div>
-
     </div>
-  </div>
 
     <!-- Overlay (темный фон при открытой корзине) -->
     <div id="cartOverlay" class="cart-overlay" aria-hidden="true"></div>
