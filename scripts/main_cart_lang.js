@@ -12,6 +12,7 @@ const translations = {
         payment: "Оплата",
         toPayment: "К оплате",
         toPay: "Оплатить",
+        total: "Стоимость:",
         impressum: "Импрессум",
         agb: "Пользовательское соглашение",
         datenschutz: "Политика конфиденциальности",
@@ -34,6 +35,7 @@ const translations = {
         payment: "Zahlung",
         toPayment: "Zur Zahlung",
         toPay: "Bezahlen",
+        total: "Gesamt:",
         impressum: "Impressum",
         agb: "AGB",
         datenschutz: "Datenschutz",
@@ -56,6 +58,7 @@ const translations = {
         payment: "Payment",
         toPayment: "To payment",
         toPay: "Pay",
+        total: "Total:",
 
         firstName: "First name*",
         lastName: "Last name*",

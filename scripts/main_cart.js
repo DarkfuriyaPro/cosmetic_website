@@ -68,13 +68,12 @@ function updateMainCartSummary() {
     total += priceNumber * item.quantity;
   });
 
-  const totalBox = document.querySelector(".block-summary .total-box");
-  if (totalBox) {
-    totalBox.innerHTML = `
-      <span>${formatPrice(total)}</span>
-    `;
+  const totalValue = document.querySelector(".block-summary .total-value");
+  if (totalValue) {
+    totalValue.textContent = formatPrice(total);
   }
 }
+
 
 
 // ------ ОБРАБОТЧИКИ ------
