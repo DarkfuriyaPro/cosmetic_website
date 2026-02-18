@@ -133,38 +133,8 @@
         </footer>
 
     </div>
-
-    <script>
-        let selectedPaymentUrl = null;
-
-        // Выбираем все кнопки оплаты
-        const paymentButtons = document.querySelectorAll('.payment-buttons > div');
-        paymentButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Убираем класс active у всех кнопок
-                paymentButtons.forEach(b => b.classList.remove('active'));
-
-                // Добавляем active выбранной кнопке
-                btn.classList.add('active');
-
-                // Сохраняем ссылку
-                selectedPaymentUrl = btn.dataset.paymentUrl;
-            });
-        });
-
-        // Кнопка "К оплате"
-        const goToPayBtn = document.querySelector('.go-to-pay-btn');
-        goToPayBtn.addEventListener('click', (e) => {
-            e.preventDefault(); // чтобы не перезагружать страницу
-            if (selectedPaymentUrl) {
-                window.location.href = selectedPaymentUrl;
-            } else {
-                alert("Пожалуйста, выберите метод оплаты");
-            }
-        });
-    </script>
-
     <script src="/scripts/main_cart_lang.js"></script>
+    <script src="/scripts/payment.js"></script>
 </body>
 
 </html>
