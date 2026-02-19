@@ -1,8 +1,24 @@
-// 1. определяем язык
-const params = new URLSearchParams(window.location.search);
-const lang = params.get('lang') || 'ru';
+// ===== 1. ОПРЕДЕЛЯЕМ ЯЗЫК (ЕДИНАЯ ЛОГИКА ДЛЯ ВСЕГО САЙТА) =====
 
-// 2. переводы
+// 1) сначала пробуем взять из URL (?lang=de)
+const params = new URLSearchParams(window.location.search);
+let lang = params.get('lang');
+
+// 2) если нет в URL — берём из localStorage
+if (!lang) {
+    lang = localStorage.getItem('siteLang');
+}
+
+// 3) если вообще ничего нет — ставим русский по умолчанию
+if (!lang) {
+    lang = 'ru';
+}
+
+// 4) сохраняем язык, чтобы он работал на ВСЕХ страницах
+localStorage.setItem('siteLang', lang);
+
+
+// ===== 2. СЛОВАРЬ (оставляем твой как есть) =====
 const translations = {
     ru: {
         cart: "Корзина",
@@ -16,6 +32,7 @@ const translations = {
         impressum: "Импрессум",
         agb: "Пользовательское соглашение",
         datenschutz: "Политика конфиденциальности",
+        paymentmethods: "Выберите способ оплаты",
 
         firstName: "Имя*",
         lastName: "Фамилия*",
@@ -39,6 +56,7 @@ const translations = {
         impressum: "Impressum",
         agb: "AGB",
         datenschutz: "Datenschutz",
+        paymentmethods: "Wählen Sie eine Zahlungsmethode aus",
 
         firstName: "Vorname*",
         lastName: "Nachname*",
@@ -59,6 +77,7 @@ const translations = {
         toPayment: "To payment",
         toPay: "Pay",
         total: "Total:",
+        paymentmethods: "Choose a payment method",
 
         firstName: "First name*",
         lastName: "Last name*",
@@ -71,32 +90,18 @@ const translations = {
     }
 };
 
-// 3. применяем тексты
+
+// ===== 3. ПРИМЕНЯЕМ ПЕРЕВОД =====
 document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.dataset.i18n;
-    if (translations[lang]?.[key]) {
+    if (translations[lang] && translations[lang][key]) {
         el.textContent = translations[lang][key];
     }
 });
 
-// 3a. placeholder’ы
 document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
     const key = el.dataset.i18nPlaceholder;
-    if (translations[lang]?.[key]) {
+    if (translations[lang] && translations[lang][key]) {
         el.placeholder = translations[lang][key];
     }
 });
-
-// 4. корзина → доставка
-const deliveryBtn = document.querySelector('.go-to-delivery-btn');
-if (deliveryBtn) {
-    deliveryBtn.href = `/delivery.html?lang=${lang}`;
-}
-
-// 5. доставка → оплата
-const payBtn = document.querySelector('.go-to-pay-btn');
-if (payBtn) {
-    payBtn.href = `/payment.html?lang=${lang}`;
-}
-
-
