@@ -161,3 +161,14 @@ h1 {
     transform: scale(1.03);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
+
+/* Ошибка в поле */
+.input-error {
+    border: 2px solid #e53935 !important;
+    background-color: #fff5f5;
+}
+
+/* Плавный переход (красиво выглядит) */
+input, select {
+    transition: border 0.2s ease, background-color 0.2s ease;
+}

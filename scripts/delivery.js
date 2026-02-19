@@ -41,22 +41,43 @@ document.addEventListener("DOMContentLoaded", function () {
             const inputs = document.querySelectorAll("input");
             const select = document.querySelector("select");
 
+            // Сначала убираем старые красные рамки
+            inputs.forEach(input => input.classList.remove("input-error"));
+
             const deliveryData = {
-                firstName: inputs[0]?.value || "",
-                lastName: inputs[1]?.value || "",
-                phone: inputs[2]?.value || "",
-                email: inputs[3]?.value || "",
+                firstName: inputs[0]?.value.trim() || "",
+                lastName: inputs[1]?.value.trim() || "",
+                phone: inputs[2]?.value.trim() || "",
+                email: inputs[3]?.value.trim() || "",
                 country: select?.value || "Germany",
-                city: inputs[4]?.value || "",
-                street: inputs[5]?.value || "",
-                postcode: inputs[6]?.value || ""
+                city: inputs[4]?.value.trim() || "",
+                street: inputs[5]?.value.trim() || "",
+                postcode: inputs[6]?.value.trim() || ""
             };
 
-            // Проверка обязательных полей
-            if (!deliveryData.firstName || !deliveryData.lastName || !deliveryData.email) {
-                alert("Пожалуйста, заполните обязательные поля");
-                return;
-            }
+            let hasError = false;
+
+            // 🔥 обязательные поля (можешь менять список)
+            const requiredFields = [
+                { value: deliveryData.firstName, element: inputs[0] },
+                { value: deliveryData.lastName, element: inputs[1] },
+                { value: deliveryData.phone, element: inputs[2] },
+                { value: deliveryData.email, element: inputs[3] },
+                { value: deliveryData.city, element: inputs[4] },
+                { value: deliveryData.street, element: inputs[5] },
+                { value: deliveryData.postcode, element: inputs[6] },
+            ];
+
+            // Проверяем каждое поле
+            requiredFields.forEach(field => {
+                if (!field.value) {
+                    field.element.classList.add("input-error");
+                    hasError = true;
+                }
+            });
+
+            // Если есть ошибки — не пускаем дальше (БЕЗ alert)
+            if (hasError) return;
 
             // Сохраняем в localStorage
             localStorage.setItem("delivery", JSON.stringify(deliveryData));
@@ -65,4 +86,15 @@ document.addEventListener("DOMContentLoaded", function () {
             window.location.href = "/payment.html";
         });
     }
+
+    // Убираем красную рамку при вводе
+    document.querySelectorAll("input").forEach(input => {
+        input.addEventListener("input", () => {
+            if (input.value.trim() !== "") {
+                input.classList.remove("input-error");
+            }
+        });
+    });
+
+
 });
