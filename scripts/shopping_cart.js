@@ -44,8 +44,10 @@ function renderCart() {
 
   if (cartItems.length === 0) {
     if (emptyState) emptyState.style.display = 'flex';
+    if (footer) footer.style.display = 'none';
   } else {
     if (emptyState) emptyState.style.display = 'none';
+    if (footer) footer.style.display = 'flex';
     cartItems.forEach(item => {
       const cartItem = document.createElement('div');
       cartItem.classList.add('cart-item');
@@ -179,13 +181,22 @@ function updateTotalPrice() {
     const qty = parseInt(it.quantity) || 0;
     return sum + price * qty;
   }, 0);
+
   const amountEl = document.querySelector('.amount-count');
   if (amountEl) {
-    const formatted = (total % 1 === 0 ? Math.round(total).toFixed(2) : total.toFixed(2))
-      .replace('.', ',');
+    if (total === 0) {
+      amountEl.innerText = '0€';
+      return;
+    }
+
+    let formatted;
+    if (Number.isInteger(total)) {
+      formatted = total.toString(); // 12 вместо 12,00
+    } else {
+      formatted = total.toFixed(2).replace('.', ',');
+    }
 
     amountEl.innerText = formatted + '€';
-
   }
 }
 

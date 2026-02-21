@@ -6,15 +6,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 💰 Берём базовую цену из HTML (чтобы не писать вручную)
   const basePriceText = priceEl.textContent.trim().replace(/[^\d.,]/g, "");
-  const basePrice = parseFloat(basePriceText.replace(",", ".")) || 0;
+  const basePrice = parseFloat(basePriceText.replace(".", ",")) || 0;
 
   let count = 1;
 
   function updateUI() {
-    numberEl.textContent = count;
-    priceEl.textContent = (basePrice * count).toFixed(2) + "€";
-    minusBtn.disabled = count === 1;
-  }
+  numberEl.textContent = count;
+
+  const totalPrice = (basePrice * count)
+    .toFixed(2)     // считает
+    .replace('.', ','); // отображает по-европейски
+
+  priceEl.textContent = totalPrice + "€";
+  minusBtn.disabled = count === 1;
+}
 
   plusBtn.addEventListener("click", () => {
     count++;
@@ -43,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const imgEl = productCard.querySelector('.product-slides img.active');
 
     const title = titleEl ? titleEl.textContent.trim() : 'Без названия';
-    const price = parseFloat(priceEl.textContent.trim().replace(/[^\d.,]/g, '').replace(',', '.')) || 0;
+    const price = parseFloat(priceEl.textContent.trim().replace(/[^\d.,]/g, '').replace('.', ',')) || 0;
     const img = imgEl ? imgEl.src : '';
     const quantity = parseInt(numberEl.textContent) || 1;
 
