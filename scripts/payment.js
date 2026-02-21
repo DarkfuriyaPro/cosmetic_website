@@ -2,6 +2,39 @@ let selectedMethod = null;
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    const container = document.querySelector(".payment-cart-top");
+    const totalBox = document.querySelector(".total-value");
+
+    if (container) {
+        container.innerHTML = "";
+    }
+
+    let total = 0;
+
+    cartItems.forEach(item => {
+        const priceNum = parseFloat(String(item.price).replace(",", "."));
+        const itemTotal = priceNum * item.quantity;
+        total += itemTotal;
+
+        const el = document.createElement("div");
+        el.classList.add("payment-cart-item");
+
+        el.innerHTML = `
+            <img src="${item.img}" alt="">
+            <div class="payment-desc">
+                <div class="payment-product-title">${item.title}</div>
+                <div class="payment-product-price">${item.price}€ × ${item.quantity}</div>
+            </div>
+        `;
+
+        container.appendChild(el);
+    });
+
+    if (totalBox) {
+        totalBox.textContent = total.toFixed(2).replace(".", ",") + "€";
+    }
+
     // Выбор метода оплаты (твои кнопки)
     const paymentButtons = document.querySelectorAll('.payment-buttons > div');
 

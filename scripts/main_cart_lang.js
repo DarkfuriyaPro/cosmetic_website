@@ -17,6 +17,20 @@ if (!lang) {
 // 4) сохраняем язык, чтобы он работал на ВСЕХ страницах
 localStorage.setItem('siteLang', lang);
 
+function updateLanguageFlag() {
+    const langBtn = document.querySelector('.btn-lang');
+    if (!langBtn) return;
+
+    // Убираем старые классы флагов
+    langBtn.classList.remove('lang-ru', 'lang-de', 'lang-en');
+
+    // Добавляем нужный класс по текущему языку
+    langBtn.classList.add(`lang-${lang}`);
+}
+
+// вызываем при загрузке страницы
+updateLanguageFlag();
+
 
 // ===== 2. СЛОВАРЬ (оставляем твой как есть) =====
 const translations = {
