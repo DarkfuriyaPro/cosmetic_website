@@ -121,7 +121,7 @@
                             <div class="foot-product-desc-price"> 9,60€</div>
                         </div>
 
-                     <div class="in-stock">In stock</div>
+                        <div class="in-stock">In stock</div>
 
                         <div class="buy-product">
                             <div class="amount">
@@ -139,29 +139,28 @@
                             <button type="button" class="collapsible">Description</button>
                             <div class="content">
                                 VC 2041A<br><br>
-                                Kräftiges beruhigendes Konzentrat.<br>
+                                
+                                Potent calming concentrate.<br>
 
-                                Die Haut verbessert sichtbar.<br>
-                                Enthält Aloe Vera, Rosskastanie (Aesculus Hippocastanum) und Kamille.<br><br>
-                                Hauttyp:<br>
-                                Für empfindliche, rote und irritierte Haut.<br><br>
+                                Skin visibly improves.<br>
+                                Contains aloe vera, aesculus hippocastanum and chamomile.<br><br>
+                                Skin type:<br>
+                                - For sensitive, red & irritated skin.<br><br>
 
-                                Verpackung:<br>
-                                6 Ampullen x 5 ml.<br><br>
+                                Package:<br>
+                                - 6 ampoules x 5 ml<br><br>
 
-                                Gebrauchsanweisung:<br>
-                                Jemand, der mit seiner Haut das Beste vorhat, benutzt einmal in 4 - 6
-                                Wochen eine ganze Ampulle innerhalb einer Woche als kurze Kur. Einen Teil der Ampulle
-                                auf dem gereinigten Gesicht, Hals und eventuell Dekollete auftragen. Danach Tages- oder
-                                Nachtpflege anbringen.<br><br>
+                                Directions for use: <br>
+                                Use one whole ampoule once every 4-6 weeks, during one week as a
+                                short cure. You apply a few drops, until the skin is saturated, onto your face and if
+                                desired neck & décolleté. Afterwards apply your day or night cream.<br><br>
 
-                                Beschreibung: <br>
-                                Das stärkste Präparat für empfindliche, rote und gereizte Haut. Die Haut
-                                verbessert sichtbar. Die Rosskastanie (Aesculus Hippocastanum) enthält verschiedene
-                                Proteine, Saponine, Glykoside, loh- und harzartiger Substanzen. Erhöht den Widerstand
-                                der Kapillarwände in der Haut und regt die Durchblutung an. Es ist gefäßzusammenziehend,
-                                d. h. die Kapillaren verengen sich und es führt zu einem schnellen und effizienten
-                                Abführen von Abfällen.
+                                Description:<br>
+                                The strongest preparation available for the sensitive, red and irritated
+                                skin. Skin visibly improves. Aesculus hippocastanum contains various proteins, saponins,
+                                glucosides, tannin- and resinlike substances. Increases the resistance of capillaries in
+                                the skin and stimulates the blood flow. Is vasoconstringent, which makes capillaries
+                                tighten and leads to a quick and efficient removal of waste materials.
                             </div>
                         </div>
                     </div>
@@ -172,7 +171,7 @@
 
 
 
-         <!--Footer-->
+        <!--Footer-->
         <footer class="footer">
             <div class="footer-container">
 
@@ -196,54 +195,56 @@
         </footer>
     </div>
 
-   <!--Shoping cart-->
-  <div id="shoppingCart" class="shopping-cart">
-    <div class="cart-container">
-      <div class="upper-pannel">
-        <div class="total-price">
-          Gesamt:<span class="amount-count">0</span>
+    <!--Shoping cart-->
+    <div id="shoppingCart" class="shopping-cart">
+        <div class="cart-container">
+            <div class="upper-pannel">
+                <div class="total-price">
+                    Gesamt:<span class="amount-count">0</span>
+                </div>
+
+                <div class="items-counter">
+                    <span>0</span>
+                </div>
+
+                <button class="cart-back-btn">
+                    ←
+                </button>
+            </div>
+
+            <div class="empty">
+                <svg viewBox="0 0 200 200" width="200" height="200">
+                    <defs>
+                        <!-- Верхняя дуга -->
+                        <path id="topArc" d="M 100,100 m -60,0 a 60,60 0 1,1 120,0" />
+                        <!-- Нижняя дуга (уменьшенный радиус 60, в обратную сторону) -->
+                        <path id="bottomArc" d="M 100,100 m -60,0 a 60,60 0 0,0 120,0" />
+                    </defs>
+
+                    <circle cx="100" cy="100" r="80" fill="none" stroke="#2C5C50" stroke-width="5" />
+
+                    <text font-size="20" fill="#2C5C50" font-family="Roboto Serif" text-anchor="middle"
+                        letter-spacing="2">
+                        <textPath href="#topArc" startOffset="50%" dominant-baseline="middle">
+                            Warenkorb
+                        </textPath>
+                    </text>
+
+                    <text font-size="20" fill="#2C5C50" font-family="Roboto Serif" text-anchor="middle"
+                        letter-spacing="2">
+                        <textPath href="#bottomArc" startOffset="50%" dominant-baseline="middle">
+                            ist leer
+                        </textPath>
+                    </text>
+                </svg>
+            </div>
+
+            <div class="cart-footer">
+                <a href="/main_cart.html" class="go-to-cart-btn">Zum Warenkorb</a>
+            </div>
+
         </div>
-
-        <div class="items-counter">
-          <span>0</span>
-        </div>
-
-        <button class="cart-back-btn">
-          ←
-        </button>
-      </div>
-
-      <div class="empty">
-        <svg viewBox="0 0 200 200" width="200" height="200">
-          <defs>
-            <!-- Верхняя дуга -->
-            <path id="topArc" d="M 100,100 m -60,0 a 60,60 0 1,1 120,0" />
-            <!-- Нижняя дуга (уменьшенный радиус 60, в обратную сторону) -->
-            <path id="bottomArc" d="M 100,100 m -60,0 a 60,60 0 0,0 120,0" />
-          </defs>
-
-          <circle cx="100" cy="100" r="80" fill="none" stroke="#2C5C50" stroke-width="5" />
-
-          <text font-size="20" fill="#2C5C50" font-family="Roboto Serif" text-anchor="middle" letter-spacing="2">
-            <textPath href="#topArc" startOffset="50%" dominant-baseline="middle">
-              Warenkorb
-            </textPath>
-          </text>
-
-          <text font-size="20" fill="#2C5C50" font-family="Roboto Serif" text-anchor="middle" letter-spacing="2">
-            <textPath href="#bottomArc" startOffset="50%" dominant-baseline="middle">
-              ist leer
-            </textPath>
-          </text>
-        </svg>
-      </div>
-
-      <div class="cart-footer">
-        <a href="/main_cart.html" class="go-to-cart-btn">Zum Warenkorb</a>
-      </div>
-
     </div>
-  </div>
 
     <script src="/scripts/main_page.js"></script>
     <script src="/scripts/all_small_functions.js"></script>
