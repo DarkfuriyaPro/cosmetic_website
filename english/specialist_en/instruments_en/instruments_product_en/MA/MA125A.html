@@ -32,7 +32,7 @@
 <body>
     <div id="main">
 
-      <!--Header-->
+        <!--Header-->
         <header class="header">
             <div class="container">
 
@@ -87,7 +87,9 @@
                                 Kosmetik<span class="arrow">›</span></a></li>
                         <li class="side-list"><a href="/german/specialist_de/instruments_de/instruments_de.html"
                                 class="active">Instrumente<span class="arrow">›</span></a></li>
-                        <li class="side-list"><a href="/german/specialist_de/accessories_de/accessories_de.html">Zubehör<span class="arrow">›</span></a></li>
+                        <li class="side-list"><a
+                                href="/german/specialist_de/accessories_de/accessories_de.html">Zubehör<span
+                                    class="arrow">›</span></a></li>
                     </ul>
                 </nav>
             </aside>
@@ -113,9 +115,9 @@
 
                     <div class="product-desc-right">
                         <div class="foot-product-desc">
-                            <div class="foot-product-desc-title">KIT  Shark main head-blades 0-3 aluminium
+                            <div class="foot-product-desc-title">KIT Shark main head-blades 0-3 aluminium
                             </div>
-                            <div class="foot-product-desc-price">     55,00€</div>
+                            <div class="foot-product-desc-price"> 55,00€</div>
                         </div>
 
                         <div class="in-stock">Auf Lager</div>
@@ -135,17 +137,25 @@
                         <div class="collapsible-description">
                             <button type="button" class="collapsible">Beschreibung</button>
                             <div class="content">
-MA125A<br><br>
-Perfekt ausbalancierte, ergonomische Handgriffe für eine sichere und bequeme Anwendung. Leicht abwaschbar, desinfizierbar und autoklavierbar. Handgriffe aus Aluminium sind nicht für die chemische Sterilisation mit peressig geeignet.<br><br>
-Der Aluminiumgriff Shark wurde entwickelt, um die Arbeit des Bedieners zu vereinfachen und zu beschleunigen, wobei ein hoher Sicherheitsstandard gewährleistet bleibt.<br><br>
-Dank des Kugelverriegelungssystems lässt sich der Hauptkopf sehr einfach montieren und entfernen. Drücken Sie einfach die Taste vollständig, um den Kopf zu entfernen oder zu montieren.<br><br>
-Zum Einsetzen der Klinge drehen Sie die Taste einfach im Uhrzeigersinn und drücken Sie sie. Mit dem NEUEN Montagewerkzeug wird die Arbeitszeit verkürzt und die Sicherheit erhöht.<br><br>
-Ergonomischer Griff, perfekt ausbalanciert für eine sichere und komfortable Anwendung. Leicht zu reinigen, zu desinfizieren und gemäß Benutzerhandbuch autoklavierbar. Aluminiumgriffe sind nicht für die chemische Sterilisation mit „Peressigsäure“ geeignet.<br><br>
-Das KIT enthält:<br>
+                                MA125A<br><br>
+                                The aluminum Shark handle is made to simplify and speed up the operator’s work keeping
+                                an high security standard.
 
-- 1 Aluminiumgriff<br>
-- 1 Aluminiumkopf für Klingen 0–0,5–1<br>
-- 1 Aluminiumkopf für Klingen 2–2,5–3
+                                With its ball lock system, the main head is very easy to assemble and remove. Just fully
+                                press the button till the end to remove or assemble the head.
+
+                                To fit the blade, simply turn the button clockwise and press. With the NEW mounting
+                                tool, it reduces the operation time and it makes it safer.
+
+                                Ergonomic handle, perfectly balanced for safe and comfortable use. Easily washable,
+                                disinfectable and autoclavable according to user’s manual. Aluminum handles are not
+                                suitable for chemical sterilization with peracetic.
+
+                                The KIT includes:
+
+                                1 Aluminum handle.
+                                1 Aluminum head for blades 0- 0,5- 1.
+                                1 Aluminum head for blades 2- 2,5- 3.
                             </div>
                         </div>
                     </div>
@@ -170,7 +180,7 @@ Das KIT enthält:<br>
                 </div>
 
 
-               <div class="footer-bottom">
+                <div class="footer-bottom">
                     <a href="#">Impressum</a>
                     <a href="#">AGB</a>
                     <a href="#">Datenshutz</a>
@@ -182,54 +192,56 @@ Das KIT enthält:<br>
 
 
 
- <!--Shoping cart-->
-  <div id="shoppingCart" class="shopping-cart">
-    <div class="cart-container">
-      <div class="upper-pannel">
-        <div class="total-price">
-          Gesamt:<span class="amount-count">0</span>
+    <!--Shoping cart-->
+    <div id="shoppingCart" class="shopping-cart">
+        <div class="cart-container">
+            <div class="upper-pannel">
+                <div class="total-price">
+                    Gesamt:<span class="amount-count">0</span>
+                </div>
+
+                <div class="items-counter">
+                    <span>0</span>
+                </div>
+
+                <button class="cart-back-btn">
+                    ←
+                </button>
+            </div>
+
+            <div class="empty">
+                <svg viewBox="0 0 200 200" width="200" height="200">
+                    <defs>
+                        <!-- Верхняя дуга -->
+                        <path id="topArc" d="M 100,100 m -60,0 a 60,60 0 1,1 120,0" />
+                        <!-- Нижняя дуга (уменьшенный радиус 60, в обратную сторону) -->
+                        <path id="bottomArc" d="M 100,100 m -60,0 a 60,60 0 0,0 120,0" />
+                    </defs>
+
+                    <circle cx="100" cy="100" r="80" fill="none" stroke="#2C5C50" stroke-width="5" />
+
+                    <text font-size="20" fill="#2C5C50" font-family="Roboto Serif" text-anchor="middle"
+                        letter-spacing="2">
+                        <textPath href="#topArc" startOffset="50%" dominant-baseline="middle">
+                            Warenkorb
+                        </textPath>
+                    </text>
+
+                    <text font-size="20" fill="#2C5C50" font-family="Roboto Serif" text-anchor="middle"
+                        letter-spacing="2">
+                        <textPath href="#bottomArc" startOffset="50%" dominant-baseline="middle">
+                            ist leer
+                        </textPath>
+                    </text>
+                </svg>
+            </div>
+
+            <div class="cart-footer">
+                <a href="/main_cart.html" class="go-to-cart-btn">Zum Warenkorb</a>
+            </div>
+
         </div>
-
-        <div class="items-counter">
-          <span>0</span>
-        </div>
-
-        <button class="cart-back-btn">
-          ←
-        </button>
-      </div>
-
-      <div class="empty">
-        <svg viewBox="0 0 200 200" width="200" height="200">
-          <defs>
-            <!-- Верхняя дуга -->
-            <path id="topArc" d="M 100,100 m -60,0 a 60,60 0 1,1 120,0" />
-            <!-- Нижняя дуга (уменьшенный радиус 60, в обратную сторону) -->
-            <path id="bottomArc" d="M 100,100 m -60,0 a 60,60 0 0,0 120,0" />
-          </defs>
-
-          <circle cx="100" cy="100" r="80" fill="none" stroke="#2C5C50" stroke-width="5" />
-
-          <text font-size="20" fill="#2C5C50" font-family="Roboto Serif" text-anchor="middle" letter-spacing="2">
-            <textPath href="#topArc" startOffset="50%" dominant-baseline="middle">
-              Warenkorb
-            </textPath>
-          </text>
-
-          <text font-size="20" fill="#2C5C50" font-family="Roboto Serif" text-anchor="middle" letter-spacing="2">
-            <textPath href="#bottomArc" startOffset="50%" dominant-baseline="middle">
-              ist leer
-            </textPath>
-          </text>
-        </svg>
-      </div>
-
-      <div class="cart-footer">
-        <a href="/main_cart.html" class="go-to-cart-btn">Zum Warenkorb</a>
-      </div>
-
     </div>
-  </div>
 
 
     <script src="/scripts/main_page.js"></script>
