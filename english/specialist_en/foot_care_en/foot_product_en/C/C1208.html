@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Шрифты-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kurale&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Island+Moments&display=swap" rel="stylesheet">
+
+    <title>Podobravo</title>
+
+    <!--Стили-->
+    <link rel="stylesheet" href="/main_page.css" />
+    <link rel="stylesheet" href="/one_product.css" />
+    <link rel="stylesheet" href="/all_categories.css" />
+    <link rel="stylesheet" href="/shopping_cart.css" />
+</head>
+
+<body>
+    <div id="main">
+
+        <!--Header-->
+        <header class="header">
+            <div class="container">
+
+                <div class="header-left">
+                    <a href="/german/specialist_de/main_page_de/specialist_de.html" class="logo-link">
+                        <img src="/images/header-logo.png" alt="Varava" class="logo-img">
+                    </a>
+                </div>
+
+                <!--Search Form-->
+                <section class="search-section">
+                    <form class="search-form" action="#" method="GET">
+                        <button type="submit" class="search-btn">
+                            <img class="submit-img" src="/images/search.png">
+                        </button>
+                        <input type="text" class="search-input" placeholder="Suchen..." name="search">
+                    </form>
+                </section>
+
+                <div class="icons-language">
+                    <div class="header-icons">
+                        <a href="#"><img src="/images/account.png" alt="Профиль" class="icon"></a>
+                        <a href="#" class="cart-icon">
+                            <img src="/images/cart.png" alt="Корзина" class="icon">
+                            <span class="cart-count">0</span>
+                        </a>
+                    </div>
+
+                    <div class="divider"></div> <!-- вертикальная линия -->
+
+                    <div class="language">
+                        <button onclick="languageFunction()" class="btn-lang lang-de"></button>
+                        <div id="languageDropdown" class="language-content">
+                            <a href="/russian/specialist_ru/main_page_ru/specialist_ru.html"><img
+                                    src="/images/russia.png" alt="russian"></a>
+                            <a href="#"><img src="/images/america.png" alt="english"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <!--One Product-->
+        <div class="layout">
+
+            <!--Sidebar-->
+            <aside class="sidebar">
+                <nav class="side-nav">
+                    <ul>
+                        <li class="side-list"><a href="/german/specialist_de/foot_care_de/foot_care_de.html" class="active">Fuß
+                                Kosmetik<span class="arrow">›</span></a></li>
+                        <li class="side-list"><a href="/german/specialist_de/instruments_de/instruments_de.html">Instrumente<span class="arrow">›</span></a></li>
+                        <li class="side-list"><a href="/german/specialist_de/accessories_de/accessories_de.html">Zubehör<span class="arrow">›</span></a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <main class="product-block">
+
+
+                <div class="foot-product" data-product-id="C1208">
+
+                    <div class="product-slider">
+                        <div class="product-slides">
+                            <img src="/images/C/C1208_1.jpg" alt="Товар 1" class="active">
+                        </div>
+                        <div class="product-controls" aria-hidden="false">
+                            <button class="product-prev" aria-label="Предыдущий слайд">&larr;</button>
+                            <button class="product-next" aria-label="Следующий слайд">&rarr;</button>
+                        </div>
+
+                        <div class="product-indicators" role="tablist" aria-label="Навигация по слайдам"></div>
+                    </div>
+
+
+
+                    <div class="product-desc-right">
+                        <div class="foot-product-desc">
+                            <div class="foot-product-desc-title">Lotion für zarte Haut Medex Lotion Fragilis - 250 ml
+                            </div>
+                            <div class="foot-product-desc-price"> 44,10€</div>
+                        </div>
+
+                     <div class="in-stock">Auf Lager</div>
+
+                        <div class="buy-product">
+                            <div class="amount">
+                                <button class="down">-</button>
+                                <span class="number">1</span>
+                                <button class="up">+</button>
+                            </div>
+
+                            <div class="product-add-button">
+                                <button class="add-product">In den Warenkorb</button>
+                            </div>
+                        </div>
+
+                        <div class="collapsible-description">
+                            <button type="button" class="collapsible">Beschreibung</button>
+                            <div class="content">
+                                C 1208<br><br>
+                                Sanftes Reinigungslotion.<br>
+                                Mit Geranie und anderen Wirkstoffen [1].<br><br>
+                                Hauttyp:<br>
+                                Geeignet für alle Hauttypen. Auch für empfindliche, dehydrierte und trockene Haut
+                                geeignet.<br><br>
+                                Behälter:<br>
+                                250-ml-Flasche<br><br>
+                                Anwendungshinweise:<br>
+                                Es wird empfohlen, „Lotion Fragilis Special“ in den letzten Schritten der Behandlung zu
+                                verwenden, um den pH-Wert der Haut wiederherzustellen. Regelmäßige Anwendung zusammen
+                                mit anderen Pflegeprodukten wie „Lait Elure Special“ liefert hervorragende Ergebnisse,
+                                selbst bei problematischer Haut.<br><br>
+                                Eigenschaften:<br>
+                                [1] Diese Geranienlotion ist für alle Hauttypen geeignet, auch für empfindliche Haut.
+                                Sie enthält mehrere feuchtigkeitsspendende Substanzen, die helfen, die Schutzbarriere
+                                der Haut wiederherzustellen. Daher ist die Fragilis Lotion auch ideal für Problemhaut.<br><br>
+                                Aktive Inhaltsstoffe:<br>
+                                - Geranie<br>
+                                Die Geranie (Pelargonium Graveolens / Odorantissimum) hat einen wunderbaren Duft, wirkt
+                                antimykotisch/antibakteriell und auch spasmolytisch (entspannend).<br>
+                                - Glycerin (Natürliche Quelle)<br>
+                                Pflanzliches Glycerin ist ein kleines Molekül, das Wasser anzieht und bindet. Diese
+                                Eigenschaften machen es zu einem wichtigen Bestandteil der natürlichen
+                                Feuchtigkeitsfaktoren, die für die Aufrechterhaltung des natürlichen
+                                Feuchtigkeitsgleichgewichts der Haut verantwortlich sind.<br>
+                                Ende des 18. Jahrhunderts, lange bevor die petrochemische Industrie entstand, stellte
+                                der Deutsche Carl Wilhelm Scheele erstmals Glycerin durch Verseifung von Olivenöl her.
+                                Obwohl sich seitdem vieles geändert hat, ist das Herstellungsverfahren zur Gewinnung von
+                                pflanzlichem Glycerin aus natürlichem Öl im Wesentlichen gleich geblieben. Nur die
+                                Reinheitsanforderungen wurden gemäß den neuesten pharmazeutischen Standards optimiert.
+                                Mit anderen Worten: Medex stellt seine Produkte mit reinem pflanzlichem Glycerin her.<br>
+                                -Milchsäure<br>
+                                Es handelt sich um eine Alpha-Hydroxysäure, die in verschiedenen Früchten (z. B.
+                                Tomaten) und Milchprodukten (z. B. Joghurt) vorkommt. L-Milchsäure ist ein natürlich
+                                vorkommendes Stereoisomer, das auch im menschlichen Körper existiert. In höheren
+                                Konzentrationen wirkt sie exfolierend und stimuliert die Bildung neuer Zellen in der
+                                Epidermis. Im Vergleich zu anderen Alpha-Hydroxysäuren zeigt L-Milchsäure die besten
+                                Ergebnisse bei der Behandlung von Haut-Hyperpigmentierung (z. B. ist Glykolsäure
+                                deutlich weniger wirksam). L-Milchsäure-Derivate gehören zu den wenigen natürlichen
+                                Substanzen, die die Produktion des Enzyms Tyrosinase in hohen Konzentrationen
+                                neutralisieren können. Tyrosinase ist das Enzym, das die Hautpigmentierung anregt,
+                                sodass durch die Deaktivierung dieses Enzyms der erste Schritt der Pigmentbildung
+                                gestoppt wird. Darüber hinaus ist L-Milchsäure für die stereoselektive Biosynthese von
+                                Ceramiden in der Haut verantwortlich. Hohe Ceramidwerte in der Epidermis stärken die
+                                Lipidbarriere und verhindern die Austrocknung der Haut. Interessanterweise erfolgt die
+                                Stimulation der Ceramid-Biosynthese nur dank des natürlichen Stereoisomers L-Milchsäure.<br>
+                                - Niacinamid<br>
+                                Es ist verantwortlich für die Synthese von Ceramiden in der Haut und stärkt die
+                                Hautbarriere auf natürliche Weise durch die Bildung lamellarer Lipidschichten. Dadurch
+                                wird die Haut auf natürliche Weise mit Feuchtigkeit versorgt und ihre Abwehrkräfte
+                                verbessert. Bei einem Mangel an Vitamin B3 entwickelt die Haut nach einiger Zeit ein
+                                sehr schlechtes Aussehen (eine Erkrankung namens Pellagra).<br>
+                                - Natriumlaktat<br>
+                                Ein kleines, salzähnliches Molekül, das Wasser bindet und festhält. Diese Eigenschaften
+                                machen es zu einem wichtigen Bestandteil des natürlichen Feuchtigkeitsfaktors, der für
+                                das natürliche Feuchtigkeitsgleichgewicht der Haut verantwortlich ist.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+
+
+
+        <!--Footer-->
+        <footer class="footer">
+            <div class="footer-container">
+
+                <div class="icons-social">
+                    <div class="footer-left">
+                        <a href="#"><img src="/images/instagram_green.png" alt="instagram"></a>
+                        <a href="#"><img src="/images/gmail.png" alt="gmail"></a>
+                        <a href="#"><img src="/images/telegram.png" alt="telegram"></a>
+                    </div>
+                    <div class="footer-right">+4901234352543</div>
+                </div>
+
+
+                <div class="footer-bottom">
+                    <a href="#">Impressum</a>
+                    <a href="#">AGB</a>
+                    <a href="#">Datenshutz</a>
+                </div>
+
+            </div>
+        </footer>
+    </div>
+
+   <!--Shoping cart-->
+  <div id="shoppingCart" class="shopping-cart">
+    <div class="cart-container">
+      <div class="upper-pannel">
+        <div class="total-price">
+          Gesamt:<span class="amount-count">0</span>
+        </div>
+
+        <div class="items-counter">
+          <span>0</span>
+        </div>
+
+        <button class="cart-back-btn">
+          ←
+        </button>
+      </div>
+
+      <div class="empty">
+        <svg viewBox="0 0 200 200" width="200" height="200">
+          <defs>
+            <!-- Верхняя дуга -->
+            <path id="topArc" d="M 100,100 m -60,0 a 60,60 0 1,1 120,0" />
+            <!-- Нижняя дуга (уменьшенный радиус 60, в обратную сторону) -->
+            <path id="bottomArc" d="M 100,100 m -60,0 a 60,60 0 0,0 120,0" />
+          </defs>
+
+          <circle cx="100" cy="100" r="80" fill="none" stroke="#2C5C50" stroke-width="5" />
+
+          <text font-size="20" fill="#2C5C50" font-family="Roboto Serif" text-anchor="middle" letter-spacing="2">
+            <textPath href="#topArc" startOffset="50%" dominant-baseline="middle">
+              Warenkorb
+            </textPath>
+          </text>
+
+          <text font-size="20" fill="#2C5C50" font-family="Roboto Serif" text-anchor="middle" letter-spacing="2">
+            <textPath href="#bottomArc" startOffset="50%" dominant-baseline="middle">
+              ist leer
+            </textPath>
+          </text>
+        </svg>
+      </div>
+
+      <div class="cart-footer">
+        <a href="/main_cart.html" class="go-to-cart-btn">Zum Warenkorb</a>
+      </div>
+
+    </div>
+  </div>
+
+
+    <script src="/scripts/main_page.js"></script>
+    <script src="/scripts/all_small_functions.js"></script>
+    <script src="/scripts/shopping_cart.js"></script>
+    <script src="/scripts/one_product_slider.js" defer></script>
+    <script src="/scripts/one_product_amount.js"></script>
+
+    <!-- Snackbar -->
+    <div id="snackbar"></div>
+    <div id="prove_product"></div>
+</body>
+
+</html>

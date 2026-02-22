@@ -92,6 +92,9 @@ const translations = {
         toPay: "Pay",
         total: "Total:",
         paymentmethods: "Choose a payment method",
+        impressum: "Legal Notice",
+        agb: "Terms and Conditions",
+        datenschutz: "Privacy policy",
 
         firstName: "First name*",
         lastName: "Last name*",
