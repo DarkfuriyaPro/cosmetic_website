@@ -9,7 +9,8 @@ let cartItems = []; // { id, title, price, img, quantity }
 // ======= ЗАГРУЗКА И СОХРАНЕНИЕ =======
 function loadCartFromStorage() {
   try {
-    const saved = JSON.parse(localStorage.getItem('cart')) || [];
+    const savedRaw = localStorage.getItem('cart');
+    const saved = savedRaw ? JSON.parse(savedRaw) : [];
     if (!Array.isArray(saved)) {
       cartItems = [];
     } else {
@@ -88,42 +89,46 @@ function renderCart() {
 
 // ======= ПОМОЩНИКИ ДЛЯ ПОИСКА ТОВАРА =======
 function findCartItemIndexByIdOrTitle(id, title) {
+  // 1. Сначала ищем по ID (главный способ)
   if (id) {
-    const idx = cartItems.findIndex(i => String(i.id) === String(id));
-    if (idx !== -1) return idx;
+    const idxById = cartItems.findIndex(i => String(i.id) === String(id));
+    if (idxById !== -1) return idxById;
   }
-  // fallback to title match (если id не задан)
-  return cartItems.findIndex(i => i.title && i.title.trim() === title.trim());
+
+  // 2. Если вдруг id нет — ищем по названию (запасной вариант)
+  if (title) {
+    return cartItems.findIndex(
+      i => i.title?.trim() === title?.trim()
+    );
+  }
+
+  return -1;
 }
 
 // ======= ДОБАВИТЬ ТОВАР =======
 function addProductToCart({ id, title, price, img, quantity = 1 }) {
-  // Нормализация данных
+  // Синхронизация между страницами
+  loadCartFromStorage();
+
   price = (price || '0').toString().replace(/[^\d.,]/g, '').replace(',', '.');
   const priceNum = parseFloat(price) || 0;
 
-  // Проверяем — есть ли уже такой товар в корзине
   const idx = findCartItemIndexByIdOrTitle(id, title);
 
   if (idx !== -1) {
-    // 🔹 Товар уже есть в корзине — просто показываем popup
-    console.log('Товар уже в корзине:', cartItems[idx]);
     showAlreadyInCartPopup();
     return;
   }
 
-  // 🔹 Если товара нет — добавляем новый с выбранным количеством
   const newItem = {
     id: id || null,
     title: title || 'Без названия',
     price: priceNum,
     img: img || '',
-    quantity: quantity || 1, // ✅ вот здесь количество с кнопок +/−
+    quantity: quantity || 1,
   };
 
   cartItems.push(newItem);
-  console.log('Добавлен новый товар:', newItem);
-
   saveCartToStorage();
   renderCart();
   showSnackbar();
@@ -206,7 +211,7 @@ function showSnackbar() {
   if (!sn) return;
 
   // Определяем язык страницы из <html lang="...">
-  const lang = document.documentElement.lang || 'de';
+  const lang = document.documentElement.lang || 'en';
 
   // Сообщения для разных языков
   const messages = {
@@ -216,7 +221,7 @@ function showSnackbar() {
   };
 
   // Подставляем текст по языку
-  sn.innerText = messages[lang] || messages['de'];
+  sn.innerText = messages[lang] || messages['en'];
 
   // Показываем snackbar
   sn.classList.add('show');
@@ -228,14 +233,14 @@ function showAlreadyInCartPopup() {
   const popup = document.getElementById('prove_product');
   if (!popup) return;
 
-  const lang = document.documentElement.lang || 'de';
+  const lang = document.documentElement.lang || 'en';
   const messages = {
     de: 'Das Produkt ist bereits im Warenkorb',
     ru: 'Товар уже в корзине',
     en: 'Product is already in the cart'
   };
 
-  popup.innerText = messages[lang] || messages['de'];
+  popup.innerText = messages[lang] || messages['en'];
 
   popup.classList.add('show');
   setTimeout(() => popup.classList.remove('show'), 1800);
@@ -249,18 +254,22 @@ document.addEventListener('click', function (e) {
   const target = e.target;
 
   // Нажатие на кнопку "В корзину"
-  const addBtn = target.closest('.add-to-cart, .add-product');
+  const addBtn = target.closest('.add-to-cart');
   if (addBtn) {
     const card = addBtn.closest('.card, .foot-product');
     if (!card) return;
 
     const productId = card.dataset.productId || card.getAttribute('data-product-id') || null;
     const titleEl = card.querySelector('.product-title, .foot-product-desc-title');
-    const priceEl = card.querySelector('.product-price .price-value, .foot-product-desc-price .price-value');
+    const priceEl =
+      card.querySelector('.product-price .price-value') ||
+      card.querySelector('.foot-product-desc-price');
     const imgEl = card.querySelector('.product-img img, .product-slides img.active');
 
     const title = titleEl ? titleEl.innerText.trim() : 'Без названия';
-    const price = priceEl ? priceEl.innerText.trim().replace(/[^\d.,]/g, '') : '0';
+    const price = priceEl
+      ? priceEl.innerText.trim().replace(/[^\d.,]/g, '')
+      : '0';
     const img = imgEl ? imgEl.src : '';
 
     addProductToCart({ id: productId, title, price, img });
