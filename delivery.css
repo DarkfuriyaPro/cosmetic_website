@@ -172,3 +172,81 @@ h1 {
 input, select {
     transition: border 0.2s ease, background-color 0.2s ease;
 }
+
+
+
+
+
+/* 📱 Адаптив для корзины */
+@media (max-width: 768px) {
+
+  .delivery-container {
+    padding: 0 10px;
+    margin-top: 1px;
+  }
+
+  .delivery-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .steps {
+    font-size: 10px;
+  }
+
+  .delivery-main{
+    flex-direction: column;
+    /* ВСТАЛИ В СТОЛБИК */
+    gap: 20px;
+  }
+
+  .delivery-main::before{
+    display: none;
+  }
+
+  /* Форма на всю ширину */
+  .delivery-main form {
+    flex: 1 1 100%;
+    padding-right: 0;
+    width: 100%;
+  }
+
+  /* Корзина под формой */
+  .delivery-cart {
+    flex: 1 1 100%;
+    padding-left: 0;
+    width: 100%;
+  }
+
+  /* Сетка формы в одну колонку (очень важно для UX) */
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .block-cart-main,
+  .block-summary {
+    width: 100%;
+    /* пусть оба блока растягиваются */
+  }
+
+  .block-summary {
+    order: 3;
+    /* переносим вниз */
+  }
+
+  .block-cart-main {
+    order: 2;
+  }
+
+  .cart-header {
+    order: 1;
+  }
+
+  /* Чуть уменьшаем заголовок */
+  .title {
+    font-size: 32px;
+  }
+}

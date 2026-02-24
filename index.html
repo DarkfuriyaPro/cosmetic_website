@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap"
+    rel="stylesheet">
 
   <title>Podobravo</title>
 
@@ -51,12 +54,12 @@
       transition: opacity 0.2s, transform 0.2s;
     }
 
-    .lang-switcher button:hover{
+    .lang-switcher button:hover {
       opacity: 1;
       transform: scale(1.1);
     }
 
-    .lang-switcher button.active{
+    .lang-switcher button.active {
       opacity: 1;
       border: 1px solid #FFFEA5;
       border-radius: 10px;
@@ -89,6 +92,8 @@
       background-color: #FFFEA5;
       color: #2C5C50;
       text-decoration: none;
+
+      width: clamp(220px, 28vw, 300px);
     }
 
     .button__inner {
@@ -107,9 +112,21 @@
     }
 
     @media (max-width: 600px) {
-      .button-container {
-        flex-direction: column;
-        gap: 12px;
+
+      /* переносим языки из угла в поток страницы */
+      .lang-switcher {
+        position: static;
+        /* убираем absolute */
+        margin-bottom: 20px;
+        /* отступ над заголовком */
+        justify-content: center;
+        /* по центру */
+      }
+
+      /* чтобы body не прижимал всё строго по центру экрана */
+      body {
+        justify-content: flex-start;
+        padding-top: 30px;
       }
     }
 
@@ -178,15 +195,15 @@
 
     const routes = {
       ru: {
-        buyer: "/russian/consumer_ru/main_page_ru/consumer_ru.html",
+        buyer: "#",
         specialist: "/russian/specialist_ru/main_page_ru/specialist_ru.html"
       },
       de: {
-        buyer: "/german/consumer_de/main_page_de/consumer_de.html",
+        buyer: "#",
         specialist: "/german/specialist_de/main_page_de/specialist_de.html"
       },
       en: {
-        buyer: "/english/consumer_en/main_page_en/consumer_en.html",
+        buyer: "#",
         specialist: "/english/specialist_en/main_page_en/specialist_en.html"
       }
     };
@@ -224,4 +241,5 @@
   </script>
 
 </body>
+
 </html>

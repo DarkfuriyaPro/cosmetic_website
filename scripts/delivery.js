@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const requiredFields = [
                 { value: deliveryData.firstName, element: inputs[0] },
                 { value: deliveryData.lastName, element: inputs[1] },
-                { value: deliveryData.phone, element: inputs[2] },
+                
                 { value: deliveryData.email, element: inputs[3] },
                 { value: deliveryData.city, element: inputs[4] },
                 { value: deliveryData.street, element: inputs[5] },

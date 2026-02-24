@@ -50,7 +50,7 @@ const translations = {
 
         firstName: "Имя*",
         lastName: "Фамилия*",
-        phone: "Номер телефона*",
+        phone: "Номер телефона",
         email: "Email*",
         city: "Город*",
         street: "Улица*",
@@ -74,7 +74,7 @@ const translations = {
 
         firstName: "Vorname*",
         lastName: "Nachname*",
-        phone: "Telefonnummer*",
+        phone: "Telefonnummer",
         email: "E-Mail*",
         city: "Stadt*",
         street: "Straße*",
@@ -98,7 +98,7 @@ const translations = {
 
         firstName: "First name*",
         lastName: "Last name*",
-        phone: "Phone number*",
+        phone: "Phone number",
         email: "Email*",
         city: "City*",
         street: "Street*",
