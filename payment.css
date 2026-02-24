@@ -37,6 +37,10 @@ h1 {
     color: black;
 }
 
+.arrow.active {
+    color: #FFFEA5;
+}
+
 /* Основной блок */
 .payment-main {
     display: flex;
@@ -170,6 +174,26 @@ h1 {
     font-size: 23px;
 }
 
+.go-to-pay-btn {
+    background-color: #2C5C50;
+    width: 100%;
+    text-align: center;
+    color: white;
+    padding: 15px;
+    text-decoration: none;
+    border-radius: 10px;
+    display: inline-block;
+    box-sizing: border-box;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: none;
+}
+
+.go-to-pay-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+
 
 
 
@@ -225,7 +249,7 @@ h1 {
         margin: 0 10px;
     }
 
-    .payment-methods h2{
+    .payment-methods h2 {
         font-size: 19px;
         text-align: center;
     }
