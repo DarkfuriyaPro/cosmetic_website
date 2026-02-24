@@ -59,6 +59,8 @@ h1 {
 
 .payment-methods h2 {
     font-size: 24px;
+    text-align: center;
+    margin-top: 0;
 }
 
 .payment-buttons {
@@ -166,4 +168,109 @@ h1 {
 
 .payment-price {
     font-size: 23px;
+}
+
+
+
+
+
+/* 📱 Адаптив для корзины */
+@media (max-width: 768px) {
+
+    .payment-container {
+        padding: 0 10px;
+        margin-top: 1px;
+    }
+
+    .payment-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .steps {
+        font-size: 10px;
+    }
+
+    /* Чуть уменьшаем заголовок */
+    .title {
+        font-size: 32px;
+    }
+
+    .payment-main {
+        flex-direction: column;
+        /* ВСТАЛИ В СТОЛБИК */
+        gap: 20px;
+    }
+
+    .payment-divider {
+        display: none;
+    }
+
+    .payment-cart-top {
+        display: none;
+    }
+
+    /* ===== ПОЛНЫЙ ПРОФЕССИОНАЛЬНЫЙ MOBILE CHECKOUT ===== */
+
+    /* Растягиваем все блоки на всю ширину */
+    .payment-cart {
+        width: 100%;
+    }
+
+    /* Выравниваем одинаковые отступы у всех белых блоков */
+    .payment-methods,
+    .payment-cart-bottom {
+        margin: 0 10px;
+    }
+
+    .payment-methods h2{
+        font-size: 19px;
+        text-align: center;
+    }
+
+    /* Кнопки оплаты — в сетку, а не в линию */
+    .payment-buttons {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    /* Каждая кнопка адаптивная */
+    .payment-buttons>div {
+        width: 100%;
+        max-width: 280px;
+        height: 70px;
+    }
+
+    /* QR не должен ломать мобильный экран */
+    .qr-pay img {
+        width: 100%;
+        max-width: 220px;
+        height: auto;
+        margin: 10px auto 0;
+        display: block;
+    }
+
+    /* Блок итогов — как у реальных checkout страниц */
+    .payment-cart-bottom {
+        margin-top: 10px;
+    }
+
+    /* Кнопка оплаты — крупная и удобная для пальца */
+    .go-to-pay-btn {
+        padding: 18px;
+        font-size: 18px;
+    }
+
+
+    .block-summary {
+        order: 3;
+        /* переносим вниз */
+    }
+
+    .block-cart-main {
+        order: 2;
+    }
 }
