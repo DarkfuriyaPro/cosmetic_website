@@ -33,48 +33,49 @@
     <div id="main">
 
 
-     <!--Header-->
-    <header class="header">
-      <div class="container">
+        <!--Header-->
+        <header class="header">
+            <div class="container">
 
-        <div class="header-left">
-          <a href="/russian/specialist_ru/main_page_ru/specialist_ru.html" class="logo-link">
-            <img src="/images/header-logo.png" alt="Varava" class="logo-img">
-          </a>
-        </div>
+                <div class="header-left">
+                    <a href="/russian/specialist_ru/main_page_ru/specialist_ru.html" class="logo-link">
+                        <img src="/images/header-logo.png" alt="Varava" class="logo-img">
+                    </a>
+                </div>
 
-        <!--Search Form-->
-        <section class="search-section">
-          <form class="search-form" action="#" method="GET">
-            <button type="submit" class="search-btn">
-              <img class="submit-img" src="/images/search.png">
-            </button>
-            <input type="text" class="search-input" placeholder="Поиск..." name="search">
-          </form>
-        </section>
+                <!--Search Form-->
+                <section class="search-section">
+                    <form class="search-form" action="#" method="GET">
+                        <button type="submit" class="search-btn">
+                            <img class="submit-img" src="/images/search.png">
+                        </button>
+                        <input type="text" class="search-input" placeholder="Поиск..." name="search">
+                    </form>
+                </section>
 
-        <div class="icons-language">
-          <div class="header-icons">
-            <a href="#"><img src="/images/account.png" alt="Профиль" class="icon"></a>
-            <a href="#" class="cart-icon">
-              <img src="/images/cart.png" alt="Корзина" class="icon">
-              <span class="cart-count">0</span>
-            </a>
-          </div>
+                <div class="icons-language">
+                    <div class="header-icons">
+                        <a href="#"><img src="/images/account.png" alt="Профиль" class="icon"></a>
+                        <a href="#" class="cart-icon">
+                            <img src="/images/cart.png" alt="Корзина" class="icon">
+                            <span class="cart-count">0</span>
+                        </a>
+                    </div>
 
-          <div class="divider"></div> <!-- вертикальная линия -->
+                    <div class="divider"></div> <!-- вертикальная линия -->
 
-          <div class="language">
-            <button onclick="languageFunction()" class="btn-lang lang-ru"></button>
-            <div id="languageDropdown" class="language-content">
-              <a href="/german/specialist_de/main_page_de/specialist_de.html"><img src="/images/germany.png"
-                  alt="russian"></a>
-              <a href="/english/specialist_en/main_page_en/specialist_en.html"><img src="/images/america.png" alt="english"></a>
+                    <div class="language">
+                        <button onclick="languageFunction()" class="btn-lang lang-ru"></button>
+                        <div id="languageDropdown" class="language-content">
+                            <a href="/german/specialist_de/main_page_de/specialist_de.html"><img
+                                    src="/images/germany.png" alt="russian"></a>
+                            <a href="/english/specialist_en/main_page_en/specialist_en.html"><img
+                                    src="/images/america.png" alt="english"></a>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </header>
+        </header>
 
 
         <!--One Product-->
@@ -84,7 +85,7 @@
             <aside class="sidebar">
                 <nav class="side-nav">
                     <ul>
-                      <li class="side-list"><a
+                        <li class="side-list"><a
                                 href="/russian/specialist_ru/foot_care_category_ru/foot_care_ru.html">Уходовая
                                 косметика<span class="arrow">›</span></a></li>
                         <li class="side-list"><a href="/russian/specialist_ru/instruments_ru/instruments.html"
@@ -139,9 +140,9 @@
                         <div class="collapsible-description">
                             <button type="button" class="collapsible">Описание товара</button>
                             <div class="content">
-                                    MT2<br><br>
-                                    Приспособление для установки одиночных лезвий размером 3-5. Оно позволяет удобно
-                                    расположить микролезвия в ручке.
+                                MT2<br><br>
+                                Приспособление для установки одиночных лезвий размером 3-5. Оно позволяет удобно
+                                расположить микролезвия в ручке.
                             </div>
                         </div>
                     </div>
@@ -225,9 +226,8 @@
             </div>
 
 
-
             <div class="cart-footer">
-                <a href="/main_cart.html" class="go-to-cart-btn">Перейти в корзину</a>
+                <a href="/main_cart.html?lang=ru" class="go-to-cart-btn">Перейти в корзину</a>
             </div>
 
         </div>
@@ -241,10 +241,9 @@
     <script src="/scripts/one_product_slider.js" defer></script>
     <script src="/scripts/one_product_amount.js"></script>
 
-    <!-- Popup "Товар уже в корзине" -->
-    <div id="prove_product" class="prove-popup">
-        Товар уже в корзине
-    </div>
+    <!-- Snackbar -->
+    <div id="snackbar"></div>
+    <div id="prove_product"></div>
 </body>
 
 </html>
