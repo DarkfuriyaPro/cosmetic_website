@@ -2,7 +2,7 @@ let selectedMethod = null;
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // ===== 1. ЗАГРУЗКА КОРЗИНЫ =====
+    // ===== 1. LOAD CART =====
     const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
     const container = document.querySelector(".payment-cart-top");
     const totalBox = document.querySelector(".total-value");
@@ -36,19 +36,19 @@ document.addEventListener("DOMContentLoaded", () => {
         totalBox.textContent = total.toFixed(2).replace(".", ",") + "€";
     }
 
-    // ===== 2. ВЫБОР МЕТОДА ОПЛАТЫ (ВАЖНО: учитываем ВСЕ кнопки) =====
+    // ===== 2. PAYMENT METHOD SELECTION (IMPORTANT: consider ALL buttons) =====
     const paymentButtons = document.querySelectorAll('.payment-buttons > div');
 
     paymentButtons.forEach(btn => {
         btn.addEventListener('click', () => {
 
-            // Убираем активный класс у всех
+            // Remove active class from all buttons
             paymentButtons.forEach(b => b.classList.remove('active'));
 
-            // Добавляем активный выбранной кнопке
+            // Add active class to the selected button
             btn.classList.add('active');
 
-            // Определяем метод по классу (под твой HTML)
+            // Determine the method by class (based on your HTML)
             if (btn.classList.contains('paypal-box')) {
                 selectedMethod = 'paypal';
             } else if (btn.classList.contains('qr-pay')) {
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // ===== 3. КНОПКА "ОПЛАТИТЬ" =====
+    // ===== 3. PAY BUTTON =====
     const payBtn = document.querySelector('.go-to-pay-btn');
 
     if (!payBtn) return;
@@ -70,19 +70,19 @@ document.addEventListener("DOMContentLoaded", () => {
         const cart = JSON.parse(localStorage.getItem("cart")) || [];
         const delivery = JSON.parse(localStorage.getItem("delivery")) || {};
 
-        // Проверка корзины
+        // Check cart
         if (cart.length === 0) {
-            alert("Корзина пуста");
+            alert("Cart is empty");
             return;
         }
 
-        // Проверка выбора метода
+        // Check payment method selection
         if (!selectedMethod) {
-            alert("Выберите способ оплаты");
+            alert("Please select a payment method");
             return;
         }
 
-        // ===== QR ОПЛАТА (переход по ссылке из HTML) =====
+        // ===== QR PAYMENT (redirect via HTML link) =====
         if (selectedMethod === 'qr') {
             const qrBtn = document.querySelector('.qr-pay');
             const qrUrl = qrBtn?.dataset.paymentUrl;
@@ -90,12 +90,12 @@ document.addEventListener("DOMContentLoaded", () => {
             if (qrUrl && qrUrl !== "STRIPE_PAYMENT_LINK") {
                 window.location.href = qrUrl;
             } else {
-                alert("QR оплата пока не настроена");
+                alert("QR payment is not set up yet");
             }
             return;
         }
 
-        // ===== PAYPAL (прямая ссылка из HTML) =====
+        // ===== PAYPAL (direct link from HTML) =====
         if (selectedMethod === 'paypal') {
             const paypalBtn = document.querySelector('.paypal-box');
             const paypalUrl = paypalBtn?.dataset.paymentUrl;
@@ -104,12 +104,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 window.location.href = paypalUrl;
                 return;
             }
-            // если PayPal не настроен — fallback на Stripe
+            // if PayPal is not set up — fallback to Stripe
         }
 
-        // ===== STRIPE CHECKOUT (КАРТА / ОСНОВНАЯ ОПЛАТА) =====
+        // ===== STRIPE CHECKOUT (CARD / MAIN PAYMENT) =====
         try {
-            payBtn.textContent = "Переход к оплате...";
+            payBtn.textContent = "Redirecting to payment...";
             payBtn.disabled = true;
 
             const response = await fetch("/.netlify/functions/create-checkout", {
@@ -125,23 +125,23 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             if (!response.ok) {
-                throw new Error("Ошибка функции Netlify");
+                throw new Error("Netlify function error");
             }
 
             const data = await response.json();
 
             if (data.url) {
-                // Редирект на Stripe Checkout
+                // Redirect to Stripe Checkout
                 window.location.href = data.url;
             } else {
-                throw new Error("Не получена ссылка оплаты");
+                throw new Error("Payment link not received");
             }
 
         } catch (error) {
-            console.error("Ошибка оплаты:", error);
-            alert("Ошибка соединения с системой оплаты");
+            console.error("Payment error:", error);
+            alert("Connection error with payment system");
 
-            payBtn.textContent = "Оплатить";
+            payBtn.textContent = "Pay";
             payBtn.disabled = false;
         }
     });
