@@ -1,0 +1,185 @@
+/* =====================================================
+   COMMON.CSS — общие стили для всех страниц checkout
+   Подключать ПЕРЕД остальными CSS файлами страницы
+===================================================== */
+
+
+/* ─── Заголовок секции ─────────────────────────── */
+
+.title {
+    font-size: 48px;
+    color: #FFFEA5;
+}
+
+
+/* ─── Шаги оформления заказа ───────────────────── */
+
+.steps {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+}
+
+.step {
+    color: black;
+}
+
+.step.active {
+    background: #FFFEA5;
+    padding: 4px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    color: #2C5C50;
+}
+
+.arrow {
+    color: black;
+}
+
+.arrow.active {
+    color: #FFFEA5;
+}
+
+
+/* ─── Единая кнопка перехода ───────────────────── */
+/*
+    Используй класс .checkout-btn везде вместо:
+      .go-to-delivery-btn / .go-to-pay-btn
+    Работает и на <a>, и на <button>
+*/
+
+.checkout-btn {
+    display: inline-block;
+    width: 100%;
+    background-color: #2C5C50;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: inherit;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.checkout-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.checkout-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* ─── Блок итоговой стоимости ──────────────────── */
+/*
+    Заменяет: .summary-content / .delivery-cart-bottom / .payment-cart-bottom
+*/
+
+.summary-box {
+    background-color: white;
+    border-radius: 10px;
+    padding: 7px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.total-box {
+    color: black;
+    font-size: 24px;
+}
+
+
+/* ─── Вертикальный разделитель ─────────────────── */
+/*
+    Заменяет: .shopping-cart-divider / .payment-divider
+*/
+
+.section-divider {
+    width: 2px;
+    background: white;
+    flex-shrink: 0;
+    align-self: stretch;
+}
+
+
+/* ─── Товар в боковой корзине (delivery / payment) */
+/*
+    Рендерится через renderSidebarCart() в cart-utils.js
+*/
+
+:root {
+    --cart-item-height: 70px;
+}
+
+.sidebar-cart-item {
+    height: var(--cart-item-height);
+    display: flex;
+    align-items: center;        /* центрируем по вертикали */
+    gap: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    padding: 5px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.sidebar-cart-item img {
+    height: 100%;
+    width: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.sidebar-cart-desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    overflow: hidden;
+}
+
+.sidebar-product-title {
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sidebar-product-price {
+    font-size: 13px;
+    color: #555;
+}
+
+
+/* ─── Адаптив: общие правила ────────────────────── */
+
+@media (max-width: 768px) {
+
+    .title {
+        font-size: 32px;
+    }
+
+    .steps {
+        font-size: 10px;
+    }
+
+    .section-divider {
+        display: none;
+    }
+
+    .checkout-btn {
+        padding: 18px;
+        font-size: 18px;
+    }
+}
