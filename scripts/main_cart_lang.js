@@ -122,3 +122,15 @@ document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
         el.placeholder = translations[lang][key];
     }
 });
+
+// ===== 4. ДИНАМИЧЕСКИЙ HREF ЛОГОТИПА =====
+const logoRoutes = {
+    ru: "/russian/specialist_ru/main_page_ru/specialist_ru.html",
+    de: "/german/specialist_de/main_page_de/specialist_de.html",
+    en: "/english/specialist_en/main_page_en/specialist_en.html" // замени на свой путь
+};
+
+const logoLink = document.querySelector(".logo-link");
+if (logoLink && logoRoutes[lang]) {
+    logoLink.href = logoRoutes[lang];
+}
