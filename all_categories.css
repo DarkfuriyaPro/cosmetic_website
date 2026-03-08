@@ -215,96 +215,163 @@
 
 
 /* =============================
-   DROPDOWN MENU
+   DROPDOWN — новый стиль
+   Заменяет старые блоки .dropdown, .btn-filter, .btn-sort,
+   .content-filter, .content-sort в all_categories.css
 ============================= */
 
 .dropdown {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 12px;
 }
 
-/* минимальная ширина */
 .drop-filter,
 .drop-sort {
-  min-width: 90px;
+  position: relative;
 }
 
-/* общие стили для кнопок */
+/* Кнопки фильтра и сортировки */
 .btn-filter,
 .btn-sort {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  max-width: clamp(90px, 25vw, 140px);
+  gap: 8px;
+  width: 140px;
+  padding: 10px 18px;
   background-color: #FFFEA5;
-  border: none;
-  border-radius: 12px;
+  border: 2px solid #FFFEA5;
+  border-radius: 10px;
   cursor: pointer;
   font-family: "Roboto Serif", serif;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
 }
 
-/* фильтр — стандартные отступы */
-.btn-filter {
-  padding: clamp(4px, 0.8vw, 8px) clamp(8px, 1.5vw, 18px);
-}
-
-/* сортировка — чуть больше отступы по бокам */
-.btn-sort {
-  padding: clamp(4px, 0.8vw, 8px) clamp(12px, 2vw, 28px);
-}
-
-/* иконки */
 .btn-filter img,
 .btn-sort img {
-  height: clamp(16px, 3vw, 28px);
-  margin-right: clamp(4px, 1vw, 8px);
-  /* ближе к слову */
+  height: 18px;
+  /* иконка зелёная */
+  filter: brightness(0) saturate(100%) invert(26%) sepia(28%) saturate(700%) hue-rotate(120deg) brightness(80%);
 }
 
-/* текст */
 .btn-filter p,
 .btn-sort p {
   color: #2C5C50;
-  font-size: clamp(11px, 2vw, 16px);
+  font-size: clamp(12px, 1.5vw, 15px);
   white-space: nowrap;
+  margin: 0;
 }
 
-/* hover-эффекты */
 .btn-filter:hover,
-.btn-sort:hover,
-.btn-filter:focus,
-.btn-sort:focus {
-  opacity: 60%;
+.btn-sort:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
+/* Активное состояние кнопки (когда выбран фильтр/сорт) */
+.btn-filter.active,
+.btn-sort.active {
+  background-color: #2C5C50;
+  border-color: #FFFEA5;
+}
+
+.btn-filter.active p,
+.btn-sort.active p {
+  color: #FFFEA5;
+}
+
+.btn-filter.active img,
+.btn-sort.active img {
+  filter: brightness(0) saturate(100%) invert(96%) sepia(31%) saturate(500%) hue-rotate(2deg) brightness(103%);
+}
+
+/* Выпадающее меню */
 .content-filter,
 .content-sort {
   display: none;
   position: absolute;
-  background-color: #f6f6f6;
-  min-width: 230px;
-  overflow: auto;
-  border: 1px solid #ddd;
-  z-index: 1;
+  top: calc(100% + 6px);
+  left: 0;
+  background-color: #FFFEA5;
+  border: 2px solid #FFFEA5;
+  border-radius: 10px;
+  min-width: 180px;
+  overflow: hidden;
+  z-index: 100;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.content-filter.show,
+.content-sort.show {
+  display: block;
+  animation: dropdownFadeIn 0.15s ease;
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .content-filter a,
 .content-sort a {
-  color: #2C5C50;
-  padding: 12px 16px;
-  font-family: "Roboto Serif", serif;
-  text-decoration: none;
   display: block;
+  padding: 12px 18px;
+  color: #2C5C50;
+  font-family: "Roboto Serif", serif;
+  font-size: 14px;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(44, 92, 80, 0.15);
+  transition: background-color 0.15s ease;
 }
 
-.dropdown a:hover {
-  background-color: #d0cf75;
+.content-filter a:last-child,
+.content-sort a:last-child {
+  border-bottom: none;
 }
 
+.content-filter a:hover,
+.content-sort a:hover {
+ background-color: #2C5C50;
+ color: #FFFEA5;
+}
+
+/* Активный выбранный пункт */
+.content-filter a.active-filter,
+.content-sort a.active-sort {
+  background-color: #2C5C50;
+  color: #FFFEA5;
+  font-weight: 600;
+}
+
+/* Нет результатов */
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #FFFEA5;
+  font-family: "Roboto Serif", serif;
+  font-size: 20px;
+  padding: 60px 0;
+  opacity: 0.8;
+}
+
+/* Мобильный адаптив */
+@media (max-width: 768px) {
+
+  .drop-filter,
+  .drop-sort {
+    display: none !important;
+  }
+}
 
 
 /* =============================

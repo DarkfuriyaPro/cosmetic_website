@@ -1,98 +1,145 @@
-/* Filter */
+/* =====================================================
+   ALL_SMALL_FUNCTIONS.JS
+   Поиск по названию, фильтр по бренду, сортировка по цене
+===================================================== */
+
+
+// ─── Открытие/закрытие дропдаунов ──────────────────
+
 function filterFunction() {
     document.getElementById("filterDropdown").classList.toggle("show");
-
-    // Закрытие при клике вне меню
-    document.addEventListener("click", function (event) {
-        const dropdown = document.getElementById("filterDropdown");
-        const button = document.querySelector(".btn-filter");
-
-        if (!dropdown.contains(event.target) && !button.contains(event.target)) {
-            dropdown.classList.remove("show");
-        }
-    });
 }
 
-
-
-/* Sort */
 function sortFunction() {
     document.getElementById("sortDropdown").classList.toggle("show");
-
-    // Закрытие при клике вне меню
-    document.addEventListener("click", function (event) {
-        const dropdown = document.getElementById("sortDropdown");
-        const button = document.querySelector(".btn-sort");
-
-        if (!dropdown.contains(event.target) && !button.contains(event.target)) {
-            dropdown.classList.remove("show");
-        }
-    });
 }
 
-/* Liked products */
-const likedProducts = [];
+// Закрытие при клике вне меню
+document.addEventListener("click", function (e) {
+    const filterDropdown = document.getElementById("filterDropdown");
+    const sortDropdown   = document.getElementById("sortDropdown");
 
-document.querySelectorAll('.card').forEach((card, index) => {
-    const likeBtn = card.querySelector('.like');
-    const likeImg = likeBtn.querySelector('img');
-    const title = card.querySelector('.title')?.innerText || 'Товар';
-    const productId = `product-${index}`;
-
-    // Устанавливаем ID на карточку
-    card.dataset.productId = productId;
-
-    likeBtn.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        const isLiked = likeBtn.dataset.liked === "true";
-
-        if (isLiked) {
-            likeImg.src = "../images/unlike-white.png";
-            likeBtn.dataset.liked = "false";
-            // Удалить из массива
-            const index = likedProducts.findIndex(p => p.id === productId);
-            if (index !== -1) likedProducts.splice(index, 1);
-        } else {
-            likeImg.src = "../images/like-product.png";
-            likeBtn.dataset.liked = "true";
-            likedProducts.push({ id: productId, title: title });
-        }
-
-        updateLikedList();
-    });
+    if (filterDropdown && !e.target.closest(".drop-filter")) {
+        filterDropdown.classList.remove("show");
+    }
+    if (sortDropdown && !e.target.closest(".drop-sort")) {
+        sortDropdown.classList.remove("show");
+    }
 });
 
-function updateLikedList() {
-    const likedList = document.querySelector('.liked-list');
-    likedList.innerHTML = '';
 
-    if (likedProducts.length === 0) {
-        likedList.innerHTML = '<p>Пока нет лайков</p>';
-    } else {
-        likedProducts.forEach(product => {
-            const item = document.createElement('div');
-            item.textContent = product.title;
-            likedList.appendChild(item);
-        });
-    }
-}
+// ─── Collapsible описание товара ────────────────────
 
-
-
-/* Collapsible product description */
 var coll = document.getElementsByClassName("collapsible");
-var i;
-
-for (i = 0; i < coll.length; i++) {
+for (var i = 0; i < coll.length; i++) {
     coll[i].addEventListener("click", function () {
         this.classList.toggle("active");
         var content = this.nextElementSibling;
-        if (content.style.display === "block") {
-            content.style.display = "none";
-        } else {
-            content.style.display = "block";
-        }
+        content.style.display = content.style.display === "block" ? "none" : "block";
     });
 }
 
+
+// ─── Состояние фильтров ─────────────────────────────
+
+let activeBrand = null;
+let activeSort  = null;
+
+
+// ─── Главная функция: применяет всё сразу ───────────
+
+function applyFilters() {
+    const grid = document.querySelector(".product-grid");
+    if (!grid) return;
+
+    const searchQuery = document.querySelector(".search-input")?.value.trim().toLowerCase() || "";
+    let cards = Array.from(grid.querySelectorAll(".card"));
+
+    // 1. Поиск по названию + фильтр по бренду
+    cards.forEach(card => {
+        const title = card.querySelector(".product-title")?.textContent.trim().toLowerCase() || "";
+        const brand = (card.dataset.brand || "").toLowerCase();
+
+        const matchesSearch = !searchQuery || title.includes(searchQuery);
+        const matchesBrand  = !activeBrand || brand === activeBrand;
+
+        card.style.display = matchesSearch && matchesBrand ? "" : "none";
+    });
+
+    // 2. Сортировка по цене (только видимые карточки)
+    if (activeSort) {
+        const visible = cards.filter(c => c.style.display !== "none");
+        visible.sort((a, b) => {
+            const priceA = parseFloat(a.querySelector(".price-value")?.textContent.replace(",", ".")) || 0;
+            const priceB = parseFloat(b.querySelector(".price-value")?.textContent.replace(",", ".")) || 0;
+            return activeSort === "price-asc" ? priceA - priceB : priceB - priceA;
+        });
+        visible.forEach(card => grid.appendChild(card));
+    }
+
+    // 3. Сообщение если ничего не найдено
+    const anyVisible = cards.some(c => c.style.display !== "none");
+    let noResults = grid.querySelector(".no-results");
+    if (!anyVisible) {
+        if (!noResults) {
+            noResults = document.createElement("div");
+            noResults.className = "no-results";
+            noResults.textContent = getNoResultsText();
+            grid.appendChild(noResults);
+        }
+    } else {
+        noResults?.remove();
+    }
+}
+
+function getNoResultsText() {
+    const lang = document.documentElement.lang || "de";
+    if (lang === "ru") return "Ничего не найдено";
+    if (lang === "en") return "No results found";
+    return "Keine Ergebnisse gefunden";
+}
+
+
+// ─── Поиск ──────────────────────────────────────────
+
+const searchInput = document.querySelector(".search-input");
+if (searchInput) {
+    searchInput.closest("form")?.addEventListener("submit", e => e.preventDefault());
+    searchInput.addEventListener("input", applyFilters);
+}
+
+
+// ─── Фильтр по бренду ───────────────────────────────
+
+document.querySelectorAll("#filterDropdown a[data-brand]").forEach(link => {
+    link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const brand = this.dataset.brand.toLowerCase();
+
+        activeBrand = activeBrand === brand ? null : brand;
+
+        document.querySelectorAll("#filterDropdown a").forEach(l => l.classList.remove("active-filter"));
+        if (activeBrand) this.classList.add("active-filter");
+
+        document.getElementById("filterDropdown").classList.remove("show");
+        applyFilters();
+    });
+});
+
+
+// ─── Сортировка по цене ─────────────────────────────
+
+document.querySelectorAll("#sortDropdown a[data-sort]").forEach(link => {
+    link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const sort = this.dataset.sort;
+
+        activeSort = activeSort === sort ? null : sort;
+
+        document.querySelectorAll("#sortDropdown a").forEach(l => l.classList.remove("active-sort"));
+        if (activeSort) this.classList.add("active-sort");
+
+        document.getElementById("sortDropdown").classList.remove("show");
+        applyFilters();
+    });
+});
