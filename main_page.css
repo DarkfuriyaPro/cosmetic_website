@@ -415,7 +415,8 @@ main {
 }
 
 .slider-container {
-  width: 100%;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%); /* вырывается за пределы родителя */
   overflow: hidden;
 }
 
@@ -425,11 +426,11 @@ main {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-
-  padding: 20px;
-
-  /* скрываем скроллбар */
+  padding: 20px 0;
   scrollbar-width: none;
+  /* отступы по бокам — чтобы крайние слайды были чуть видны */
+  padding-left: calc((100vw - 80vw) / 2);
+  padding-right: calc((100vw - 80vw) / 2);
 }
 
 .slider-scroll::-webkit-scrollbar {
@@ -437,7 +438,9 @@ main {
 }
 
 .slide {
-  flex: 0 0 80%;
+  flex: 0 0 60vw;        /* каждый слайд — 80% экрана */
+  max-width: 60vw;
+  height: 500px;
   scroll-snap-align: center;
   border-radius: 20px;
   overflow: hidden;
@@ -448,6 +451,19 @@ main {
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+@media (max-width: 768px) {
+  .slide {
+    flex: 0 0 85vw;
+    max-width: 85vw;
+    height: 260px;
+  }
+
+  .slider-scroll {
+    padding-left: calc((100vw - 85vw) / 2);
+    padding-right: calc((100vw - 85vw) / 2);
+  }
 }
 
 /* responsive */
