@@ -35,9 +35,13 @@ for (var i = 0; i < coll.length; i++) {
     coll[i].addEventListener("click", function () {
         this.classList.toggle("active");
         var content = this.nextElementSibling;
-        content.style.display = content.style.display === "block" ? "none" : "block";
+        const isOpen = content.style.display === "block";
+        content.style.display = isOpen ? "none" : "block";
+        // Поворот стрелки управляется CSS через класс .active
     });
 }
+
+// Стрелка коллапсибла управляется через CSS ::after + класс .active
 
 
 // ─── Состояние фильтров ─────────────────────────────
@@ -142,4 +146,20 @@ document.querySelectorAll("#sortDropdown a[data-sort]").forEach(link => {
         document.getElementById("sortDropdown").classList.remove("show");
         applyFilters();
     });
+});
+
+
+// ─── Чтение ?search= из URL при загрузке страницы ───
+// Работает на search_de.html и на всех категорийных страницах
+
+document.addEventListener("DOMContentLoaded", function () {
+    const params = new URLSearchParams(window.location.search);
+    const query  = params.get("search");
+    if (query) {
+        const input = document.querySelector(".search-input");
+        if (input) {
+            input.value = query;
+            applyFilters();
+        }
+    }
 });
