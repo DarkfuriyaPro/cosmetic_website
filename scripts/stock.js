@@ -9,19 +9,19 @@ const STOCK_LOW_THRESHOLD = 5;
 // ── ТЕКСТЫ НА ТРЁХ ЯЗЫКАХ ────────────────────────────
 const STATUS_TEXTS = {
     de: {
-        inStock:    { text: "Auf Lager",              color: "#828282" },
+        inStock:    { text: "Auf Lager",              color: "#2C5C50" },
         low:        { text: "Nur noch {n} verfügbar", color: "#e07b00" },
-        outOfStock: { text: "Nicht vorrätig",          color: "#cc0000" },
-        btnDisabled: "Nicht vorrätig",
+        outOfStock: { text: "Nicht verfügbar",          color: "#cc0000" },
+        btnDisabled: "Nicht verfügbar",
     },
     ru: {
-        inStock:    { text: "В наличии",              color: "#828282" },
+        inStock:    { text: "В наличии",              color: "#2C5C50" },
         low:        { text: "Осталось {n} шт.",        color: "#e07b00" },
         outOfStock: { text: "Нет в наличии",           color: "#cc0000" },
         btnDisabled: "Нет в наличии",
     },
     en: {
-        inStock:    { text: "In Stock",               color: "#828282" },
+        inStock:    { text: "In Stock",               color: "#2C5C50" },
         low:        { text: "Only {n} left",          color: "#e07b00" },
         outOfStock: { text: "Out of Stock",           color: "#cc0000" },
         btnDisabled: "Out of Stock",
