@@ -1,4 +1,3 @@
-
 // ======= УТИЛИТЫ =======
 function qs(selector, ctx = document) { return ctx.querySelector(selector); }
 function qsa(selector, ctx = document) { return Array.from((ctx || document).querySelectorAll(selector)); }
@@ -36,6 +35,13 @@ function saveCartToStorage() {
 // ======= РЕНДЕР КОРЗИНЫ (по cartItems) =======
 function renderCart() {
   const shoppingCart = document.getElementById('shoppingCart');
+
+  // FIX: если боковой корзины нет на странице — просто обновляем счётчик в header
+  if (!shoppingCart) {
+    updateCartCount();
+    return;
+  }
+
   const cartContainer = shoppingCart.querySelector('.cart-container');
   const emptyState = cartContainer.querySelector('.empty');
   const footer = cartContainer.querySelector('.cart-footer');
@@ -78,7 +84,6 @@ function renderCart() {
   </button>
 `;
 
-
       cartContainer.insertBefore(cartItem, footer);
     });
   }
@@ -89,25 +94,18 @@ function renderCart() {
 
 // ======= ПОМОЩНИКИ ДЛЯ ПОИСКА ТОВАРА =======
 function findCartItemIndexByIdOrTitle(id, title) {
-  // 1. Сначала ищем по ID (главный способ)
   if (id) {
     const idxById = cartItems.findIndex(i => String(i.id) === String(id));
     if (idxById !== -1) return idxById;
   }
-
-  // 2. Если вдруг id нет — ищем по названию (запасной вариант)
   if (title) {
-    return cartItems.findIndex(
-      i => i.title?.trim() === title?.trim()
-    );
+    return cartItems.findIndex(i => i.title?.trim() === title?.trim());
   }
-
   return -1;
 }
 
 // ======= ДОБАВИТЬ ТОВАР =======
 function addProductToCart({ id, title, price, img, quantity = 1 }) {
-  // Синхронизация между страницами
   loadCartFromStorage();
 
   price = (price || '0').toString().replace(/[^\d.,]/g, '').replace(',', '.');
@@ -133,8 +131,6 @@ function addProductToCart({ id, title, price, img, quantity = 1 }) {
   renderCart();
   showSnackbar();
 }
-
-
 
 // ======= УДАЛИТЬ ТОВАР =======
 function removeCartItemByElement(el) {
@@ -173,8 +169,14 @@ function updateCartCount() {
   const uniqueCount = cartItems.length;
   const totalQty = cartItems.reduce((s, it) => s + (parseInt(it.quantity) || 0), 0);
 
-  const cartCountEl = document.querySelector('.cart-count');
-  if (cartCountEl) cartCountEl.innerText = uniqueCount;
+  // Обновляем все элементы .cart-count на странице
+  qsa('.cart-count').forEach(el => {
+    el.innerText = uniqueCount;
+    // Анимация при изменении
+    el.classList.remove('animate');
+    void el.offsetWidth; // reflow для перезапуска анимации
+    el.classList.add('animate');
+  });
 
   const itemsCounter = document.querySelector('.items-counter span');
   if (itemsCounter) itemsCounter.innerText = totalQty;
@@ -193,41 +195,27 @@ function updateTotalPrice() {
       amountEl.innerText = '0€';
       return;
     }
-
     let formatted;
     if (Number.isInteger(total)) {
-      formatted = total.toString(); // 12 вместо 12,00
+      formatted = total.toString();
     } else {
       formatted = total.toFixed(2).replace('.', ',');
     }
-
     amountEl.innerText = formatted + '€';
   }
 }
 
-// ======= SNACKBAR (простая подсказка) =======
+// ======= SNACKBAR =======
 function showSnackbar() {
   const sn = document.getElementById('snackbar');
   if (!sn) return;
 
-  // Определяем язык страницы из <html lang="...">
   const lang = document.documentElement.lang || 'en';
-
-  // Сообщения для разных языков
-  const messages = {
-    de: 'Hinzugefügt',
-    ru: 'Добавлено',
-    en: 'Added'
-  };
-
-  // Подставляем текст по языку
+  const messages = { de: 'Hinzugefügt', ru: 'Добавлено', en: 'Added' };
   sn.innerText = messages[lang] || messages['en'];
-
-  // Показываем snackbar
   sn.classList.add('show');
   setTimeout(() => sn.classList.remove('show'), 1800);
 }
-
 
 function showAlreadyInCartPopup() {
   const popup = document.getElementById('prove_product');
@@ -239,17 +227,12 @@ function showAlreadyInCartPopup() {
     ru: 'Товар уже в корзине',
     en: 'Product is already in the cart'
   };
-
   popup.innerText = messages[lang] || messages['en'];
-
   popup.classList.add('show');
   setTimeout(() => popup.classList.remove('show'), 1800);
 }
 
-
-
 // ======= ОБЩИЕ ОБРАБОТЧИКИ (ДЕЛЕГИРОВАНИЕ) =======
-
 document.addEventListener('click', function (e) {
   const target = e.target;
 
@@ -267,22 +250,20 @@ document.addEventListener('click', function (e) {
     const imgEl = card.querySelector('.product-img img, .product-slides img.active');
 
     const title = titleEl ? titleEl.innerText.trim() : 'Без названия';
-    const price = priceEl
-      ? priceEl.innerText.trim().replace(/[^\d.,]/g, '')
-      : '0';
+    const price = priceEl ? priceEl.innerText.trim().replace(/[^\d.,]/g, '') : '0';
     const img = imgEl ? imgEl.src : '';
 
     addProductToCart({ id: productId, title, price, img });
     return;
   }
 
-  // Нажатие на кнопку удаления в корзине
+  // Удаление из корзины
   if (target.closest('.cart-item-remove')) {
     removeCartItemByElement(target);
     return;
   }
 
-  // Нажатие плюс/минус
+  // Плюс/минус
   if (target.closest('.quantity-btn')) {
     if (target.classList.contains('increase')) {
       changeQuantityByElement(target, 1);
@@ -292,9 +273,15 @@ document.addEventListener('click', function (e) {
     return;
   }
 
-  // Клик по иконке корзины (открыть/закрыть)
+  // Открыть/закрыть корзину
   const cartIcon = target.closest('.openbtn.cart-icon, .cart-icon');
   if (cartIcon) {
+    toggleCart();
+    return;
+  }
+
+  // Кнопка назад в боковой корзине
+  if (target.closest('.cart-back-btn')) {
     toggleCart();
     return;
   }
@@ -303,6 +290,7 @@ document.addEventListener('click', function (e) {
 // ======= TOGGLE КОРЗИНЫ =======
 function toggleCart() {
   const cart = document.getElementById("shoppingCart");
+  if (!cart) return;
   const main = document.getElementById("main");
   const isOpening = !cart.classList.contains("open");
 
@@ -311,10 +299,8 @@ function toggleCart() {
   if (isOpening) {
     const screenWidth = window.innerWidth;
     if (screenWidth <= 768) {
-      // 📱 На телефонах корзина на весь экран, ничего не двигаем
       main.style.marginRight = "0";
     } else {
-      // 💻 На ноутбуках и десктопах сдвигаем контент
       main.style.marginRight = "350px";
     }
     renderCart();
@@ -323,39 +309,19 @@ function toggleCart() {
   }
 }
 
-document.addEventListener('click', function (e) {
-  const target = e.target;
-
-  // ← кнопка назад в корзине
-  if (target.closest('.cart-back-btn')) {
-    toggleCart();
-    return;
-  }
-
-  // ... остальной код ...
-});
-
-
-
-
-
 // ======= ИНИЦИАЛИЗАЦИЯ =======
 document.addEventListener('DOMContentLoaded', function () {
   loadCartFromStorage();
 
-  // если у тебя есть отдельная кнопка "Перейти в корзину", перехватим её, чтобы сохранить перед переходом
   qsa('.go-to-cart-btn').forEach(btn => {
     btn.addEventListener('click', function (e) {
       e.preventDefault();
       saveCartToStorage();
-      // переход с небольшим таймаутом (как у тебя было)
       const href = this.getAttribute('href') || '/russian/consumer_ru/main_cart.html';
       setTimeout(() => window.location.href = href, 100);
     });
   });
 });
-
-
 
 window.addProductToCart = addProductToCart;
 window.findCartItemIndexByIdOrTitle = findCartItemIndexByIdOrTitle;

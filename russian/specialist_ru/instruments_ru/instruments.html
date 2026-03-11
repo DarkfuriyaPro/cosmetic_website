@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="UTF-8" />
+    <!-- FIX: Запрещаем браузеру применять тёмную тему автоматически -->
+    <meta name="color-scheme" content="light">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!--Шрифты-->
@@ -15,7 +17,6 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap"
         rel="stylesheet">
-
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,50 +33,48 @@
 <body>
     <div id="main">
 
+        <!--Header-->
+        <header class="header">
+            <div class="container">
 
-       
-     <!--Header-->
-    <header class="header">
-      <div class="container">
+                <div class="header-left">
+                    <a href="/russian/specialist_ru/main_page_ru/specialist_ru.html" class="logo-link">
+                        <img src="/images/header-logo.png" alt="Varava" class="logo-img">
+                    </a>
+                </div>
 
-        <div class="header-left">
-          <a href="/russian/specialist_ru/main_page_ru/specialist_ru.html" class="logo-link">
-            <img src="/images/header-logo.png" alt="Varava" class="logo-img">
-          </a>
-        </div>
+                <!--Search Form-->
+                <section class="search-section">
+                    <form class="search-form" action="#" method="GET">
+                        <button type="submit" class="search-btn">
+                            <img class="submit-img" src="/images/search.png">
+                        </button>
+                        <input type="text" class="search-input" placeholder="Поиск..." name="search">
+                    </form>
+                </section>
 
-        <!--Search Form-->
-        <section class="search-section">
-          <form class="search-form" action="#" method="GET">
-            <button type="submit" class="search-btn">
-              <img class="submit-img" src="/images/search.png">
-            </button>
-            <input type="text" class="search-input" placeholder="Поиск..." name="search">
-          </form>
-        </section>
+                <div class="icons-language">
+                    <div class="header-icons">
+                        <a href="#"><img src="/images/account.png" alt="Профиль" class="icon"></a>
+                        <a href="#" class="cart-icon">
+                            <img src="/images/cart.png" alt="Корзина" class="icon">
+                            <span class="cart-count">0</span>
+                        </a>
+                    </div>
 
-        <div class="icons-language">
-          <div class="header-icons">
-            <a href="#"><img src="/images/account.png" alt="Профиль" class="icon"></a>
-            <a href="#" class="cart-icon">
-              <img src="/images/cart.png" alt="Корзина" class="icon">
-              <span class="cart-count">0</span>
-            </a>
-          </div>
+                    <div class="divider"></div>
 
-          <div class="divider"></div> <!-- вертикальная линия -->
-
-          <div class="language">
-            <button onclick="languageFunction()" class="btn-lang lang-ru"></button>
-            <div id="languageDropdown" class="language-content">
-              <a href="/german/specialist_de/main_page_de/specialist_de.html"><img src="/images/germany.png"
-                  alt="russian"></a>
-              <a href="/english/specialist_en/main_page_en/specialist_en.html"><img src="/images/america.png" alt="english"></a>
+                    <div class="language">
+                        <button onclick="languageFunction()" class="btn-lang lang-ru"></button>
+                        <div id="languageDropdown" class="language-content">
+                            <a href="/german/specialist_de/main_page_de/specialist_de.html"><img src="/images/germany.png"
+                                    alt="russian"></a>
+                            <a href="/english/specialist_en/main_page_en/specialist_en.html"><img src="/images/america.png" alt="english"></a>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </header>
+        </header>
 
         <div class="layout">
 
@@ -137,20 +136,17 @@
                                     <div class="product-desc">
                                         <div class="product-title">Щипчики для кутикулы из нержавеющей стали 10 см - 7мм
                                         </div>
-
                                     </div>
                                 </div>
                             </a>
                             <div class="price-cart">
-                                <div class="product-price"><span class="price-value">21,50</span><span>€</span>
-                                </div>
+                                <div class="product-price"><span class="price-value">21,50</span><span>€</span></div>
                                 <div class="add-button">
                                     <button class="add-to-cart" type="button">В корзину</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
 
                     <div class="card" data-product-id="TR111L">
                         <div class="card-container">
@@ -166,8 +162,7 @@
                                 </div>
                             </a>
                             <div class="price-cart">
-                                <div class="product-price"><span class="price-value">31,00</span><span>€</span>
-                                </div>
+                                <div class="product-price"><span class="price-value">31,00</span><span>€</span></div>
                                 <div class="add-button">
                                     <button class="add-to-cart" type="button">В корзину</button>
                                 </div>
@@ -188,8 +183,7 @@
                                 </div>
                             </a>
                             <div class="price-cart">
-                                <div class="product-price"><span class="price-value">51,00</span><span>€</span>
-                                </div>
+                                <div class="product-price"><span class="price-value">51,00</span><span>€</span></div>
                                 <div class="add-button">
                                     <button class="add-to-cart" type="button">В корзину</button>
                                 </div>
@@ -209,10 +203,8 @@
                                     </div>
                                 </div>
                             </a>
-
                             <div class="price-cart">
-                                <div class="product-price"><span class="price-value">7,00</span><span>€</span>
-                                </div>
+                                <div class="product-price"><span class="price-value">7,00</span><span>€</span></div>
                                 <div class="add-button">
                                     <button class="add-to-cart" type="button">В корзину</button>
                                 </div>
@@ -232,17 +224,14 @@
                                     </div>
                                 </div>
                             </a>
-
                             <div class="price-cart">
-                                <div class="product-price"><span class="price-value">6,00</span><span>€</span>
-                                </div>
+                                <div class="product-price"><span class="price-value">6,00</span><span>€</span></div>
                                 <div class="add-button">
                                     <button class="add-to-cart" type="button">В корзину</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
 
                     <div class="card" data-product-id="1061111271103">
                         <div class="card-container">
@@ -256,17 +245,14 @@
                                     </div>
                                 </div>
                             </a>
-
                             <div class="price-cart">
-                                <div class="product-price"><span class="price-value">116,50</span><span>€</span>
-                                </div>
+                                <div class="product-price"><span class="price-value">116,50</span><span>€</span></div>
                                 <div class="add-button">
                                     <button class="add-to-cart" type="button">В корзину</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
 
                     <div class="card" data-product-id="MICRO-0">
                         <div class="card-container">
@@ -280,17 +266,14 @@
                                     </div>
                                 </div>
                             </a>
-
                             <div class="price-cart">
-                                <div class="product-price"><span class="price-value">16,00</span><span>€</span>
-                                </div>
+                                <div class="product-price"><span class="price-value">16,00</span><span>€</span></div>
                                 <div class="add-button">
                                     <button class="add-to-cart" type="button">В корзину</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
 
                     <div class="card" data-product-id="MICRO-05">
                         <div class="card-container">
@@ -304,17 +287,14 @@
                                     </div>
                                 </div>
                             </a>
-
                             <div class="price-cart">
-                                <div class="product-price"><span class="price-value">16,00</span><span>€</span>
-                                </div>
+                                <div class="product-price"><span class="price-value">16,00</span><span>€</span></div>
                                 <div class="add-button">
                                     <button class="add-to-cart" type="button">В корзину</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
 
                     <div class="card" data-product-id="MICRO-1">
                         <div class="card-container">
@@ -324,21 +304,18 @@
                                 </div>
                                 <div class="after-img">
                                     <div class="product-desc">
-                                        <div class="product-title">Медицинские микро-лезвия N 1 (50 шт) </div>
+                                        <div class="product-title">Медицинские микро-лезвия N 1 (50 шт)</div>
                                     </div>
                                 </div>
                             </a>
-
                             <div class="price-cart">
-                                <div class="product-price"><span class="price-value">16,00</span><span>€</span>
-                                </div>
+                                <div class="product-price"><span class="price-value">16,00</span><span>€</span></div>
                                 <div class="add-button">
                                     <button class="add-to-cart" type="button">В корзину</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
 
                     <div class="card" data-product-id="MICRO-2">
                         <div class="card-container">
@@ -348,21 +325,18 @@
                                 </div>
                                 <div class="after-img">
                                     <div class="product-desc">
-                                        <div class="product-title">Медицинские микро-лезвия N 2 (50 шт) </div>
+                                        <div class="product-title">Медицинские микро-лезвия N 2 (50 шт)</div>
                                     </div>
                                 </div>
                             </a>
-
                             <div class="price-cart">
-                                <div class="product-price"><span class="price-value">16,00</span><span>€</span>
-                                </div>
+                                <div class="product-price"><span class="price-value">16,00</span><span>€</span></div>
                                 <div class="add-button">
                                     <button class="add-to-cart" type="button">В корзину</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
 
                     <div class="card" data-product-id="MICRO-25">
                         <div class="card-container">
@@ -372,21 +346,18 @@
                                 </div>
                                 <div class="after-img">
                                     <div class="product-desc">
-                                        <div class="product-title">Медицинские микро-лезвия N 2,5 (50 шт) </div>
+                                        <div class="product-title">Медицинские микро-лезвия N 2,5 (50 шт)</div>
                                     </div>
                                 </div>
                             </a>
-
                             <div class="price-cart">
-                                <div class="product-price"><span class="price-value">16,00</span><span>€</span>
-                                </div>
+                                <div class="product-price"><span class="price-value">16,00</span><span>€</span></div>
                                 <div class="add-button">
                                     <button class="add-to-cart" type="button">В корзину</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
 
                     <div class="card" data-product-id="MICRO-3">
                         <div class="card-container">
@@ -396,21 +367,18 @@
                                 </div>
                                 <div class="after-img">
                                     <div class="product-desc">
-                                        <div class="product-title">Медицинские микро-лезвия N 3 (50 шт) </div>
+                                        <div class="product-title">Медицинские микро-лезвия N 3 (50 шт)</div>
                                     </div>
                                 </div>
                             </a>
-
                             <div class="price-cart">
-                                <div class="product-price"><span class="price-value">16,00</span><span>€</span>
-                                </div>
+                                <div class="product-price"><span class="price-value">16,00</span><span>€</span></div>
                                 <div class="add-button">
                                     <button class="add-to-cart" type="button">В корзину</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
 
                     <div class="card" data-product-id="MICRO-5">
                         <div class="card-container">
@@ -420,21 +388,18 @@
                                 </div>
                                 <div class="after-img">
                                     <div class="product-desc">
-                                        <div class="product-title">Медицинские микро-лезвия N 5 (25 шт) </div>
+                                        <div class="product-title">Медицинские микро-лезвия N 5 (25 шт)</div>
                                     </div>
                                 </div>
                             </a>
-
                             <div class="price-cart">
-                                <div class="product-price"><span class="price-value">12,00</span><span>€</span>
-                                </div>
+                                <div class="product-price"><span class="price-value">12,00</span><span>€</span></div>
                                 <div class="add-button">
                                     <button class="add-to-cart" type="button">В корзину</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
 
                     <div class="card" data-product-id="KITSAB">
                         <div class="card-container">
@@ -445,21 +410,18 @@
                                 <div class="after-img">
                                     <div class="product-desc">
                                         <div class="product-title">Стартовый набор Beauty 0-1: ручка + микролезвия N 0
-                                            (20 шт), N 1 (20 шт) MT1 </div>
+                                            (20 шт), N 1 (20 шт) MT1</div>
                                     </div>
                                 </div>
                             </a>
-
                             <div class="price-cart">
-                                <div class="product-price"><span class="price-value">44,00</span><span>€</span>
-                                </div>
+                                <div class="product-price"><span class="price-value">44,00</span><span>€</span></div>
                                 <div class="add-button">
                                     <button class="add-to-cart" type="button">В корзину</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
 
                     <div class="card" data-product-id="KITMAB">
                         <div class="card-container">
@@ -470,21 +432,18 @@
                                 <div class="after-img">
                                     <div class="product-desc">
                                         <div class="product-title">Стартовый набор Beauty 2-3: ручка + микролезвия N 2
-                                            (20 шт), N 3 (20 шт) MT2 </div>
+                                            (20 шт), N 3 (20 шт) MT2</div>
                                     </div>
                                 </div>
                             </a>
-
                             <div class="price-cart">
-                                <div class="product-price"><span class="price-value">44,00</span><span>€</span>
-                                </div>
+                                <div class="product-price"><span class="price-value">44,00</span><span>€</span></div>
                                 <div class="add-button">
                                     <button class="add-to-cart" type="button">В корзину</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
 
                     <div class="card" data-product-id="KITLAB">
                         <div class="card-container">
@@ -495,21 +454,18 @@
                                 <div class="after-img">
                                     <div class="product-desc">
                                         <div class="product-title">Стартовый набор Beauty 5: ручка + микролезвия N 5 (10
-                                            шт) + MT2 </div>
+                                            шт) + MT2</div>
                                     </div>
                                 </div>
                             </a>
-
                             <div class="price-cart">
-                                <div class="product-price"><span class="price-value">44,00</span><span>€</span>
-                                </div>
+                                <div class="product-price"><span class="price-value">44,00</span><span>€</span></div>
                                 <div class="add-button">
                                     <button class="add-to-cart" type="button">В корзину</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
 
                     <div class="card" data-product-id="KT101">
                         <div class="card-container">
@@ -519,22 +475,18 @@
                                 </div>
                                 <div class="after-img">
                                     <div class="product-desc">
-                                        <div class="product-title">Стартовый набор Multi 0-1: ручка + микролезвия
-                                            0-0,5-1 </div>
+                                        <div class="product-title">Стартовый набор Multi 0-1: ручка + микролезвия 0-0,5-1</div>
                                     </div>
                                 </div>
                             </a>
-
                             <div class="price-cart">
-                                <div class="product-price"><span class="price-value">40,00</span><span>€</span>
-                                </div>
+                                <div class="product-price"><span class="price-value">40,00</span><span>€</span></div>
                                 <div class="add-button">
                                     <button class="add-to-cart" type="button">В корзину</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
 
                     <div class="card" data-product-id="KT102">
                         <div class="card-container">
@@ -544,22 +496,18 @@
                                 </div>
                                 <div class="after-img">
                                     <div class="product-desc">
-                                        <div class="product-title">Стартовый набор Multi 2-3: ручка + микролезвия
-                                            2-2,5-3</div>
+                                        <div class="product-title">Стартовый набор Multi 2-3: ручка + микролезвия 2-2,5-3</div>
                                     </div>
                                 </div>
                             </a>
-
                             <div class="price-cart">
-                                <div class="product-price"><span class="price-value">40,00</span><span>€</span>
-                                </div>
+                                <div class="product-price"><span class="price-value">40,00</span><span>€</span></div>
                                 <div class="add-button">
                                     <button class="add-to-cart" type="button">В корзину</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
 
                     <div class="card" data-product-id="KT103">
                         <div class="card-container">
@@ -569,22 +517,18 @@
                                 </div>
                                 <div class="after-img">
                                     <div class="product-desc">
-                                        <div class="product-title">Стартовый набор Multi 4-5: ручка + микролезвия 4-5
-                                        </div>
+                                        <div class="product-title">Стартовый набор Multi 4-5: ручка + микролезвия 4-5</div>
                                     </div>
                                 </div>
                             </a>
-
                             <div class="price-cart">
-                                <div class="product-price"><span class="price-value">40,00</span><span>€</span>
-                                </div>
+                                <div class="product-price"><span class="price-value">40,00</span><span>€</span></div>
                                 <div class="add-button">
                                     <button class="add-to-cart" type="button">В корзину</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
 
                     <div class="card" data-product-id="MA125A">
                         <div class="card-container">
@@ -594,21 +538,18 @@
                                 </div>
                                 <div class="after-img">
                                     <div class="product-desc">
-                                        <div class="product-title">Hабор Shark ручка+2 насадки 0..-..3, алюминий </div>
+                                        <div class="product-title">Hабор Shark ручка+2 насадки 0..-..3, алюминий</div>
                                     </div>
                                 </div>
                             </a>
-
                             <div class="price-cart">
-                                <div class="product-price"><span class="price-value">55,00</span><span>€</span>
-                                </div>
+                                <div class="product-price"><span class="price-value">55,00</span><span>€</span></div>
                                 <div class="add-button">
                                     <button class="add-to-cart" type="button">В корзину</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
 
                     <div class="card" data-product-id="MA126I">
                         <div class="card-container">
@@ -618,22 +559,18 @@
                                 </div>
                                 <div class="after-img">
                                     <div class="product-desc">
-                                        <div class="product-title">Hабор Shark ручка+2 насадки 0..-..3, нержавеющая
-                                            сталь </div>
+                                        <div class="product-title">Hабор Shark ручка+2 насадки 0..-..3, нержавеющая сталь</div>
                                     </div>
                                 </div>
                             </a>
-
                             <div class="price-cart">
-                                <div class="product-price"><span class="price-value">98,00</span><span>€</span>
-                                </div>
+                                <div class="product-price"><span class="price-value">98,00</span><span>€</span></div>
                                 <div class="add-button">
                                     <button class="add-to-cart" type="button">В корзину</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
 
                     <div class="card" data-product-id="MA107I">
                         <div class="card-container">
@@ -643,21 +580,18 @@
                                 </div>
                                 <div class="after-img">
                                     <div class="product-desc">
-                                        <div class="product-title">Ручка для микролезвий размер 4-5 </div>
+                                        <div class="product-title">Ручка для микролезвий размер 4-5</div>
                                     </div>
                                 </div>
                             </a>
-
                             <div class="price-cart">
-                                <div class="product-price"><span class="price-value">70,00</span><span>€</span>
-                                </div>
+                                <div class="product-price"><span class="price-value">70,00</span><span>€</span></div>
                                 <div class="add-button">
                                     <button class="add-to-cart" type="button">В корзину</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
 
                     <div class="card" data-product-id="MIX0-05-1">
                         <div class="card-container">
@@ -671,17 +605,14 @@
                                     </div>
                                 </div>
                             </a>
-
                             <div class="price-cart">
-                                <div class="product-price"><span class="price-value">7,50</span><span>€</span>
-                                </div>
+                                <div class="product-price"><span class="price-value">7,50</span><span>€</span></div>
                                 <div class="add-button">
                                     <button class="add-to-cart" type="button">В корзину</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
 
                     <div class="card" data-product-id="MIX2-25-3">
                         <div class="card-container">
@@ -691,21 +622,18 @@
                                 </div>
                                 <div class="after-img">
                                     <div class="product-desc">
-                                        <div class="product-title">Микролезвия Mix Beauty Care 2-2,5-3 (24 шт) </div>
+                                        <div class="product-title">Микролезвия Mix Beauty Care 2-2,5-3 (24 шт)</div>
                                     </div>
                                 </div>
                             </a>
-
                             <div class="price-cart">
-                                <div class="product-price"><span class="price-value">7,50</span><span>€</span>
-                                </div>
+                                <div class="product-price"><span class="price-value">7,50</span><span>€</span></div>
                                 <div class="add-button">
                                     <button class="add-to-cart" type="button">В корзину</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
 
                     <div class="card" data-product-id="MIX4-5">
                         <div class="card-container">
@@ -715,21 +643,18 @@
                                 </div>
                                 <div class="after-img">
                                     <div class="product-desc">
-                                        <div class="product-title">Микролезвия Mix Beauty Care 4-5 (15 шт) </div>
+                                        <div class="product-title">Микролезвия Mix Beauty Care 4-5 (15 шт)</div>
                                     </div>
                                 </div>
                             </a>
-
                             <div class="price-cart">
-                                <div class="product-price"><span class="price-value">7,50</span><span>€</span>
-                                </div>
+                                <div class="product-price"><span class="price-value">7,50</span><span>€</span></div>
                                 <div class="add-button">
                                     <button class="add-to-cart" type="button">В корзину</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
 
                     <div class="card" data-product-id="MT1">
                         <div class="card-container">
@@ -739,21 +664,18 @@
                                 </div>
                                 <div class="after-img">
                                     <div class="product-desc">
-                                        <div class="product-title">Фиксатор лезвий 0..-..2 </div>
+                                        <div class="product-title">Фиксатор лезвий 0..-..2</div>
                                     </div>
                                 </div>
                             </a>
-
                             <div class="price-cart">
-                                <div class="product-price"><span class="price-value">3,00</span><span>€</span>
-                                </div>
+                                <div class="product-price"><span class="price-value">3,00</span><span>€</span></div>
                                 <div class="add-button">
                                     <button class="add-to-cart" type="button">В корзину</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
 
                     <div class="card" data-product-id="MT2">
                         <div class="card-container">
@@ -763,14 +685,12 @@
                                 </div>
                                 <div class="after-img">
                                     <div class="product-desc">
-                                        <div class="product-title">Фиксатор лезвий 3..-..5 </div>
+                                        <div class="product-title">Фиксатор лезвий 3..-..5</div>
                                     </div>
                                 </div>
                             </a>
-
                             <div class="price-cart">
-                                <div class="product-price"><span class="price-value">3,00</span><span>€</span>
-                                </div>
+                                <div class="product-price"><span class="price-value">3,00</span><span>€</span></div>
                                 <div class="add-button">
                                     <button class="add-to-cart" type="button">В корзину</button>
                                 </div>
@@ -782,11 +702,9 @@
             </main>
         </div>
 
-
         <!--Footer-->
         <footer class="footer">
             <div class="footer-container">
-
                 <div class="icons-social">
                     <div class="footer-left">
                         <a href="#"><img src="/images/instagram_green.png" alt="instagram"></a>
@@ -795,81 +713,54 @@
                     </div>
                     <div class="footer-right">+4915562360806</div>
                 </div>
-
-
                 <div class="footer-bottom">
                     <a href="/russian/specialist_ru/footer/impressum.html">Импрессум</a>
                     <a href="#">Пользовательское соглашение</a>
                     <a href="#">Политика конфиденциальности</a>
                 </div>
-
             </div>
         </footer>
     </div>
 
-    <!--Shoping cart-->
+    <!--Shopping cart-->
     <div id="shoppingCart" class="shopping-cart">
         <div class="cart-container">
             <div class="upper-pannel">
                 <div class="total-price">
                     Итого:<span class="amount-count">0</span>
                 </div>
-
                 <div class="items-counter">
                     <span>0</span>
                 </div>
-
-                <button class="cart-back-btn">
-                    ←
-                </button>
-
+                <button class="cart-back-btn">←</button>
             </div>
 
             <div class="empty">
                 <svg viewBox="0 0 200 200" width="200" height="200">
                     <defs>
-                        <!-- Верхняя дуга -->
                         <path id="topArc" d="M 100,100 m -60,0 a 60,60 0 1,1 120,0" />
-                        <!-- Нижняя дуга (уменьшенный радиус 60, в обратную сторону) -->
                         <path id="bottomArc" d="M 100,100 m -60,0 a 60,60 0 0,0 120,0" />
                     </defs>
-
                     <circle cx="100" cy="100" r="80" fill="none" stroke="#2C5C50" stroke-width="5" />
-
-                    <text font-size="20" fill="#2C5C50" font-family="Roboto Serif" text-anchor="middle"
-                        letter-spacing="2">
-                        <textPath href="#topArc" startOffset="50%" dominant-baseline="middle">
-                            Корзина
-                        </textPath>
+                    <text font-size="20" fill="#2C5C50" font-family="Roboto Serif" text-anchor="middle" letter-spacing="2">
+                        <textPath href="#topArc" startOffset="50%" dominant-baseline="middle">Корзина</textPath>
                     </text>
-
-                    <text font-size="20" fill="#2C5C50" font-family="Roboto Serif" text-anchor="middle"
-                        letter-spacing="2">
-                        <textPath href="#bottomArc" startOffset="50%" dominant-baseline="middle">
-                            Пустая
-                        </textPath>
+                    <text font-size="20" fill="#2C5C50" font-family="Roboto Serif" text-anchor="middle" letter-spacing="2">
+                        <textPath href="#bottomArc" startOffset="50%" dominant-baseline="middle">Пустая</textPath>
                     </text>
                 </svg>
             </div>
 
-
-
             <div class="cart-footer">
                 <a href="/main_cart.html?lang=ru" class="go-to-cart-btn">Перейти в корзину</a>
             </div>
-
         </div>
-
     </div>
 
-    <!-- Overlay (темный фон при открытой корзине) -->
     <div id="cartOverlay" class="cart-overlay" aria-hidden="true"></div>
 
-
-    <!-- Snackbar -->
     <div id="snackbar"></div>
     <div id="prove_product"></div>
-
 
     <!-- Scripts -->
     <script src="/scripts/main_page.js"></script>

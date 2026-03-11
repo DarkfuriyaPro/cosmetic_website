@@ -6,7 +6,6 @@
   text-align: center;
   color: #FFFEA5;
   font-size: clamp(24px, 4vw, 50px);
-  /* ← адаптивный размер */
   font-family: "Kurale", serif;
   margin: 30px auto;
 }
@@ -26,10 +25,8 @@
   padding-right: 40px;
   height: auto;
   border-right: 4px solid #FFFEA5;
-  /* "барьер" справа */
 }
 
-/* Стили для навигации */
 .side-nav ul {
   list-style: none;
   padding: 0;
@@ -43,9 +40,7 @@
 .side-list a {
   display: flex;
   justify-content: space-between;
-  /* текст слева, стрелка справа */
   align-items: center;
-  /* по центру по вертикали */
   background-color: #FFFEA5;
   color: #2C5C50;
   text-decoration: none;
@@ -53,16 +48,13 @@
   font-family: "Roboto Serif", serif;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   font-size: clamp(12px, 1.2vw, 15px);
-  /* текст уменьшается при сужении экрана */
   cursor: pointer;
   padding: 15px 20px;
   min-height: clamp(35px, 1vh, 50px);
-  /* высота адаптивная */
 }
 
 .arrow {
   margin-left: 10px;
-  /* если нужно немного отступа от текста */
 }
 
 .side-list a:hover {
@@ -81,7 +73,6 @@
 ============================= */
 .products {
   flex: 1;
-  /* Занимает всё оставшееся пространство */
   padding-left: 40px;
 }
 
@@ -99,7 +90,6 @@
   border-radius: 10px;
   padding: 10px 15px;
   display: flex;
-  /* flex-контейнер */
   flex-direction: column;
 }
 
@@ -108,7 +98,6 @@
   flex-direction: column;
   flex: 1;
   box-sizing: border-box;
-  /* равномерные отступы */
   width: 100%;
   justify-content: space-between;
 }
@@ -116,7 +105,6 @@
 .card a {
   text-decoration: none;
   color: inherit;
-  /* чтобы название не меняло цвет ссылки */
 }
 
 .product-img {
@@ -128,9 +116,7 @@
   width: 100%;
   height: 300px;
   object-fit: cover;
-  /* изображение на всю ширину */
   border-radius: 10px;
-  /* по вкусу */
 }
 
 .after-img {
@@ -145,7 +131,6 @@
   font-family: "Roboto Serif", serif;
   display: flex;
   flex-direction: column;
-  /* занимает всё доступное место */
   min-width: 0;
 }
 
@@ -158,9 +143,7 @@
   line-height: 1.2;
   max-width: 100%;
   white-space: normal;
-  /* разрешаем переносы */
   word-wrap: break-word;
-  /* перенос длинных слов */
   margin-bottom: 10px;
 }
 
@@ -188,7 +171,6 @@
   width: 100%;
   border-radius: 10px;
   background-color: #2C5C50;
-  /* или другой цвет */
   color: #fff;
   font-size: 16px;
   font-family: "Roboto Serif", serif;
@@ -207,17 +189,8 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-.card a {
-  text-decoration: none;
-}
-
-
-
-
 /* =============================
-   DROPDOWN — новый стиль
-   Заменяет старые блоки .dropdown, .btn-filter, .btn-sort,
-   .content-filter, .content-sort в all_categories.css
+   DROPDOWN
 ============================= */
 
 .dropdown {
@@ -232,7 +205,6 @@
   position: relative;
 }
 
-/* Кнопки фильтра и сортировки */
 .btn-filter,
 .btn-sort {
   display: flex;
@@ -253,7 +225,6 @@
 .btn-filter img,
 .btn-sort img {
   height: 18px;
-  /* иконка зелёная */
   filter: brightness(0) saturate(100%) invert(26%) sepia(28%) saturate(700%) hue-rotate(120deg) brightness(80%);
 }
 
@@ -271,7 +242,6 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Активное состояние кнопки (когда выбран фильтр/сорт) */
 .btn-filter.active,
 .btn-sort.active {
   background-color: #2C5C50;
@@ -288,7 +258,6 @@
   filter: brightness(0) saturate(100%) invert(96%) sepia(31%) saturate(500%) hue-rotate(2deg) brightness(103%);
 }
 
-/* Выпадающее меню */
 .content-filter,
 .content-sort {
   display: none;
@@ -311,15 +280,8 @@
 }
 
 @keyframes dropdownFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-6px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .content-filter a,
@@ -341,11 +303,10 @@
 
 .content-filter a:hover,
 .content-sort a:hover {
- background-color: #2C5C50;
- color: #FFFEA5;
+  background-color: #2C5C50;
+  color: #FFFEA5;
 }
 
-/* Активный выбранный пункт */
 .content-filter a.active-filter,
 .content-sort a.active-sort {
   background-color: #2C5C50;
@@ -353,7 +314,6 @@
   font-weight: 600;
 }
 
-/* Нет результатов */
 .no-results {
   grid-column: 1 / -1;
   text-align: center;
@@ -364,56 +324,41 @@
   opacity: 0.8;
 }
 
-/* Мобильный адаптив */
-@media (max-width: 768px) {
-
-  .drop-filter,
-  .drop-sort {
-    display: none !important;
-  }
-}
-
-
 /* =============================
    АДАПТИВ ДЛЯ МОБИЛЬНЫХ ЭКРАНОВ
 ============================= */
 @media (max-width: 768px) {
 
-  /* Основной контейнер теперь вертикальный */
+  /* Основной контейнер — вертикальный */
   .layout {
     flex-direction: column;
     align-items: stretch;
-    margin: 20px auto;
+    margin: 10px auto;
     border: none;
   }
 
-  /* Сайдбар становится горизонтальным блоком */
+  /* Сайдбар — горизонтальный скролл */
   .sidebar {
     width: 100%;
     border-right: none;
     border-bottom: 4px solid #FFFEA5;
-    /* горизонтальная линия */
-    padding: 10px 0;
+    padding: 8px 0;
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
-    /* плавный свайп на iOS */
   }
 
-  /* Скрываем полосу прокрутки, но оставляем возможность скролла */
   .sidebar::-webkit-scrollbar {
     display: none;
   }
 
   .sidebar {
     -ms-overflow-style: none;
-    /* IE и Edge */
     scrollbar-width: none;
-    /* Firefox */
   }
 
-  /* Навигация внутри сайдбара — в одну строку */
+  /* Навигация — в одну строку */
   .side-nav ul {
     display: flex;
     flex-wrap: nowrap;
@@ -425,9 +370,7 @@
 
   .side-list {
     margin-bottom: 0;
-    /* убираем вертикальные отступы */
     flex: 0 0 auto;
-    /* не сжимается */
   }
 
   .side-list a {
@@ -438,31 +381,45 @@
     white-space: nowrap;
   }
 
-  /* Продукты идут после сайдбара */
+  /* Продукты — после сайдбара, уменьшенный верхний отступ */
   .products {
     padding-left: 0;
-    padding-top: 20px;
+    padding-top: 12px;
     border: none;
   }
 
-  /* Убираем фильтры и сортировку на маленьких экранах */
+  /* Скрываем фильтры и сортировку */
   .drop-filter,
   .drop-sort {
     display: none !important;
   }
 
-  /* Корректируем сетку карточек */
+  /* Сетка карточек */
   .product-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin-top: 12px; /* было 50px — убираем лишний отступ */
+  }
+
+  /* Карточка */
+  .card {
+    min-height: 220px;
   }
 
   .product-img img {
-    height: 200px;
+    height: 150px;
+  }
+
+  .product-title {
+    font-size: 12px;
+  }
+
+  .product-price {
+    font-size: 13px;
   }
 
   .add-to-cart {
-    font-size: 14px;
-    padding: 8px 12px;
+    font-size: 12px;
+    padding: 7px 10px;
   }
 }
