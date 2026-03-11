@@ -98,16 +98,16 @@
             <main class="products">
 
                 <!--Filter and Sorting-->
-                <div class="dropdown">
+               <div class="dropdown">
                     <div class="drop-filter">
                         <button onclick="filterFunction()" class="btn-filter">
                             <img src="/images/filter.png" alt="Filter">
                             <p>Фильтры</p>
                         </button>
                         <div id="filterDropdown" class="content-filter">
-                            <a href="#about">Süda</a>
-                            <a href="#base">Akilein</a>
-                            <a href="#blog">Arkada</a>
+                            <a href="#" data-brand="cottocare">CottoCare</a>
+                            <a href="#" data-brand="kinefix">KineFix</a>
+                            <a href="#" data-brand="">Все</a>
                         </div>
                     </div>
 
@@ -117,10 +117,8 @@
                             <p>Сортировка</p>
                         </button>
                         <div id="sortDropdown" class="content-sort">
-                            <a href="#about">About</a>
-                            <a href="#base">Base</a>
-                            <a href="#blog">Blog</a>
-                            <a href="#contact">Contact</a>
+                            <a href="#" data-sort="price-asc">Цена ↑</a>
+                            <a href="#" data-sort="price-desc">Цена ↓</a>
                         </div>
                     </div>
                 </div>

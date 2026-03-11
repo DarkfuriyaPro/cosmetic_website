@@ -98,16 +98,17 @@
             <main class="products">
 
                 <!--Filter and Sorting-->
-                <div class="dropdown">
+                 <div class="dropdown">
                     <div class="drop-filter">
                         <button onclick="filterFunction()" class="btn-filter">
                             <img src="/images/filter.png" alt="Filter">
                             <p>Filter</p>
                         </button>
                         <div id="filterDropdown" class="content-filter">
-                            <a href="#about">Süda</a>
-                            <a href="#base">Akilein</a>
-                            <a href="#blog">Arkada</a>
+                            <a href="#" data-brand="süda">Süda</a>
+                            <a href="#" data-brand="akilein">Akilein</a>
+                            <a href="#" data-brand="arkada">Arkada</a>
+                            <a href="#" data-brand="">All</a>
                         </div>
                     </div>
 
@@ -117,10 +118,8 @@
                             <p>Sort</p>
                         </button>
                         <div id="sortDropdown" class="content-sort">
-                            <a href="#about">About</a>
-                            <a href="#base">Base</a>
-                            <a href="#blog">Blog</a>
-                            <a href="#contact">Contact</a>
+                            <a href="#" data-sort="price-asc">Price ↑</a>
+                            <a href="#" data-sort="price-desc">Price ↓</a>
                         </div>
                     </div>
                 </div>
@@ -829,7 +828,6 @@
     <script src="/scripts/all_small_functions.js"></script>
     <script src="/scripts/shopping_cart.js"></script>
     <script src="/scripts/stock.js"></script>
-
 </body>
 
 </html>
