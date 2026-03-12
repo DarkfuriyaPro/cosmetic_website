@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let autoScroll = null;
   const INTERVAL = 3000;
 
-  // ─── Авто-прокрутка ───────────────────────────────
+  // ─── Прокрутка к конкретному слайду ───────────────
 
   function scrollToSlide(i) {
     slider.scrollTo({
@@ -16,6 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     index = i;
   }
+
+  // ─── Авто-прокрутка ───────────────────────────────
 
   function startAuto() {
     stopAuto();
@@ -26,13 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function stopAuto() {
-    if (autoScroll) {
-      clearInterval(autoScroll);
-      autoScroll = null;
-    }
+    clearInterval(autoScroll);
+    autoScroll = null;
   }
 
-  // ─── Отслеживание текущего слайда при скролле ─────
+  // ─── Обновление индекса при нативном скролле ──────
 
   slider.addEventListener('scroll', () => {
     const scrollLeft = slider.scrollLeft;
@@ -46,70 +46,44 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
     index = closest;
-  });
-
-  // ─── Тач / тачпад ─────────────────────────────────
-
-  slider.addEventListener('pointerdown', stopAuto);
-  slider.addEventListener('touchstart', stopAuto);
-  slider.addEventListener('pointerup', startAuto);
+  }, { passive: true });
 
   // ─── Колесо мыши → листает по одному слайду ───────
+
+  let wheelTimer = null;
 
   slider.addEventListener('wheel', (e) => {
     e.preventDefault();
     stopAuto();
 
     if (e.deltaY > 0 || e.deltaX > 0) {
-      // вниз / вправо → следующий
       index = Math.min(index + 1, slides.length - 1);
     } else {
-      // вверх / влево → предыдущий
       index = Math.max(index - 1, 0);
     }
 
     scrollToSlide(index);
 
-    // возобновляем авто-прокрутку через 2 сек после остановки колеса
-    clearTimeout(slider._wheelTimer);
-    slider._wheelTimer = setTimeout(startAuto, 2000);
+    clearTimeout(wheelTimer);
+    wheelTimer = setTimeout(startAuto, 2000);
   }, { passive: false });
 
-  // ─── Перетаскивание мышью ─────────────────────────
+  // ─── Мобильный свайп пальцем ──────────────────────
 
-  let isDown = false;
-  let startX;
-  let scrollLeftStart;
+  let scrollEndTimer = null;
 
-  slider.addEventListener('mousedown', (e) => {
-    isDown = true;
-    startX = e.pageX - slider.offsetLeft;
-    scrollLeftStart = slider.scrollLeft;
-    slider.style.cursor = 'grabbing';
+  slider.addEventListener('touchstart', () => {
     stopAuto();
-  });
+    clearTimeout(scrollEndTimer);
+  }, { passive: true });
 
-  slider.addEventListener('mouseup', () => {
-    isDown = false;
-    slider.style.cursor = 'grab';
-    startAuto();
-  });
-
-  slider.addEventListener('mouseleave', () => {
-    if (isDown) {
-      isDown = false;
-      slider.style.cursor = 'grab';
-      startAuto();
-    }
-  });
-
-  slider.addEventListener('mousemove', (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - slider.offsetLeft;
-    const walk = (x - startX) * 1.5; // скорость перетаскивания
-    slider.scrollLeft = scrollLeftStart - walk;
-  });
+  slider.addEventListener('touchend', () => {
+    clearTimeout(scrollEndTimer);
+    scrollEndTimer = setTimeout(() => {
+      scrollToSlide(index);
+      setTimeout(startAuto, 600);
+    }, 100);
+  }, { passive: true });
 
   // ─── Старт ────────────────────────────────────────
 
