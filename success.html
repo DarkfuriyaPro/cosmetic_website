@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="color-scheme" content="light">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap" rel="stylesheet">
+
+    <title>Заказ оформлен — Podobravo</title>
+
+    <link rel="stylesheet" href="/main_page.css" />
+
+    <style>
+        .success-wrapper {
+            max-width: 600px;
+            margin: 80px auto;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #FFFEA5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 40px;
+        }
+
+        .success-title {
+            font-family: "Roboto Serif", serif;
+            font-size: clamp(24px, 5vw, 40px);
+            color: #FFFEA5;
+            margin-bottom: 16px;
+        }
+
+        .success-subtitle {
+            font-family: "Roboto Serif", serif;
+            font-size: clamp(14px, 2vw, 18px);
+            color: #ffffff;
+            opacity: 0.85;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .success-btn {
+            display: inline-block;
+            padding: 14px 40px;
+            background-color: #FFFEA5;
+            color: #2C5C50;
+            font-family: "Roboto Serif", serif;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .success-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 480px) {
+            .success-wrapper {
+                margin: 40px auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="main">
+
+        <!--Header-->
+        <header class="header">
+            <div class="container">
+                <div class="header-left">
+                    <a href="/" class="logo-link">
+                        <img src="/images/header-logo.png" alt="Varava" class="logo-img">
+                    </a>
+                </div>
+                <div class="icons-language">
+                    <div class="language">
+                        <!-- Класс флага и список языков проставляются динамически в JS -->
+                        <button onclick="languageFunction()" class="btn-lang" id="langBtn"></button>
+                        <div id="languageDropdown" class="language-content">
+                            <!-- Наполняется в JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="success-wrapper">
+            <div class="success-icon">✓</div>
+            <h1 class="success-title" id="successTitle">Заказ оформлен!</h1>
+            <p class="success-subtitle" id="successSubtitle">
+                Спасибо за покупку. Мы получили ваш заказ и скоро свяжемся с вами.
+            </p>
+            <a href="/" class="success-btn" id="successBtn">На главную</a>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="icons-social">
+                    <div class="footer-left">
+                        <a href="#"><img src="/images/instagram_green.png" alt="instagram"></a>
+                        <a href="#"><img src="/images/gmail.png" alt="gmail"></a>
+                        <a href="#"><img src="/images/telegram.png" alt="telegram"></a>
+                    </div>
+                    <div class="footer-right">+4915562360806</div>
+                </div>
+                <div class="footer-bottom">
+                    <a href="/russian/specialist_ru/footer/impressum.html">Импрессум</a>
+                    <a href="#">Пользовательское соглашение</a>
+                    <a href="#">Политика конфиденциальности</a>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="/scripts/main_page.js"></script>
+
+    <script>
+        // Очищаем корзину и данные доставки после успешной оплаты
+        localStorage.removeItem("cart");
+        localStorage.removeItem("delivery");
+
+        // Переводим текст в зависимости от языка
+        // Берём из localStorage — там уже сохранён язык из main_cart_lang.js предыдущих страниц
+        const lang = localStorage.getItem("siteLang") || "ru";
+
+        const texts = {
+            ru: {
+                title: "Заказ оформлен!",
+                subtitle: "Спасибо за покупку. Мы получили ваш заказ и скоро свяжемся с вами.",
+                btn: "На главную",
+                homeUrl: "/russian/specialist_ru/main_page_ru/specialist_ru.html"
+            },
+            de: {
+                title: "Bestellung aufgegeben!",
+                subtitle: "Vielen Dank für Ihren Einkauf. Wir haben Ihre Bestellung erhalten und melden uns bald.",
+                btn: "Zur Startseite",
+                homeUrl: "/german/specialist_de/main_page_de/specialist_de.html"
+            },
+            en: {
+                title: "Order placed!",
+                subtitle: "Thank you for your purchase. We received your order and will contact you shortly.",
+                btn: "Go home",
+                homeUrl: "/english/specialist_en/main_page_en/specialist_en.html"
+            }
+        };
+
+        const t = texts[lang] || texts["ru"];
+        document.getElementById("successTitle").textContent = t.title;
+        document.getElementById("successSubtitle").textContent = t.subtitle;
+        const btn = document.getElementById("successBtn");
+        btn.textContent = t.btn;
+        btn.href = t.homeUrl;
+
+        // Обновляем ссылку логотипа
+        const logoLink = document.querySelector(".logo-link");
+        if (logoLink) logoLink.href = t.homeUrl;
+
+        // Флаг текущего языка
+        const langBtn = document.getElementById("langBtn");
+        if (langBtn) langBtn.classList.add(`lang-${lang}`);
+
+        // Выпадающий список — показываем два других языка
+        const allLangs = {
+            ru: { flag: "/images/russia.png",  alt: "ru", url: "/russian/specialist_ru/main_page_ru/specialist_ru.html" },
+            de: { flag: "/images/germany.png", alt: "de", url: "/german/specialist_de/main_page_de/specialist_de.html" },
+            en: { flag: "/images/america.png", alt: "en", url: "/english/specialist_en/main_page_en/specialist_en.html" }
+        };
+
+        const dropdown = document.getElementById("languageDropdown");
+        if (dropdown) {
+            dropdown.innerHTML = "";
+            Object.entries(allLangs).forEach(([code, data]) => {
+                if (code === lang) return; // текущий язык не показываем
+                const a = document.createElement("a");
+                a.href = data.url;
+                const img = document.createElement("img");
+                img.src = data.flag;
+                img.alt = data.alt;
+                a.appendChild(img);
+                dropdown.appendChild(a);
+            });
+        }
+    </script>
+
+</body>
+
+</html>
