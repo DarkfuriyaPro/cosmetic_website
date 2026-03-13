@@ -10,7 +10,8 @@ exports.handler = async (event) => {
       price_data: {
         currency: "eur",
         product_data: { name: item.title },
-        unit_amount: Math.round(parseFloat(item.price.replace(",", ".")) * 100),
+        // FIX: String() защищает от падения если price пришёл числом, а не строкой
+        unit_amount: Math.round(parseFloat(String(item.price).replace(",", ".")) * 100),
       },
       quantity: item.quantity,
     }));
@@ -18,22 +19,22 @@ exports.handler = async (event) => {
     // Формируем метаданные с проверкой на пустые поля
     const metadata = {
       firstName: delivery.firstName || '',
-      lastName: delivery.lastName || '',
-      phone: delivery.phone || '',
-      email: delivery.email || '',
-      country: delivery.country || '',
-      city: delivery.city || '',
-      street: delivery.street || '',
-      postcode: delivery.postcode || ''
+      lastName:  delivery.lastName  || '',
+      phone:     delivery.phone     || '',
+      email:     delivery.email     || '',
+      country:   delivery.country   || '',
+      city:      delivery.city      || '',
+      street:    delivery.street    || '',
+      postcode:  delivery.postcode  || ''
     };
 
     // Создаём Stripe Checkout Session
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: ['card'], // только карты, PayPal отдельно
+      payment_method_types: ['card'],
       line_items,
       mode: "payment",
       success_url: `${process.env.URL}/success.html`,
-      cancel_url: `${process.env.URL}/payment.html`,
+      cancel_url:  `${process.env.URL}/payment.html`,
       metadata
     });
 
