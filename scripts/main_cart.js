@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (cartItems.length === 0) {
     if (mainEmpty) mainEmpty.style.display = "flex";
+    updateCheckoutBtn(); // блокируем кнопку сразу
     return;
   }
 
@@ -43,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   updateMainCartSummary();
+  updateCheckoutBtn(); // проверяем кнопку после отрисовки
   attachMainCartHandlers();
   syncSingleItemHeight();
 });
@@ -50,10 +52,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // ------ УТИЛИТЫ ------
 
-// Готовое форматирование цены: 12,50€
 function formatPrice(value) {
   if (!value) value = 0;
   return value.toFixed(2).replace(".", ",") + "€";
+}
+
+
+// ------ КНОПКА К ДОСТАВКЕ ------
+
+function updateCheckoutBtn() {
+  const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+  const btn = document.querySelector(".checkout-btn");
+  if (!btn) return;
+
+  if (cartItems.length === 0) {
+    btn.style.pointerEvents = "none";
+    btn.style.opacity = "0.4";
+    btn.style.cursor = "not-allowed";
+  } else {
+    btn.style.pointerEvents = "";
+    btn.style.opacity = "";
+    btn.style.cursor = "";
+  }
 }
 
 
@@ -75,7 +95,6 @@ function updateMainCartSummary() {
 }
 
 
-
 // ------ ОБРАБОТЧИКИ ------
 
 function attachMainCartHandlers() {
@@ -90,6 +109,7 @@ function attachMainCartHandlers() {
 
       itemEl.remove();
       updateMainCartSummary();
+      updateCheckoutBtn(); // обновляем кнопку после удаления
 
       if (cartItems.length === 0) {
         document.querySelector(".main-empty").style.display = "flex";
@@ -99,7 +119,6 @@ function attachMainCartHandlers() {
 
   document.querySelectorAll(".main-quantity button").forEach(btn => {
     btn.addEventListener("click", function () {
-
       const itemEl = this.closest(".main-cart-item");
       const title = itemEl.querySelector(".main-cart-title").innerText.trim();
       const numberEl = itemEl.querySelector(".main-count");
@@ -117,8 +136,6 @@ function attachMainCartHandlers() {
       cartItems = cartItems.map(i => {
         if (i.title === title) {
           i.quantity = qty;
-
-          // 🔥 ПЕРЕСЧЁТ ЦЕНЫ И ОБНОВЛЕНИЕ НА СТРАНИЦЕ
           const priceNum = parseFloat(String(i.price).replace(",", "."));
           const newTotal = priceNum * qty;
           priceEl.innerText = formatPrice(newTotal);
@@ -127,11 +144,10 @@ function attachMainCartHandlers() {
       });
 
       localStorage.setItem("cart", JSON.stringify(cartItems));
-
       updateMainCartSummary();
+      updateCheckoutBtn(); // на случай если каким-то образом стало 0
     });
-});
-
+  });
 }
 
 
@@ -142,14 +158,9 @@ function syncSingleItemHeight() {
 
   if (!blockSummary || !blockCartMain) return;
 
-  // только если один товар
   if (cartItems.length === 1) {
     const summaryHeight = blockSummary.getBoundingClientRect().height;
-
-    // 1️⃣ выравниваем контейнер
     blockCartMain.style.height = summaryHeight + "px";
-
-    // 2️⃣ товар занимает всю высоту контейнера
     cartItems[0].style.height = "100%";
   }
 }
